@@ -1,0 +1,111 @@
+﻿@import url('../Content/font-awesome.css');
+@import url('../Content/bootstrap.css');
+@import url('../Content/toastr.css'); 
+
+@headerHeight: 50px;
+@titleHeight: 50px;
+@sidebarWidth: 200px;
+@sidebarPadding: 20px;
+
+body {
+    background-color: white !important;
+
+    .modal-backdrop {
+        display: none !important;
+    }
+
+    .navbar {
+        margin-bottom: 0 !important;
+        background-color: white;
+
+        img {
+            height: 30px;
+        }
+    }
+
+    .page-title {
+        padding: 5px;
+        position: absolute;
+        top: 0;
+        left: @sidebarPadding;
+        right: 0;
+        height: @titleHeight;
+    }
+
+    .panel-body {
+        padding: 0 !important;
+    }
+
+    .sidebar {
+        padding: @sidebarPadding 0;
+        position: absolute;
+        top: @titleHeight;
+        left: @sidebarPadding;
+        width: @sidebarWidth;
+        bottom: 0;
+    }
+
+    .sidebar-sibling {
+        padding: 0 0 @sidebarPadding @sidebarPadding;
+        margin: @sidebarPadding;
+        position: absolute;
+        top: @titleHeight;
+        left: @sidebarWidth;
+        right: 0;
+        bottom: 0;
+    }
+
+    .content {
+        position: fixed;
+        top: @headerHeight;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        overflow-y: auto;
+    }
+    
+    .borderless {
+        border: none !important;
+        border-color: transparent !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    .navbar .divider-vertical {
+        height: 50px;
+        margin: 0 9px;
+        border-right: 1px solid #ffffff;
+        border-left: 1px solid #f2f2f2;
+    }
+
+    .navbar-inverse .divider-vertical {
+        border-right-color: #222222;
+        border-left-color: #111111;
+    }
+
+    @media (max-width: 767px) {
+        .navbar-collapse .nav > .divider-vertical {
+            display: none;
+         }
+    }
+
+    label.required:after {
+        content: "*";
+        color: red;
+    }
+
+    .table {
+        margin-bottom: 0 !important; 
+    }
+
+    .table-empty {
+        padding: 10px;
+    }
+
+    .panel-footer.button {
+        cursor: pointer;
+    }
+
+    margin: 0;
+    background-color: #EDEFED;
+} 

@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Less, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Less.3.0\lib\Less.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -112,8 +116,11 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\select.css" />
     <Content Include="Content\select.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -904,17 +911,15 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="Data\Clinic.xsc">
-      <DependentUpon>Clinic.xsd</DependentUpon>
-    </Content>
-    <None Include="Data\Clinic.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Clinic.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Data\Clinic.xss">
-      <DependentUpon>Clinic.xsd</DependentUpon>
-    </Content>
+    <Content Include="Css\site.less" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Css\foo.less" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 1.pptx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 2.pptx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016.docx" />
+    <Content Include="Docs\ER Simple.vsdx" />
+    <Content Include="Docs\Site Diagram.vsdx" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -922,20 +927,15 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\select.js" />
     <Content Include="Scripts\select.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="SQL\CREATE.sql" />
     <Content Include="SQL\DATA.sql" />
     <Content Include="SQL\DROP.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Clinic.cs">
-      <DependentUpon>Clinic.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Clinic.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Clinic.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Data\DlBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
