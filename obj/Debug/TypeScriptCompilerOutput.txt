@@ -79,3 +79,15 @@ C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\app.js
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\HeaderCtrl.js
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\headerDirective.js
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\landing\LandingCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\app.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\HeaderCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\headerDirective.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\landing\LandingCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\app.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\HeaderCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\headerDirective.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\landing\LandingCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\app.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\HeaderCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\headerDirective.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\landing\LandingCtrl.js

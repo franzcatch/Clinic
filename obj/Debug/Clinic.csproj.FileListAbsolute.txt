@@ -34,3 +34,5 @@ C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\bin\System.Web.Razor.xml
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\bin\System.Web.WebPages.xml
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\bin\System.Web.WebPages.Deployment.xml
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\bin\System.Web.WebPages.Razor.xml
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\bin\dotless.Core.dll
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\bin\dotless.Core.pdb

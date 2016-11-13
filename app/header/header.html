@@ -1,1 +1,87 @@
-﻿<div>hello there bye bye</div>
+﻿<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="Index.aspx">
+                <div>
+                    <!--<img src="images/logo_sm.png" />-->
+                    <span>flight share</span>
+                </div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="divider-vertical"></li>
+            </ul>
+            <p class="navbar-text"><i class="fa fa-search"></i></p>
+            <div class="navbar-form navbar-left">
+                <div class="form-group">
+                    <!--<asp:TextBox ID="drpDepartureCity" runat="server"
+                                 class="form-control borderless drpDepartureCity"
+                                 placeholder="Departure City..." data-provide="typeahead"
+                                 autocomplete="off"></asp:TextBox>-->
+                </div>
+            </div>
+            <div class="navbar-form navbar-left">
+                <div class="form-group">
+                    <!--<asp:TextBox ID="drpDestinationCity" runat="server"
+                                 class="form-control borderless drpDestinationCity"
+                                 placeholder="Destination City..." data-provide="typeahead"
+                                 autocomplete="off"></asp:TextBox>-->
+                </div>
+            </div>
+            <div class="navbar-form navbar-left">
+                <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-primary" Text="Search" OnClick="btnSearch_Click" />
+            </div>
+            <ul class="nav navbar-nav navbar-right" runat="server" id="ulNotLoggedIn">
+                <li class="divider-vertical"></li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mdRegister"><i class="fa fa-plane"></i>&nbsp Register</a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mdLogin"><i class="fa fa-user"></i>&nbsp Log In</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" runat="server" id="ulLoggedIn">
+                <li class="divider-vertical"></li>
+                <li>
+                    <a href="#" runat="server" id="btnAccount" onserverclick="btnAccount_Click">
+                        <i class="fa fa-user"></i>&nbsp<span id="spnUser" runat="server"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" runat="server" id="btnLogout" onserverclick="btnLogout_Click">
+                        &nbsp Log Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mdLogin" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <uc1:Login runat="server" ID="Login" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mdRegister" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Register</h4>
+                </div>
+                <div class="modal-body">
+                    <uc1:Register runat="server" id="Register" />
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
