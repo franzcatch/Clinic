@@ -1,8 +1,10 @@
-﻿angular.module('clinic', [])
-    .controller('HeaderCtrl', HeaderCtrl);
+﻿(function (angular) {
+    'use strict';
 
-class HeaderCtrl {
-    constructor() {
+    angular.module('clinic')
+        .controller('HeaderCtrl', HeaderCtrl);
+
+    function HeaderCtrl() {
 
     }
-} 
+} ((<any>window).angular));

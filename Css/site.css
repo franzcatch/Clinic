@@ -1,0 +1,88 @@
+﻿@import url('../Content/font-awesome.css');
+@import url('../Content/bootstrap.css');
+@import url('../Content/toastr.css');
+body {
+  background-color: white !important;
+  margin: 0;
+  background-color: #EDEFED;
+}
+body .modal-backdrop {
+  display: none !important;
+}
+body .navbar {
+  margin-bottom: 0 !important;
+  background-color: white;
+}
+body .navbar img {
+  height: 30px;
+}
+body .page-title {
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 0;
+  height: 50px;
+}
+body .panel-body {
+  padding: 0 !important;
+}
+body .sidebar {
+  padding: 20px 0;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  width: 200px;
+  bottom: 0;
+}
+body .sidebar-sibling {
+  padding: 0 0 20px 20px;
+  margin: 20px;
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  right: 0;
+  bottom: 0;
+}
+body .content {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow-y: auto;
+}
+body .borderless {
+  border: none !important;
+  border-color: transparent !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+body .navbar .divider-vertical {
+  height: 50px;
+  margin: 0 9px;
+  border-right: 1px solid #ffffff;
+  border-left: 1px solid #f2f2f2;
+}
+body .navbar-inverse .divider-vertical {
+  border-right-color: #222222;
+  border-left-color: #111111;
+}
+@media (max-width: 767px) {
+  body .navbar-collapse .nav > .divider-vertical {
+    display: none;
+  }
+}
+body label.required:after {
+  content: "*";
+  color: red;
+}
+body .table {
+  margin-bottom: 0 !important;
+}
+body .table-empty {
+  padding: 10px;
+}
+body .panel-footer.button {
+  cursor: pointer;
+}

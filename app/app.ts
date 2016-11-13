@@ -1,14 +1,33 @@
-﻿var clinic = angular.module('clinic', ['ngRoute']);
+﻿(function (angular) {
+    'use strict';
 
-clinic.config(routeConfig);
+    var clinic = angular.module('clinic', [
+        'ngRoute'
+    ]);
 
-routeConfig.$inject = ['$routeProvider'];
+    clinic.config(routeConfig);
 
-function routeConfig($routeProvider: ng.route.IRouteProvider): void {
-    $routeProvider
-        .when('/home', {
-            templateUrl: '/app/landing/landing.html',
-            controller: 'LandingCtrl'
-        })
-        .otherwise({ redirectTo: '/home' });
-}
+    //routeConfig.$inject = ['$routeProvider'];
+
+    function routeConfig($routeProvider: ng.route.IRouteProvider): void {
+        $routeProvider
+            .when('/home', {
+                templateUrl: '/app/landing/landing.html',
+                controller: 'LandingCtrl'
+            })
+            .otherwise('/home');
+    }
+
+    //clinic.config(function ($stateProvider, $urlRouterProvider) {
+    //    $urlRouterProvider.otherwise('/');
+
+    //    $stateProvider
+    //        .state('home', {
+    //            url: '/',
+    //            templateUrl: '/app/landing/landing.html',
+    //            //controller: 'LandingCtrl'
+    //        });
+    //});
+
+    //clinic.run();
+} ((<any>window).angular));

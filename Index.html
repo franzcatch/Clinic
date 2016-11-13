@@ -1,28 +1,39 @@
 ﻿<!DOCTYPE html>
-<html ng-app="clinic">
+<html>
 <head>
     <title></title>
     <meta charset="utf-8" />
+    <!-- 3rd Party -->
     <script src="Scripts/jquery-3.1.1.js"></script>
     <script src="Scripts/tether/tether.js"></script>
     <script src="Scripts/bootstrap.js"></script>
-    <script src="Scripts/angular.js"></script>
-    <script src="Scripts/angular-route.js"></script>
-    <script src="Scripts/angular-resource.js"></script>
-    <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
-    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-    <script src="Scripts/select.min.js"></script>
     <script src="Scripts/toastr.min.js"></script>
 
-    <!-- Controllers -->
+    <!-- CSS -->
+    <link href="Css/site.css" rel="stylesheet" />
+</head>
+<body ng-app="clinic">
+    <app-nav></app-nav>
+    blah
+    <div ng-view></div>
+    dkdk
+
+    <!-- Libraries -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/angular-mocks.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/select.min.js"></script>
+    <!--<script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>-->
+    <!--<script src="Scripts/angular-ui-router.js"></script>-->
+
+    <!-- Application -->
     <script src="app/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/landing/LandingCtrl.js"></script>
     <script src="app/header/HeaderCtrl.js"></script>
     <script src="app/header/headerDirective.js"></script>
-    <script src="app/landing/LandingCtrl.js"></script>
-</head>
-<body>
-    <app-nav></app-nav>
-
-    <div ng-view></div>
 </body>
 </html>

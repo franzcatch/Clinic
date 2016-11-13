@@ -1,7 +1,7 @@
-angular.module('clinic', [])
-    .controller('LandingCtrl', LandingCtrl);
-var LandingCtrl = (function () {
-    function LandingCtrl() {
+(function (angular) {
+    'use strict';
+    angular.module('clinic')
+        .controller('LandingCtrl', LandingCtrl);
+    function LandingCtrl($scope) {
     }
-    return LandingCtrl;
-}());
+}(window.angular));

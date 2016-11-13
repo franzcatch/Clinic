@@ -62,20 +62,6 @@ $provide.value("$locale", {
       "Noya",
       "Dek"
     ],
-    "STANDALONEMONTH": [
-      "Yanvar",
-      "Fevral",
-      "Mart",
-      "Aprel",
-      "May",
-      "Iyun",
-      "Iyul",
-      "Avgust",
-      "Sentabr",
-      "Oktabr",
-      "Noyabr",
-      "Dekabr"
-    ],
     "WEEKENDRANGE": [
       5,
       6
@@ -111,7 +97,7 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4\u00a0",
+        "negPre": "\u00a4\u00a0-",
         "negSuf": "",
         "posPre": "\u00a4\u00a0",
         "posSuf": ""
@@ -119,7 +105,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "uz",
-  "localeID": "uz",
   "pluralCat": function(n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

@@ -1,7 +1,7 @@
-angular.module('clinic', [])
-    .controller('HeaderCtrl', HeaderCtrl);
-var HeaderCtrl = (function () {
+(function (angular) {
+    'use strict';
+    angular.module('clinic')
+        .controller('HeaderCtrl', HeaderCtrl);
     function HeaderCtrl() {
     }
-    return HeaderCtrl;
-}());
+}(window.angular));

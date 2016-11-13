@@ -1,8 +1,10 @@
-﻿angular.module('clinic', [])
-    .controller('LandingCtrl', LandingCtrl);
+﻿(function (angular) {
+    'use strict';
 
-class LandingCtrl {
-    constructor() {
+    angular.module('clinic')
+        .controller('LandingCtrl', LandingCtrl);
+
+    function LandingCtrl ($scope) {
 
     }
-}
+} ((<any>window).angular));
