@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Clinic.App.BO
+namespace Clinic.BO
 {
-    public class Appointment
+    public class Appointment : BusinessBase
     {
+        public Person Person { get; set; }
+        public Clinic Clinic { get; set; }
+        public List<AppointmentService> Services { get; set; }
     }
 }

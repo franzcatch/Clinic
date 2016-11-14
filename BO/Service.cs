@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Clinic.App.BO
+namespace Clinic.BO
 {
-    public class Service
+    public class Service : BusinessBase
     {
+        public string Name { get; set; }
+        public decimal Cost { get; set; }
     }
 }

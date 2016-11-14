@@ -246,6 +246,7 @@
     </Content>
     <Content Include="Docs\UML.vsdx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Images\logo.png" />
     <Content Include="Index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -1074,12 +1075,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\BusinessLayer.cs" />
+    <Compile Include="BL\UserBL.cs" />
+    <Compile Include="BO\AppointmentService.cs" />
     <Compile Include="BO\Appointment.cs" />
+    <Compile Include="BO\BusinessBase.cs" />
     <Compile Include="BO\Clinic.cs" />
+    <Compile Include="BO\Entity.cs" />
     <Compile Include="BO\Household.cs" />
     <Compile Include="BO\Insurance.cs" />
     <Compile Include="BO\Person.cs" />
     <Compile Include="BO\Provider.cs" />
+    <Compile Include="BO\Relationship.cs" />
+    <Compile Include="BO\Role.cs" />
     <Compile Include="BO\Room.cs" />
     <Compile Include="BO\Service.cs" />
     <Compile Include="BO\User.cs" />
@@ -1087,10 +1095,19 @@
       <DependentUpon>UserController.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DL\DataLayer.cs" />
+    <Compile Include="DL\EntityDL.cs" />
+    <Compile Include="DL\PersonDL.cs" />
+    <Compile Include="DL\RoleDL.cs" />
+    <Compile Include="DL\Sequences.cs" />
+    <Compile Include="DL\UserDL.cs" />
     <Compile Include="Lib\CurSession.cs" />
-    <Compile Include="Data\DlBase.cs" />
+    <Compile Include="DL\DlBase.cs" />
     <Compile Include="Lib\SqlInjectionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\InjectionValidator.cs" />
+    <Compile Include="Utilities\JsonParser.cs" />
+    <Compile Include="Utilities\SqlInjectionException.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -1114,6 +1131,7 @@
     <TypeScriptCompile Include="app\header\HeaderCtrl.ts" />
     <TypeScriptCompile Include="app\header\headerDirective.ts" />
     <TypeScriptCompile Include="app\landing\LandingCtrl.ts" />
+    <TypeScriptCompile Include="app\user\userService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -1130,6 +1148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\lIb\" />
+    <Folder Include="BO\Constants\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

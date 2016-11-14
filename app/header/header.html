@@ -3,8 +3,8 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="Index.aspx">
                 <div>
-                    <!--<img src="images/logo_sm.png" />-->
-                    <span>flight share</span>
+                    <img src="../../Images/logo.png" />
+                    <span>Arch Dental</span>
                 </div>
             </a>
         </div>
@@ -13,26 +13,7 @@
                 <li class="divider-vertical"></li>
             </ul>
             <p class="navbar-text"><i class="fa fa-search"></i></p>
-            <div class="navbar-form navbar-left">
-                <div class="form-group">
-                    <!--<asp:TextBox ID="drpDepartureCity" runat="server"
-                                 class="form-control borderless drpDepartureCity"
-                                 placeholder="Departure City..." data-provide="typeahead"
-                                 autocomplete="off"></asp:TextBox>-->
-                </div>
-            </div>
-            <div class="navbar-form navbar-left">
-                <div class="form-group">
-                    <!--<asp:TextBox ID="drpDestinationCity" runat="server"
-                                 class="form-control borderless drpDestinationCity"
-                                 placeholder="Destination City..." data-provide="typeahead"
-                                 autocomplete="off"></asp:TextBox>-->
-                </div>
-            </div>
-            <div class="navbar-form navbar-left">
-                <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-primary" Text="Search" OnClick="btnSearch_Click" />
-            </div>
-            <ul class="nav navbar-nav navbar-right" runat="server" id="ulNotLoggedIn">
+            <ul class="nav navbar-nav navbar-right" runat="server" ng-if="getCurrentUser()">
                 <li class="divider-vertical"></li>
                 <li>
                     <a href="#" data-toggle="modal" data-target="#mdRegister"><i class="fa fa-plane"></i>&nbsp Register</a>
@@ -41,15 +22,15 @@
                     <a href="#" data-toggle="modal" data-target="#mdLogin"><i class="fa fa-user"></i>&nbsp Log In</a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" runat="server" id="ulLoggedIn">
+            <ul class="nav navbar-nav navbar-right" runat="server" ng-if="getCurrentUser()">
                 <li class="divider-vertical"></li>
                 <li>
-                    <a href="#" runat="server" id="btnAccount" onserverclick="btnAccount_Click">
-                        <i class="fa fa-user"></i>&nbsp<span id="spnUser" runat="server"></span>
+                    <a href="#" runat="server" ng-click="">
+                        <i class="fa fa-user"></i>&nbsp<span ng-model="" runat="server"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" runat="server" id="btnLogout" onserverclick="btnLogout_Click">
+                    <a href="#" runat="server">
                         &nbsp Log Out
                     </a>
                 </li>

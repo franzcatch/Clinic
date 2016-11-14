@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Clinic.App.BO
+namespace Clinic.BO
 {
-    public class Provider
+    public class Provider : Entity
     {
+        public Clinic Clinic { get; set; }
     }
 }
