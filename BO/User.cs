@@ -1,4 +1,5 @@
 ﻿using Clinic.BO;
+using Clinic.DL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,25 @@ namespace Clinic.BO
 {
     public class User : Entity
     {
-        public string Username { get; set; }
+        private Role _role;
 
+        public string Username { get; set; }
         public string Password { get; set; }
-        public Role Role { get; set; }
+        public Role Role
+        {
+            get
+            {
+                if (_role == null)
+                {
+                    _role = DataLayer.RoleDL.GetRole(-1);
+                }
+
+                return _role;
+            }
+            set
+            {
+                _role = value;
+            }
+        }
     }
 }

@@ -5,9 +5,11 @@
         .factory('userService', userService);
 
     function userService($q) {
-        var _curUser;
+        var CurUser;
 
         function login(user, password) {
+            var dfd = $q.defer();
+
             $.ajax({
                 url: "Controllers/UserController.asmx/Login",
                 type: "POST",
@@ -18,26 +20,41 @@
                     Password: password
                 }),
                 success: function (result) {
-                    alert(result);
+                    CurUser = result;           
+                    dfd.resolve();
                 },
                 error: function (e) {
-
+                    dfd.reject(e);
                 }
             });
+
+            return dfd.promise;
         }
 
         function logout() {
+            var dfd = $q.defer();
 
-        }
+            $.ajax({
+                url: "Controllers/UserController.asmx/Logout",
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                success: function (result) {
+                    dfd.resolve();
+                },
+                error: function (e) {
+                    dfd.reject(e);
+                }
+            });
 
-        function getCurrentUser() {
-            return _curUser;
+            return dfd.promise;
         }
 
         return {
+            CurUser: CurUser,
             login: login,
-            logout: logout,
-            getCurrentUser: getCurrentUser
+            logout: logout
         };
     }
 } ((<any>window).angular));

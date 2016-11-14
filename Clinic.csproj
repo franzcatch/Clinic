@@ -246,6 +246,7 @@
     </Content>
     <Content Include="Docs\UML.vsdx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Images\banner.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Index.html" />
     <Content Include="Scripts\angular-animate.js" />
@@ -1105,6 +1106,7 @@
     <Compile Include="DL\DlBase.cs" />
     <Compile Include="Lib\SqlInjectionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\CurSession.cs" />
     <Compile Include="Utilities\InjectionValidator.cs" />
     <Compile Include="Utilities\JsonParser.cs" />
     <Compile Include="Utilities\SqlInjectionException.cs" />

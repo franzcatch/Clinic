@@ -5,8 +5,9 @@
         .controller('HeaderCtrl', HeaderCtrl);
 
     function HeaderCtrl($scope, userService) {
-        $scope.getCurrentUser = userService.getCurrentUser;
+        $scope.currentUser = userService.CurUser;
+        //$scope.getCurrentUser = userService.getCurrentUser;
 
-        userService.login('foo', 'bar');
+        //userService.login('foo', 'bar');
     }
 } ((<any>window).angular));

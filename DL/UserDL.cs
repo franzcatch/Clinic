@@ -56,7 +56,10 @@ namespace Clinic.DL
 
             ExecuteQuery(sql);
 
-            DataLayer.EntityDL.Create((Entity)user);
+            if (!string.IsNullOrWhiteSpace(user.Name1))
+            {
+                DataLayer.EntityDL.Create((Entity)user);
+            }
         }
 
         public void Update(User user)
