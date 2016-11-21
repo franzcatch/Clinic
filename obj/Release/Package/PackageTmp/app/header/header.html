@@ -1,0 +1,146 @@
+﻿<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="Index.aspx">
+                <div>
+                    <img src="Images/logo.png" />
+                    <span>Arch Dental</span>
+                </div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right" runat="server" ng-if="!currentUser">
+                <li class="divider-vertical"></li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mdRegister"><i class="fa fa-plane"></i>&nbsp Register</a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mdLogin"><i class="fa fa-user"></i>&nbsp Log In</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" runat="server" ng-if="currentUser">
+                <li class="divider-vertical"></li>
+                <li>
+                    <a href="#" runat="server" ng-click="">
+                        <i class="fa fa-user"></i>&nbsp<span ng-model="" runat="server"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" runat="server">
+                        &nbsp Log Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mdLogin" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>e-mail</label>
+                        <input type="text" ID="txtEmail" runat="server" class="form-control"></input>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="text" ID="txtPassword" runat="server" TextMode="Password" class="form-control"></input>
+                        <label ID="lblSuccess" class="text-warning small" Visible="false" runat="server">e-mail/password combination invalid</label>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button ID="btnLogin" runat="server" class="btn btn-primary" OnClick="btnLogin_Click">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mdRegister" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Register</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group required">
+                        <label for="txtFirstName" class="required">First Name</label>
+                        <input type="text" ID="txtFirstName" runat="server" class="form-control txtFirstName"></input>
+
+                        <label for="txtLastName" class="required">Last Name</label>
+                        <input type="text" ID="txtLastName" runat="server" class="form-control txtLastName"></input>
+
+                        <label for="txtEmail" class="required">e-mail</label>
+                        <input type="text" ID="txtEmail" runat="server" class="form-control txtEmail"></input>
+
+                        <label id="lblEmailInValid" class="text-warning small" style="width: 100%">Enter a valid e-mail</label>
+                        <label ID="lblEmailError" runat="server" class="text-warning small lblEmailError" style="width: 100%" Visible="false">Account exists or e-mail/password combination incorrect</label>
+
+                        <label for="txtPassword" class="required">Password</label>
+                        <input type="text" ID="txtPassword" runat="server" TextMode="Password" class="form-control txtPassword"></input>
+
+                        <label for="txtPasswordConfirm" class="required">Confirm Password</label>
+                        <input type="text" ID="txtPasswordConfirm" runat="server" TextMode="Password" class="form-control txtPasswordConfirm"></input>
+                        <label id="lblPassValid" class="text-warning small ">Passwords don't match</label>
+                    </div>
+                    <div>
+                        <button ID="btnCancel" runat="server" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button ID="btnRegister" runat="server" class="btn btn-primary btnRegister" style="display: none;" OnClick="btnRegister_Click">Register</button>
+                        <button ID="btnUpdate" runat="server" class="btn btn-primary" OnClick="btnUpdate_Click">Update</button>
+                    </div>
+
+                    <script type="text/javascript">
+                        (function () {
+                            function validName() {
+                                return $('.txtFirstName').val().length > 0 &&
+                                       $('.txtLastName').val().length > 0;
+                            }
+                            function validPassword() {
+                                if ($('.txtPassword').val().length > 0 &&
+                                    $('.txtPassword').val() === $('.txtPasswordConfirm').val()) {
+
+                                    $('#lblPassValid').hide();
+                                    return true;
+                                } else {
+                                    $('#lblPassValid').show();
+                                    return false;
+                                }
+                            }
+                            function isEmail() {
+                                var email = $('.txtEmail').val();
+                                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                                var valid = regex.test(email);
+                                if (valid) {
+                                    $('#lblEmailInValid').hide();
+                                } else {
+                                    $('#lblEmailInValid').show();
+                                }
+
+                                return valid;
+                            }
+                            function validate() {
+                                var v1 = validPassword(),
+                                    v2 = isEmail(),
+                                    v3 = validName();
+
+                                v1 && v2 && v3
+                                    ? $('.btnRegister').show()
+                                    : $('.btnRegister').hide();
+                            }
+                            $('.txtEmail').keyup(validate);
+                            $('.txtPassword').keyup(validate);
+                            $('.txtPasswordConfirm').keyup(validate);
+
+                            validate();
+                        })();
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

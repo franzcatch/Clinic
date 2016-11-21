@@ -13,17 +13,34 @@ namespace Clinic.DL
         private void Populate(Object obj, OracleDataReader reader)
         {
             var target = (User)obj;
-            DataLayer.EntityDL.Populate(obj, reader);
+            if (!string.IsNullOrEmpty(reader["entity_id"].ToString()))
+            {
+                target = (User)DataLayer.EntityDL.Get(Convert.ToInt32(reader["entity_id"].ToString()));
+            }
+            
             target.Id = Convert.ToInt32(reader["user_id"]);
             target.Username = reader["username"].ToString();
-            target.Role = DataLayer.RoleDL.GetRole(Convert.ToInt32(reader["role_id"]));
+            target.Role = DataLayer.RoleDL.Get(Convert.ToInt32(reader["role_id"]));
+
+        }
+
+        public List<User> GetAdmins()
+        {
+            var obj = new List<User>();
+
+            string sql = string.Format(@"
+                         SELECT *
+                         FROM USERS
+                         WHERE ROLE_ID = 1 -- Admin
+                         ");
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
         }
 
         public User Get(string userName, string password)
         {
-            //TODO InjectionValidator(userName);
-            //TODO InjectionValidator(password);
-
             var hashedPass = password.GetHashCode();
 
             var obj = new User();
@@ -32,7 +49,7 @@ namespace Clinic.DL
                          SELECT *
                          FROM USERS
                          WHERE USERNAME = '{0}' AND PASSWORD = '{1}'
-                         ", userName, hashedPass);
+                         ", userName, hashedPass.ToString());
 
             ExecuteReader(sql, obj, Populate);
 
@@ -41,43 +58,44 @@ namespace Clinic.DL
 
         public void Create(User user)
         {
-            //TODO InjectionValidator(username);
-            //TODO InjectionValidator(password);
-
             var id = GetNextVal(Sequences.User);
             var hashedPass = user.Password.GetHashCode();
 
-            string sql = string.Format(@"
-                         INSERT INTO USERS 
-                         (USER_ID, USERNAME, PASSWORD, ROLE_ID, ENTITY_ID) 
-                         VALUES 
-                         ({0},'{1}','{2}')
-                         ", id, user.Username, hashedPass, user.Role.Id, user.EntityId);
+            string sql = string.Empty;
+
+            if (user.EntityId.HasValue)
+            {
+                sql = string.Format(@"
+                        INSERT INTO USERS 
+                        (USER_ID, USERNAME, PASSWORD, ROLE_ID, ENTITY_ID) 
+                        VALUES 
+                        ({0},'{1}','{2}',{3},{4})
+                        ", id, user.Username, hashedPass, user.Role.Id, user.EntityId);
+            }
+            else
+            {
+                sql = string.Format(@"
+                        INSERT INTO USERS 
+                        (USER_ID, USERNAME, PASSWORD, ROLE_ID) 
+                        VALUES 
+                        ({0},'{1}','{2}',{3})
+                        ", id, user.Username, hashedPass.ToString(), user.Role.Id);
+            }
 
             ExecuteQuery(sql);
-
-            if (!string.IsNullOrWhiteSpace(user.Name1))
-            {
-                DataLayer.EntityDL.Create((Entity)user);
-            }
         }
 
         public void Update(User user)
         {
-            //TODO InjectionValidator(email);
-            //TODO InjectionValidator(password);
-            //TODO InjectionValidator(firstName);
-            //TODO InjectionValidator(lastName);
-
             var hashedPass = user.Password.GetHashCode();
 
             string sql = string.Format(@"
                          UPDATE USERS 
-                         SET USER_ID = {0}, 
-                             USERNAME = '{0}', 
-                             PASSWORD = '{0}', 
-                             ROLE_ID = {0}, 
-                             ENTITY_ID = {0}
+                         SET USERNAME = '{1}', 
+                             PASSWORD = '{2}', 
+                             ROLE_ID = {3}, 
+                             ENTITY_ID = {4}
+                         WHERE USER_ID = {0}
                          ", 
                          user.Id, 
                          user.Username,

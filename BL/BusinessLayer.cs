@@ -8,5 +8,8 @@ namespace Clinic.BL
     public static class BusinessLayer
     {
         public static UserBL UserBL = new UserBL();
+        public static HouseholdBL HouseholdBL = new HouseholdBL();
+        public static PersonBL PersonBL = new PersonBL();
+        public static RoleBL RoleBL = new RoleBL();
     }
 }

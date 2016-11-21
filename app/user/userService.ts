@@ -4,57 +4,46 @@
     angular.module('clinic')
         .factory('userService', userService);
 
-    function userService($q) {
-        var CurUser;
+    function userService($q, ajaxService) {
+        var curUser: any = {};
 
-        function login(user, password) {
+        function isLoggedIn() {
+            return !!curUser.Role;
+        }
+
+        function login(data) {
             var dfd = $q.defer();
 
-            $.ajax({
-                url: "Controllers/UserController.asmx/Login",
-                type: "POST",
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({
-                    Username: user,
-                    Password: password
-                }),
-                success: function (result) {
-                    CurUser = result;           
-                    dfd.resolve();
-                },
-                error: function (e) {
-                    dfd.reject(e);
-                }
+            ajaxService.post("User", "Login", data).then(function (user) {
+                curUser = user;
+                dfd.resolve();
             });
 
             return dfd.promise;
         }
 
         function logout() {
+            curUser = {};
+            return ajaxService.post("User", "Logout");
+        }
+
+        function register(data) {
             var dfd = $q.defer();
 
-            $.ajax({
-                url: "Controllers/UserController.asmx/Logout",
-                type: "POST",
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                data: "{}",
-                success: function (result) {
-                    dfd.resolve();
-                },
-                error: function (e) {
-                    dfd.reject(e);
-                }
+            ajaxService.post("User", "Register", data).then(function (user) {
+                curUser = user;
+                dfd.resolve();
             });
 
             return dfd.promise;
         }
 
         return {
-            CurUser: CurUser,
+            curUser: curUser,
+            isLoggedIn: isLoggedIn,
             login: login,
-            logout: logout
+            logout: logout,
+            register: register
         };
     }
 } ((<any>window).angular));

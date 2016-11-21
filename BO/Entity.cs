@@ -7,7 +7,7 @@ namespace Clinic.BO
 {
     public class Entity : BusinessBase
     {
-        public int EntityId { get; set; }
+        public int? EntityId { get; set; }
         public string Name1 { get; set; }
         public string Name2 { get; set; }
         public string Name3 { get; set; }
@@ -19,5 +19,39 @@ namespace Clinic.BO
         public string Phone1 { get; set; }
         public string Phone2 { get; set; }
         public string Phone3 { get; set; }
+
+        public Entity Copy ()
+        {
+            return new Entity
+            {
+                EntityId = this.EntityId,
+                Name1 = this.Name1,
+                Name2 = this.Name2,
+                Name3 = this.Name3,
+                Address1 = this.Address1,
+                Address2 = this.Address2,
+                City = this.City,
+                State = this.State,
+                Zip = this.Zip,
+                Phone1 = this.Phone1,
+                Phone2 = this.Phone2,
+                Phone3 = this.Phone3
+            };
+        }
+
+        public bool IsEmpty() {
+            return !EntityId.HasValue &&
+                    string.IsNullOrWhiteSpace(Name1) &&
+                    string.IsNullOrWhiteSpace(Name2) &&
+                    string.IsNullOrWhiteSpace(Name3) &&
+                    string.IsNullOrWhiteSpace(Address1) &&
+                    string.IsNullOrWhiteSpace(Address2) &&
+                    string.IsNullOrWhiteSpace(City) &&
+                    string.IsNullOrWhiteSpace(State) &&
+                    string.IsNullOrWhiteSpace(Zip) &&
+                    string.IsNullOrWhiteSpace(Phone1) &&
+                    string.IsNullOrWhiteSpace(Phone2) &&
+                    string.IsNullOrWhiteSpace(Phone3);
+        }
     }
 }

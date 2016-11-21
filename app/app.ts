@@ -2,32 +2,24 @@
     'use strict';
 
     var clinic = angular.module('clinic', [
-        'ngRoute'
+        'ngRoute',
+        'ngAnimate',
+        'ui.bootstrap',
+        'ui.router'
     ]);
 
     clinic.config(routeConfig);
 
-    //routeConfig.$inject = ['$routeProvider'];
-
     function routeConfig($routeProvider: ng.route.IRouteProvider): void {
         $routeProvider
-            .when('/home', {
-                templateUrl: '/app/landing/landing.html',
+            .when('/', {
+                templateUrl: 'app/landing/landing.html',
                 controller: 'LandingCtrl'
             })
-            .otherwise('/home');
+            .when('/home', {
+                templateUrl: 'app/home/home.html',
+                controller: 'HomeCtrl'
+            })
+            .otherwise('/');
     }
-
-    //clinic.config(function ($stateProvider, $urlRouterProvider) {
-    //    $urlRouterProvider.otherwise('/');
-
-    //    $stateProvider
-    //        .state('home', {
-    //            url: '/',
-    //            templateUrl: '/app/landing/landing.html',
-    //            //controller: 'LandingCtrl'
-    //        });
-    //});
-
-    //clinic.run();
 } ((<any>window).angular));

@@ -9,6 +9,6 @@ namespace Clinic.BO
     {
         public int? Id { get; set; }
 
-        //TODO public abstract bool IsValid();
+        // public abstract bool IsValid();
     }
 }

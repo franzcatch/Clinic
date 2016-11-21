@@ -34,6 +34,37 @@ namespace Clinic.DL
             return obj;
         }
 
+        public List<Person> GetByHouseholdId(int householdId)
+        {
+            var obj = new List<Person>();
+
+            string sql = string.Format(@"
+                         SELECT *
+                         FROM HOUSEHOLD_PERSON 
+                         WHERE HOUSEHOLD_ID = {0}
+                         ", householdId);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
+        public Person GetPayerByHouseholdId(int householdId)
+        {
+            var obj = new Person();
+
+            string sql = string.Format(@"
+                         SELECT *
+                         FROM HOUSEHOLD_PERSON 
+                         WHERE HOUSEHOLD_ID = {0}
+                           AND IS_PAYER = 'Y'
+                         ", householdId);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
         public Person GetByUserId(int userId)
         {
             var obj = new Person();

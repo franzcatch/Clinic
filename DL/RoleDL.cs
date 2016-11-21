@@ -36,9 +36,14 @@ namespace Clinic.DL
             target.Name = reader["role_name"].ToString();
         }
 
-        public Role GetRole(int id)
+        public Role Get(int id)
         {
             return Roles.First(x => x.Id == id);
+        }
+
+        public Role Get(string name)
+        {
+            return Roles.First(x => x.Name == name);
         }
 
         public List<Role> GetRoles()

@@ -19,7 +19,7 @@ namespace Clinic.BO
             {
                 if (_role == null)
                 {
-                    _role = DataLayer.RoleDL.GetRole(-1);
+                    _role = DataLayer.RoleDL.Get(Constants.User);
                 }
 
                 return _role;

@@ -22,26 +22,39 @@ namespace Clinic.Controllers
         [WebMethod(EnableSession = true)]
         public User Login()
         {
-            var obj = JsonParser.GetParams<Data>(Context);
-            var user = BusinessLayer.UserBL.Get(obj.Username, obj.Password);
+            var obj = JsonParser.GetParams<UserData>(Context);
+            var user = BusinessLayer.UserBL.Get(obj.username, obj.password);
             CurSession.User = user;
             return user;
         }
 
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
-        public User Create()
+        public User Register()
         {
-            var obj = JsonParser.GetParams<Data>(Context);
+            var obj = JsonParser.GetParams<Registration>(Context);
 
             var user = new BO.User() {
-                Username = obj.Username,
-                Password = obj.Password
+                Username = obj.username,
+                Password = obj.password
             };
 
-            BusinessLayer.UserBL.Create(user);
+            if (GlobalSettings.AdminExists)
+            {
+                BusinessLayer.UserBL.Create(obj.householdId, user);
+            }
+            else
+            {
+                user.Role = BusinessLayer.RoleBL.Get(Constants.Admin);
+                BusinessLayer.UserBL.Create(user);
+            }
 
-            CurSession.User = user;
+            if (user != null)
+            {
+                CurSession.User = user;
+            }
+
+            GlobalSettings.CheckForAdmin();
 
             return user;
         }
@@ -54,9 +67,14 @@ namespace Clinic.Controllers
         }
     }
 
-    public class Data
+    public class Registration : UserData
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public int householdId { get; set; }
+    }
+
+    public class UserData
+    {
+        public string username { get; set; }
+        public string password { get; set; }
     }
 }

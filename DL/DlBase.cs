@@ -1,5 +1,4 @@
-﻿using Clinic.Lib;
-using Oracle.DataAccess.Client;
+﻿using Oracle.DataAccess.Client;
 using System;
 using System.Collections;
 using System.Collections.Generic;

@@ -11,5 +11,6 @@ namespace Clinic.DL
         public static EntityDL EntityDL = new EntityDL();
         public static RoleDL RoleDL = new RoleDL();
         public static PersonDL PersonDL = new PersonDL();
+        public static HouseholdDL HouseholdDL = new HouseholdDL();
     }
 }

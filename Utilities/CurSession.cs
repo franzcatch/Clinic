@@ -13,7 +13,7 @@ namespace Clinic.Utilities
             get
             {
                 var user = HttpContext.Current.Session["LoggedInUser"];
-                return user != null ? (BO.User)user : new BO.User();
+                return user != null ? (BO.User)user : null;
             }
             set
             {

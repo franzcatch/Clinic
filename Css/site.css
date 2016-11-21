@@ -9127,6 +9127,24 @@ button.toast-close-button {
     width: 25em;
   }
 }
+.home {
+  padding: 100px;
+}
+.home .tile {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin: 25px;
+  padding: 10px;
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.home .tile .tile-inner {
+  height: 100%;
+  width: 100%;
+}
 body {
   background-color: white !important;
   margin: 0;
@@ -9141,6 +9159,10 @@ body .navbar {
 }
 body .navbar img {
   height: 30px;
+  cursor: pointer;
+}
+body .navbar a {
+  cursor: pointer;
 }
 body .page-title {
   padding: 5px;

@@ -8,6 +8,7 @@
     <script src="Scripts/tether/tether.js"></script>
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/toastr.min.js"></script>
+    <script src="Scripts/lodash.js"></script>
 
     <!-- CSS -->
     <link href="Css/site.css" rel="stylesheet" />
@@ -16,13 +17,14 @@
     <app-nav></app-nav>
 
     <div ng-view></div>
-    <img style="width: 100%" src="../../Images/banner.jpg" />
+
     <!-- Libraries -->
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-resource.js"></script>
     <script src="Scripts/angular-mocks.js"></script>
     <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/select.min.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
     <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
     <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script src="Scripts/angular-ui-router.js"></script>
@@ -31,11 +33,17 @@
     <script src="app/app.js"></script>
 
     <!-- Utilities -->
+    <script src="app/lib/ajaxService.js"></script>
+    <script src="app/lib/settingsService.js"></script>
     <script src="app/user/userService.js"></script>
 
     <!-- Controllers -->
     <script src="app/landing/LandingCtrl.js"></script>
     <script src="app/header/HeaderCtrl.js"></script>
     <script src="app/header/headerDirective.js"></script>
+    <script src="app/header/login/LoginCtrl.js"></script>
+    <script src="app/header/login/RegisterCtrl.js"></script>
+    <script src="app/home/homeTiles.js"></script>
+    <script src="app/home/HomeCtrl.js"></script>
 </body>
 </html>
