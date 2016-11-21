@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C14AB821-E5EE-CC40-E211-90516D4C2EC4" name="ROOM">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>95475746-C761-AEA4-CC5A-0E516611B2C7</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROOM_ID" id="EEC1B6A8-7259-ECF0-93E0-38711C884941">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>63A018A4-62AF-3B6F-9E7C-A4CB76184831</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLINIC_ID" id="65603B94-E6C1-67F5-5B60-72BB1BB55553">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>04921611-E5E6-3B4E-0F3F-66CDCC998DB2</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D33D8213-94EA-C4DF-7D5D-88435A883AE5" referredColumn="537C5A34-9B82-9451-8CD2-CB7CB5F64BD0"/>
+</associations>
+</Column>
+<Column name="NAME" id="918D2349-C9CA-2D7A-5706-3D6E78479B9F">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>52953FE3-9A4D-F17F-1FE5-08FA2F5502BC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DDB5AE81-65E2-6519-4C28-2D89DD35F3E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="52DC959C-0EDD-7B9A-BBF8-2E6801018473" name="ROOM_PK">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>F6B95380-C907-1473-A065-EF4A2A20795C</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EEC1B6A8-7259-ECF0-93E0-38711C884941"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C887EF5C-D11F-0922-63D9-6A88C54BD5DF" name="ROOM_FK1">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65603B94-E6C1-67F5-5B60-72BB1BB55553"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

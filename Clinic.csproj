@@ -249,6 +249,10 @@
     <Content Include="Css\site.min.css">
       <DependentUpon>site.css</DependentUpon>
     </Content>
+    <Content Include="Docs\11_02_2016.png" />
+    <Content Include="Docs\ER Simple.jpg" />
+    <Content Include="Docs\Site Diagram.jpg" />
+    <Content Include="Docs\UML.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Images\banner.jpg" />
     <Content Include="Images\logo.png" />
@@ -624,6 +628,14 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 1.pptx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 2.pptx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 3.pptx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 4.pptx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016.docx" />
+    <Content Include="Docs\ER Simple.vsdx" />
+    <Content Include="Docs\Site Diagram.vsdx" />
+    <Content Include="Docs\UML.vsdx" />
     <None Include="Properties\PublishProfiles\labwebs.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_fr-nc.js" />

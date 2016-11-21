@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableProxyOraclev10g" name="ENTITY" directorySegmentName="seg_0" id="6FB4E0AB-7D91-0111-E8E3-3463ABAEE71D">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NAME3" id="144E50F6-4C48-1336-FC69-0350C8033323">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE1" id="27B7FA32-EEB8-387B-AB0A-E5F60743FE85">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ZIP" id="2D07D177-25A0-E265-91C0-B5A5BC61FE59">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME2" id="5096ED67-9B3D-9DAA-5AFC-0B0A7435028F">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE3" id="525A8B64-23FE-BFBE-87C5-D01821B872F0">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATE" id="551C023A-982F-2A8F-BE91-825FE1447EE9">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENTITY_ID" id="5E3BDA11-1A9E-4CF0-A6EA-1A8C157D4E5D">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME1" id="66C64509-4BF5-BFB2-D167-45FAA1E790B9">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CITY" id="811FA999-AE4F-5F95-FB09-F4FD1B01C77F">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS1" id="BF0CE501-26B7-3866-94EE-30FE58521F2B">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS2" id="DDDD05C5-1A36-EABA-B824-1E031E5E2124">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE2" id="F31568B2-4600-FF99-D4D2-81D68A915FD1">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ENTITY_PK" id="44FDF130-E4F8-4350-0815-F28FB3DFB78E">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev10g>

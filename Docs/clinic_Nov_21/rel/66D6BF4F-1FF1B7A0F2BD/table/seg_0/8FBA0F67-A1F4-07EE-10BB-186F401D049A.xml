@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8FBA0F67-A1F4-07EE-10BB-186F401D049A" name="RELATIONSHIP">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>25995ED0-408D-4166-41F4-2231B8001E81</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RELATIONSHIP_ID" id="2364A768-98C3-4DD8-D837-D61C824F2A7E">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>84A5DD7B-6F7A-E844-EB54-66C9AA590AF9</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="E3246212-D59D-4B08-ADDF-B6DD56AB4E26">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>8B5F1B74-DDAC-BA99-5E9B-CDB4A4E83224</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DDB5AE81-65E2-6519-4C28-2D89DD35F3E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PARENT_ID" id="DE47B66B-DE50-4890-387C-6FE65F3E5AE5">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>4A9A0CF1-27CC-C271-F6D0-1463E60B3CD4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8237F9A3-6A80-0C37-7988-F569DA678611" name="RELATIONSHIP_PK">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>966C4D13-9310-2D23-93F4-F6F1C93C01B5</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2364A768-98C3-4DD8-D837-D61C824F2A7E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1843C40B-E901-7017-21AE-AF5D2BF27BD1" name="RELATIONSHIP_UC1">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>A673B964-6D63-E819-7939-24FA4757B270</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E3246212-D59D-4B08-ADDF-B6DD56AB4E26"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

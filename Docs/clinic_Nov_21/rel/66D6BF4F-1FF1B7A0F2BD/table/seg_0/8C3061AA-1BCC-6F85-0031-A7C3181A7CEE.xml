@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8C3061AA-1BCC-6F85-0031-A7C3181A7CEE" name="CLINIC">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>90E73BC9-185A-815E-EBD0-6DEC3A2457A4</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CLINIC_ID" id="537C5A34-9B82-9451-8CD2-CB7CB5F64BD0">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>8FB328D4-87C3-AB17-1818-7A4DDD0BF213</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENTITY_ID" id="AF236842-FB57-5651-980A-82FB269F975A">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>22CFBAC5-9A88-CD5B-2644-C3DF9CC55C12</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4781B817-AA5D-0902-CBA5-4E74C2CD930F" referredColumn="5E3BDA11-1A9E-4CF0-A6EA-1A8C157D4E5D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1AE7D587-9F9D-BD91-FE2B-D25E86F47CA0" name="CLINIC_PK">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>FFDFA35B-795D-1A5B-01D9-5E82A5D0B29B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="537C5A34-9B82-9451-8CD2-CB7CB5F64BD0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B8521817-7240-2BD3-1F06-C6EC80A08551" name="CLINIC_FK1">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AF236842-FB57-5651-980A-82FB269F975A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

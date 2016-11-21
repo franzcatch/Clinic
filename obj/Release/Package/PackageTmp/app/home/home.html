@@ -1,0 +1,15 @@
+﻿<div class="home">
+    <div class="tile" ng-repeat="tile in tiles" ng-style="{'background-color': tile.color}">
+        <div class="tile-inner" ng-mouseover="tile.open = true" ng-mouseleave="tile.open = false">
+            <div>
+                <span class="fa-stack fa-3x">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-flag fa-stack-1x fa-inverse" ng-class="tile.icon"></i>
+                </span>
+            </div>
+            <div>
+                <span>{{tile.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>

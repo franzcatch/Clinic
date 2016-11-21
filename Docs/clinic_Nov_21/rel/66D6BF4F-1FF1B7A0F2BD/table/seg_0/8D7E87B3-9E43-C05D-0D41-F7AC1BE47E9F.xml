@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8D7E87B3-9E43-C05D-0D41-F7AC1BE47E9F" name="USERS">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>18A984B4-96BC-3B3F-FDF2-1D558DDD17D0</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_ID" id="D106CBF8-1187-C2B2-E889-640D94B094DA">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>8DB50D23-6721-F2C0-19B4-5BBCF9C0BFF1</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ROLE_ID" id="C69B79D6-848C-396E-3A83-0AA63C343D50">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>8D4FD50F-7C2F-6B05-8D04-0F9E88B8566E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DC2DBFC5-896A-61AC-4B6D-354AEB3FC2AF" referredColumn="215A978D-6914-9FE2-EF4B-D4D7CE0F6E25"/>
+</associations>
+</Column>
+<Column name="ENTITY_ID" id="389F7416-5DCD-8449-0A3F-E89242310134">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>0950131B-5446-4221-469E-5C11A8260F5A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2066EDE4-FE0B-64DD-D150-DC9D8E349546</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0EE2B003-F7D6-F756-3016-71F96A6BD653" referredColumn="5E3BDA11-1A9E-4CF0-A6EA-1A8C157D4E5D"/>
+</associations>
+</Column>
+<Column name="USERNAME" id="718AF761-E88C-E3B8-D393-54C34CEF7B6A">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>ED4F5CF6-9299-0BC8-51F6-5FBC303CB296</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DDB5AE81-65E2-6519-4C28-2D89DD35F3E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="BB4C3515-9E8E-1BD0-FD99-230E840CCF00">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>D1A04E26-3864-D3F8-C6DF-DBBA2FED0C3C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>D4497F2F-9A25-B822-6E26-597251164886</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IS_ACTIVE" id="39AD716C-6F23-77A2-5227-9BBCF4CB1A2C">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>7D991AA9-E1F6-A2A1-DE6B-6EA6213DC129</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>B5C609F1-B47D-5572-4712-4C175E35B89D</domain>
+<defaultValue>&apos;Y&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9442885F-B314-DCC4-FE92-D4B243B6BC04" name="USERS_PK">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>727A04C6-8FB2-8AAF-BF72-8C9653858072</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D106CBF8-1187-C2B2-E889-640D94B094DA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="89F123A2-25DB-7E58-7017-B35F8EECF6E0" name="USERS_UC1">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<importedID>0BA8B046-2272-5206-6D75-5121CBE4B418</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="718AF761-E88C-E3B8-D393-54C34CEF7B6A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FD613E81-1B7B-8183-BD36-6A2293A44EC6" name="USERS_FK1">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="389F7416-5DCD-8449-0A3F-E89242310134"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="790436AD-C2D9-6260-F781-5A4922A9CFFC" name="USERS_FK2">
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:44 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C69B79D6-848C-396E-3A83-0AA63C343D50"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

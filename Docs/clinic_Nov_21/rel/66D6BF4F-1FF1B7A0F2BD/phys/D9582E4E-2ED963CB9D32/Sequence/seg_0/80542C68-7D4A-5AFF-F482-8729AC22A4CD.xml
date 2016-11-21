@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="RELATIONSHIP_S" directorySegmentName="seg_0" id="80542C68-7D4A-5AFF-F482-8729AC22A4CD">
+<sourceDDLFile>ddl.sql</sourceDDLFile>
+<createdBy>franz</createdBy>
+<createdTime>2016-11-21 13:09:21 UTC</createdTime>
+<ownerDesignName>clinic_Nov_21</ownerDesignName>
+<order>YES</order>
+<startWith>1</startWith>
+</SequenceOraclev10g>

@@ -38,3 +38,14 @@ C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\HeaderCtrl.js
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\headerDirective.js
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\landing\LandingCtrl.js
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\user\userService.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\app.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\HeaderCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\headerDirective.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\login\LoginCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\header\login\RegisterCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\home\HomeCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\home\homeTiles.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\landing\LandingCtrl.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\lib\ajaxService.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\lib\settingsService.js
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\app\user\userService.js

@@ -35,3 +35,4 @@ C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\bin\System.Web.WebPages.Deployment
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\bin\System.Web.WebPages.Razor.xml
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\obj\Release\Clinic.dll
 C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\obj\Release\Clinic.pdb
+C:\Users\franz\Desktop\COSC6000\Clinic\Clinic\obj\Release\Clinic.csprojResolveAssemblyReference.cache

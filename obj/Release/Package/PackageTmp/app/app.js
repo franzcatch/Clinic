@@ -1,15 +1,22 @@
 (function (angular) {
     'use strict';
     var clinic = angular.module('clinic', [
-        'ngRoute'
+        'ngRoute',
+        'ngAnimate',
+        'ui.bootstrap',
+        'ui.router'
     ]);
     clinic.config(routeConfig);
     function routeConfig($routeProvider) {
         $routeProvider
-            .when('/home', {
-            templateUrl: '/adamfranzen71/App/landing/landing.html',
+            .when('/', {
+            templateUrl: 'app/landing/landing.html',
             controller: 'LandingCtrl'
         })
-            .otherwise('/home');
+            .when('/home', {
+            templateUrl: 'app/home/home.html',
+            controller: 'HomeCtrl'
+        })
+            .otherwise('/');
     }
 }(window.angular));
