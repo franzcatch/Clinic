@@ -4,15 +4,7 @@
     angular.module('clinic')
         .controller('LandingCtrl', LandingCtrl);
 
-    function LandingCtrl($scope, $location, userService) {
-        $scope.$watch(userService.isLoggedIn, checkForRedir);
+    function LandingCtrl($scope) {
 
-        function checkForRedir() {
-            if (userService.isLoggedIn() && $location.$$url === '/') {
-                $location.path('/home');
-            }
-        }
-
-        checkForRedir();
     }
 } ((<any>window).angular));

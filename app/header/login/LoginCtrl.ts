@@ -4,7 +4,7 @@
     angular.module('clinic')
         .controller('LoginCtrl', LoginCtrl);
 
-    function LoginCtrl($scope, $uibModalInstance, userService) {
+    function LoginCtrl($scope, $uibModalInstance, userService, $location) {
         $scope.username = '';
         $scope.password = '';
         $scope.loading = false;
@@ -28,6 +28,7 @@
             }).then(function (response) {
                 $scope.loading = false;
                 $uibModalInstance.close();
+                $location.path('/home');
             });
         };
     }

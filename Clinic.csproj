@@ -148,6 +148,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\home\profile\profile.html" />
+    <Content Include="app\home\clinics\clinics.html" />
+    <Content Include="app\home\staff\staff.html" />
+    <Content Include="app\home\reports\reports.html" />
+    <Content Include="app\home\qualifications\qualifications.html" />
+    <Content Include="app\home\clients\clients.html" />
+    <Content Include="app\home\billing\billing.html" />
+    <Content Include="app\home\appointment\appointment.html" />
     <Content Include="app\header\header.html" />
     <Content Include="app\header\login\login.html" />
     <Content Include="app\header\login\register.html" />
@@ -225,6 +233,14 @@
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="app\home\home.less" />
+    <Content Include="app\home\appointment\appointment.less" />
+    <Content Include="app\home\billing\billing.less" />
+    <Content Include="app\home\clients\clients.less" />
+    <Content Include="app\home\qualifications\qualifications.less" />
+    <Content Include="app\home\reports\reports.less" />
+    <Content Include="app\home\staff\staff.less" />
+    <Content Include="app\home\clinics\clinics.less" />
+    <Content Include="app\home\profile\profile.less" />
     <None Include="Content\font-awesome.less" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -636,6 +652,8 @@
     <Content Include="Docs\ER Simple.vsdx" />
     <Content Include="Docs\Site Diagram.vsdx" />
     <Content Include="Docs\UML.vsdx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 5.pptx" />
+    <Content Include="Docs\clinic_Nov_21.dmd" />
     <None Include="Properties\PublishProfiles\labwebs.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_fr-nc.js" />
@@ -1151,6 +1169,15 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\home\homeDirective.ts" />
+    <TypeScriptCompile Include="app\home\profile\ProfileCtrl.ts" />
+    <TypeScriptCompile Include="app\home\clinics\ClinicsCtrl.ts" />
+    <TypeScriptCompile Include="app\home\staff\StaffCtrl.ts" />
+    <TypeScriptCompile Include="app\home\reports\ReportsCtrl.ts" />
+    <TypeScriptCompile Include="app\home\qualifications\QualificationsCtrl.ts" />
+    <TypeScriptCompile Include="app\home\clients\ClientsCtrl.ts" />
+    <TypeScriptCompile Include="app\home\billing\BillingCtrl.ts" />
+    <TypeScriptCompile Include="app\home\appointment\AppointmentCtrl.ts" />
     <TypeScriptCompile Include="app\header\HeaderCtrl.ts" />
     <TypeScriptCompile Include="app\header\headerDirective.ts" />
     <TypeScriptCompile Include="app\header\login\LoginCtrl.ts" />
@@ -1159,7 +1186,7 @@
     <TypeScriptCompile Include="app\landing\LandingCtrl.ts" />
     <TypeScriptCompile Include="app\lib\ajaxService.ts" />
     <TypeScriptCompile Include="app\home\homeTiles.ts" />
-    <TypeScriptCompile Include="app\lib\settingsService.ts" />
+    <TypeScriptCompile Include="app\lib\settings.ts" />
     <TypeScriptCompile Include="app\user\userService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />

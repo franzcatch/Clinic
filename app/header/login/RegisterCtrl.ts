@@ -4,8 +4,8 @@
     angular.module('clinic')
         .controller('RegisterCtrl', RegisterCtrl);
 
-    function RegisterCtrl($scope, $uibModalInstance, userService, settingsService) {
-        $scope.settings = settingsService.settings;
+    function RegisterCtrl($scope, $uibModalInstance, userService, settings, $location) {
+        $scope.settings = settings;
         $scope.householdId;
         $scope.username = '';
         $scope.password = '';
@@ -38,6 +38,7 @@
             }).then(function (response) {
                 $scope.loading = false;
                 $uibModalInstance.close();
+                $location.path('/profile');
             });
         };
     }

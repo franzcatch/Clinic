@@ -4,15 +4,11 @@
     angular.module('clinic')
         .controller('HomeCtrl', HomeCtrl);
 
-    function HomeCtrl($scope, userService, homeTiles) {
-        $scope.tiles = [];
+    function HomeCtrl($scope, settings, homeTiles, $location) {
+        $scope.tiles = homeTiles.getTiles();;
         
-        $scope.$watch(userService.isLoggedIn, checkTiles);
-
-        function checkTiles() {
-            $scope.tiles = homeTiles.getTiles();
-        }
-
-        checkTiles();
+        $scope.goTo = function (hash) {
+            $location.path(hash);
+        };
     }
 } ((<any>window).angular));

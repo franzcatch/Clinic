@@ -9127,8 +9127,33 @@ button.toast-close-button {
     width: 25em;
   }
 }
+.home-nav {
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px solid #e7e7e7;
+  background-color: rgba(23, 97, 142, 0.1);
+}
+.home-nav .tile {
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  margin: 5px 25px;
+  padding: 5px;
+  display: inline-block;
+  font-size: 0.6em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.home-nav .tile:hover {
+  background-color: lightseagreen !important;
+}
+.home-nav .tile .tile-inner {
+  height: 100%;
+  width: 100%;
+}
 .home {
-  padding: 100px;
+  padding: 50px;
 }
 .home .tile {
   width: 200px;
@@ -9140,6 +9165,10 @@ button.toast-close-button {
   font-size: 1.5em;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 5px;
+}
+.home .tile:hover {
+  background-color: lightseagreen !important;
 }
 .home .tile .tile-inner {
   height: 100%;

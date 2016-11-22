@@ -2,21 +2,19 @@
     'use strict';
     angular.module('clinic')
         .controller('HeaderCtrl', HeaderCtrl);
-    function HeaderCtrl($scope, $uibModal, userService, settingsService) {
-        $scope.currentUser = userService.curUser;
-        $scope.isLoggedIn = userService.isLoggedIn;
-        $scope.settings = settingsService.settings;
+    function HeaderCtrl($rootScope, $scope, $uibModal, userService, settings, $location) {
+        $scope.settings = settings;
         $scope.getName = function () {
-            if ($scope.isLoggedIn()) {
-                var name = ($scope.currentUser.FirstName ? $scope.currentUser.FirstName : '') +
-                    ($scope.currentUser.LastName ? ' ' + $scope.currentUser.LastName : '') +
-                    ($scope.currentUser.Role ? ('(' + $scope.currentUser.Role.Name + ')') : '');
+            if ($scope.settings.User) {
+                var name = ($scope.settings.User.FirstName ? $scope.settings.User.FirstName : '') +
+                    ($scope.settings.User.LastName ? ' ' + $scope.settings.User.LastName : '') +
+                    ($scope.settings.User.Role ? ('(' + $scope.settings.User.Role.Name + ')') : '');
                 return name.trim();
             }
             return '';
         };
         $scope.goHome = function () {
-            if ($scope.currentUser) {
+            if ($scope.settings.User) {
             }
             else {
             }
@@ -34,7 +32,9 @@
             });
         };
         $scope.logout = function () {
-            userService.logout();
+            userService.logout().then(function () {
+                $location.path('/');
+            });
         };
     }
 }(window.angular));

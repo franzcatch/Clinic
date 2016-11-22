@@ -29,7 +29,7 @@ namespace Clinic.Utilities
         }
 
         [JsonProperty]
-        public static User LoggedInUser
+        public static User User
         {
             get
             {
@@ -45,7 +45,7 @@ namespace Clinic.Utilities
         public static object GetJson() {
             dynamic obj = new System.Dynamic.ExpandoObject();
             obj.AdminExists = AdminExists;
-            obj.LoggedInUser = LoggedInUser;
+            obj.User = User;
 
             return JsonConvert.SerializeObject(obj);
         }

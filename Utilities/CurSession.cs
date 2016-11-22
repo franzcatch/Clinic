@@ -12,12 +12,12 @@ namespace Clinic.Utilities
         {
             get
             {
-                var user = HttpContext.Current.Session["LoggedInUser"];
+                var user = HttpContext.Current.Session["User"];
                 return user != null ? (BO.User)user : null;
             }
             set
             {
-                HttpContext.Current.Session["LoggedInUser"] = value;
+                HttpContext.Current.Session["User"] = value;
             }
         }
     }
