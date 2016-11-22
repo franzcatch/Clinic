@@ -1,5 +1,5 @@
-﻿<div class="home">
-    <div class="tile" ng-repeat="tile in tiles" ng-style="{'background-color': tile.color}">
+﻿<div ng-class="isNavMode ? 'home-nav' : 'home'">
+    <div class="tile" ng-repeat="tile in tiles" ng-style="{'background-color': tile.color}" ng-click="goTo(tile.route)" ng-class="getClass(tile)">
         <div class="tile-inner" ng-mouseover="tile.open = true" ng-mouseleave="tile.open = false">
             <div>
                 <span class="fa-stack fa-3x">

@@ -16,56 +16,56 @@
                 name: 'Appointments',
                 icon: 'fa-calendar',
                 color: '#6fb7ff',
-                route: 'home/appointment',
+                route: '/home/appointment',
                 permissions: [user, office, admin]
             },
             {
                 name: 'Billing',
                 icon: 'fa-dollar',
                 color: '#6fb7ff',
-                route: 'home/billing',
+                route: '/home/billing',
                 permissions: [user, office, admin]
             },
             {
                 name: 'Clients',
                 icon: 'fa-users',
                 color: '#6fb7ff',
-                route: 'home/clients',
+                route: '/home/clients',
                 permissions: [office, admin]
             },
             {
                 name: 'Qualifications',
                 icon: 'fa-check',
                 color: '#6fb7ff',
-                route: 'home/qualifications',
+                route: '/home/qualifications',
                 permissions: [office, admin]
             },
             {
                 name: 'Reports',
                 icon: 'fa-bar-chart',
                 color: '#6fb7ff',
-                route: 'home/reports',
+                route: '/home/reports',
                 permissions: [office, admin]
             },
             {
                 name: 'Staff',
                 icon: 'fa-cogs',
                 color: '#6fb7ff',
-                route: 'home/staff',
+                route: '/home/staff',
                 permissions: [admin]
             },
             {
                 name: 'Clinics',
                 icon: 'fa-cubes',
                 color: '#6fb7ff',
-                route: 'home/clinics',
+                route: '/home/clinics',
                 permissions: [admin]
             },
             {
                 name: 'Profile',
                 icon: 'fa-user',
                 color: '#6fb7ff',
-                route: 'home/profile',
+                route: '/home/profile',
                 permissions: [user, office, admin]
             }
         ];

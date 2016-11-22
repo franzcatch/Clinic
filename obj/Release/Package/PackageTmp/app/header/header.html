@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right" ng-if="!isLoggedIn()">
+            <ul class="nav navbar-nav navbar-right" ng-if="!settings.User">
                 <li class="divider-vertical"></li>
                 <li>
                     <a ng-click="register()"><i class="fa fa-cogs"></i>&nbsp Register</a>
@@ -18,7 +18,7 @@
                     <a ng-click="login()"><i class="fa fa-user"></i>&nbsp Log In</a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" ng-if="isLoggedIn()">
+            <ul class="nav navbar-nav navbar-right" ng-if="settings.User">
                 <li class="divider-vertical"></li>
                 <li>
                     <a ng-click="goHome()">

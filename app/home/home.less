@@ -11,12 +11,12 @@
         cursor: pointer;
         border-radius: 5px;
 
-        &:hover {
+        &.active {
             background-color: lightseagreen !important;
         }
 
-        span {
-            //padding: 20px;
+        &:hover {
+            background-color: lightseagreen !important;
         }
 
         .tile-inner {
@@ -27,6 +27,7 @@
 }
 
 .home-nav {
+    width: 100%;
     padding: 5px;
     text-align: center;
     border-bottom: 1px solid #e7e7e7;
@@ -36,6 +37,7 @@
 }
 
 .home {
+    width: 100%;
     padding: 50px;
 
     .tile-mixin(200px, 25px, 10px, 1.5em);

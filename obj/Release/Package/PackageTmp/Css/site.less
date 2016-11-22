@@ -3,6 +3,14 @@
 @import url('../Content/toastr'); 
 
 @import url('../app/home/home');
+@import url('../app/home/appointment/appointment');
+@import url('../app/home/billing/billing');
+@import url('../app/home/clients/clients');
+@import url('../app/home/clinics/clinics');
+@import url('../app/home/profile/profile');
+@import url('../app/home/qualifications/qualifications');
+@import url('../app/home/reports/reports');
+@import url('../app/home/staff/staff');
   
 @headerHeight: 50px;
 @titleHeight: 50px;
@@ -10,6 +18,11 @@
 @sidebarPadding: 20px;
  
 body {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: white !important;
 
     .modal-backdrop {
@@ -111,6 +124,26 @@ body {
 
     .panel-footer.button {
         cursor: pointer;
+    }
+
+    .page-wrapper {
+        height: 100%;
+        width: 100%;
+
+        .banner {
+            width: 100%;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e7e7e7;
+            color: white;
+            font-weight: 500;
+            font-size: 24px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .page-content {
+            padding: 30px;
+        }
     }
 
     margin: 0;

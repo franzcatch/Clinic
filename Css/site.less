@@ -18,6 +18,11 @@
 @sidebarPadding: 20px;
  
 body {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: white !important;
 
     .modal-backdrop {
@@ -119,6 +124,26 @@ body {
 
     .panel-footer.button {
         cursor: pointer;
+    }
+
+    .page-wrapper {
+        height: 100%;
+        width: 100%;
+
+        .banner {
+            width: 100%;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e7e7e7;
+            color: white;
+            font-weight: 500;
+            font-size: 24px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .page-content {
+            padding: 30px;
+        }
     }
 
     margin: 0;

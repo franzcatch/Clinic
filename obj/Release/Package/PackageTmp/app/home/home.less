@@ -1,19 +1,22 @@
-﻿.home {
-    padding: 100px;
-
+﻿.tile-mixin (@size, @margin, @padding, @fontSize) {
     .tile {
-        width: 200px;
-        height: 200px;
+        width: @size;
+        height: @size;
         text-align: center;
-        margin: 25px;
-        padding: 10px;
+        margin: @margin;
+        padding: @padding;
         display: inline-block;
-        font-size: 1.5em;
+        font-size: @fontSize;
         font-weight: bold;
         cursor: pointer;
+        border-radius: 5px;
 
-        span {
-            //padding: 20px;
+        &.active {
+            background-color: lightseagreen !important;
+        }
+
+        &:hover {
+            background-color: lightseagreen !important;
         }
 
         .tile-inner {
@@ -21,4 +24,21 @@
             width: 100%;
         }
     }
+}
+
+.home-nav {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
+    background-color: rgba(23,97,142,0.1);
+
+    .tile-mixin(70px, 5px 25px, 5px, 0.6em);
+}
+
+.home {
+    width: 100%;
+    padding: 50px;
+
+    .tile-mixin(200px, 25px, 10px, 1.5em);
 }
