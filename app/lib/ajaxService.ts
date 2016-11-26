@@ -15,7 +15,7 @@
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
-                data: data ? JSON.stringify(data) : '{}',
+                data: (data ? JSON.stringify(data) : '{}'),
                 success: function (result) {
                     dfd.resolve(result.d);
                 },

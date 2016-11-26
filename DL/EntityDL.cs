@@ -14,9 +14,9 @@ namespace Clinic.DL
             obj = new Entity()
             {
                 EntityId = Convert.ToInt32(reader["entity_id"]),
-                Name1 = reader["name1"].ToString(),
-                Name2 = reader["name2"].ToString(),
-                Name3 = reader["name3"].ToString(),
+              //  Name1 = reader["name1"].ToString(),
+              //  Name2 = reader["name2"].ToString(),
+              //B  Name3 = reader["name3"].ToString(),
                 Address1 = reader["address1"].ToString(),
                 Address2 = reader["address2"].ToString(),
                 City = reader["city"].ToString(),
@@ -26,6 +26,8 @@ namespace Clinic.DL
                 Phone2 = reader["phone2"].ToString(),
                 Phone3 = reader["phone3"].ToString()
             };
+
+            //obj.S
         }
 
         public Entity Get(int id)
@@ -50,12 +52,12 @@ namespace Clinic.DL
                          INSERT INTO ENTITY
                          (ENTITY_ID, NAME1, NAME2, NAME3, ADDRESS1, ADDRESS2, CITY, STATE, ZIP, PHONE1, PHONE2, PHONE3)
                          VALUES 
-                         ({0},{1},'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')
+                         ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')
                          ", 
                          id, 
-                         entity.Name1, 
-                         entity.Name2,
-                         entity.Name3,
+                         entity.GetName1(), 
+                         entity.GetName2(),
+                         entity.GetName3(),
                          entity.Address1,
                          entity.Address2,
                          entity.City,
@@ -74,23 +76,23 @@ namespace Clinic.DL
         {
             string sql = string.Format(@"
                          UPDATE ENTITY
-                         SET NAME1 = {1}, 
-                             NAME2 = {2}, 
-                             NAME3 = {3}, 
-                             ADDRESS1 = {4}, 
-                             ADDRESS2 = {5}, 
-                             CITY = {6}, 
-                             STATE = {7}, 
-                             ZIP = {8}, 
-                             PHONE1 = {9}, 
-                             PHONE2 = {10}, 
-                             PHONE3 = {11}
-                         ({0},{1},'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')
+                         SET NAME1 = '{1}', 
+                             NAME2 = '{2}', 
+                             NAME3 = '{3}', 
+                             ADDRESS1 = '{4}', 
+                             ADDRESS2 = '{5}', 
+                             CITY = '{6}', 
+                             STATE = '{7}', 
+                             ZIP = '{8}', 
+                             PHONE1 = '{9}', 
+                             PHONE2 = '{10}', 
+                             PHONE3 = '{11}'
+                         WHERE ENTITY_ID = {0}
                          ",
                          entity.Id,
-                         entity.Name1,
-                         entity.Name2,
-                         entity.Name3,
+                         entity.GetName1(),
+                         entity.GetName2(),
+                         entity.GetName3(),
                          entity.Address1,
                          entity.Address2,
                          entity.City,

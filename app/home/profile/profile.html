@@ -2,8 +2,107 @@
 <div class="profile page-wrapper">
     <div class="banner">
         Manage Profile
+
+        <button class="btn btn-success" ng-click="update()" ng-disabled="!isValid() || !isDirty() || isLoading">
+            Save
+            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+        </button>
     </div>
     <div class="page-content">
-        hello
+        <div class="page-content-left">
+            <div class="page-content-left-tab" ng-repeat="tab in tabs" ng-click="setTab(tab)" ng-class="{ 'active': tab === curTab }">
+                <i class="fa fa-minus"></i>
+                <span>{{tab.title}}</span>
+                <i ng-if="isFormError(tab)" class="fa fa-exclamation-triangle"></i>
+            </div>
+        </div>
+
+        <div class="page-content-right">
+            <ng-form ng-show="curTab.id === 'user'" name="userForm">
+                <div class="form-group required">
+                    <label>Username</label>
+                    <input type="text" ng-model="model.Username" placeholder="user" class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+                <div class="form-group required">
+                    <label>Password</label>
+                    <input type="password" ng-model="model.Password" placeholder="enter new password..." class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+            </ng-form>
+            <ng-form ng-show="curTab.id === 'name'" name="nameForm">
+                <div class="form-group required">
+                    <label>First Name</label>
+                    <input type="text" ng-model="model.FirstName" placeholder="first" class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+                <div class="form-group">
+                    <label>Middle Name</label>
+                    <input type="text" ng-model="model.MiddleName" placeholder="middle" class="form-control" ng-maxlength="50" />
+                </div>
+                <div class="form-group required">
+                    <label>Last Name</label>
+                    <input type="text" ng-model="model.LastName" placeholder="last" class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+            </ng-form>
+            <ng-form ng-show="curTab.id === 'address'" name="addressForm">
+                <div class="form-group required">
+                    <label>Address 1</label>
+                    <input type="text" ng-model="model.Address1" class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+                <div class="form-group">
+                    <label>Address 2</label>
+                    <input type="text" ng-model="model.Address2" class="form-control" ng-maxlength="50" />
+                </div>
+                <div class="form-group required">
+                    <label>City</label>
+                    <input type="text" ng-model="model.City" class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+                <div class="form-group required">
+                    <label>State</label>
+                    <input type="text" ng-model="model.State" class="form-control" ng-minlength="2" ng-maxlength="2" ng-required="true" />
+                </div>
+                <div class="form-group required">
+                    <label>Postal Code</label>
+                    <input type="text" ng-model="model.Zip" class="form-control" ng-maxlength="10" ng-required="true" />
+                </div>
+            </ng-form>
+            <ng-form ng-show="curTab.id === 'phone'" name="phoneForm">
+                <div class="form-group required">
+                    <label>Phone 1</label>
+                    <input type="text" ng-model="model.Phone1" class="form-control" ng-maxlength="15" ng-required="true" />
+                </div>
+                <div class="form-group">
+                    <label>Phone 2</label>
+                    <input type="text" ng-model="model.Phone2" class="form-control" ng-maxlength="15" />
+                </div>
+                <div class="form-group">
+                    <label>Phone 3</label>
+                    <input type="text" ng-model="model.Phone3" class="form-control" ng-maxlength="15" />
+                </div>
+            </ng-form>
+            <ng-form ng-show="curTab.id === 'insurance'" name="insuranceForm">
+                <div class="form-group required">
+                    <label>Company Name</label>
+                    <input type="text" ng-model="model.InsuranceName" class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+                <div class="form-group required">
+                    <label>Policy Number</label>
+                    <input type="text" ng-model="model.PolicyNumber" class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+                <div class="form-group required">
+                    <label>Group Number</label>
+                    <input type="text" ng-model="model.GroupNumber" class="form-control" ng-maxlength="50" ng-required="true" />
+                </div>
+            </ng-form>
+            <ng-form ng-show="curTab.id === 'dependents'" name="dependentsForm">
+                dependents
+            </ng-form>
+
+
+            <div ng-if="isHousehold">
+                Relationship
+                DOB
+                IsPayer
+                Dependents
+            </div>
+        </div>
     </div>
 </div>

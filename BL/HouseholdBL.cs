@@ -14,6 +14,11 @@ namespace Clinic.BL
             return DataLayer.UserDL.Get(userId, password);
         }
 
+        public Household GetByUserId(int userId)
+        {
+            return DataLayer.HouseholdDL.GetByUserId(userId);
+        }
+
         public void Create(Household household)
         {
             DataLayer.HouseholdDL.Create(household);
@@ -22,6 +27,9 @@ namespace Clinic.BL
         public void Update(Household household)
         {
             DataLayer.HouseholdDL.Update(household);
+            household.People.ForEach(person =>
+                BusinessLayer.PersonBL.Update(person)
+            );
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Clinic.DL
 {
     public class UserDL : DlBase
     {
+        private string dummyPass = "dummy";
+
         private void Populate(Object obj, OracleDataReader reader)
         {
             var target = (User)obj;
@@ -20,6 +22,7 @@ namespace Clinic.DL
             
             target.Id = Convert.ToInt32(reader["user_id"]);
             target.Username = reader["username"].ToString();
+            target.Password = dummyPass;
             target.Role = DataLayer.RoleDL.Get(Convert.ToInt32(reader["role_id"]));
 
         }
@@ -87,21 +90,40 @@ namespace Clinic.DL
 
         public void Update(User user)
         {
-            var hashedPass = user.Password.GetHashCode();
+            string sql = string.Empty;
 
-            string sql = string.Format(@"
-                         UPDATE USERS 
-                         SET USERNAME = '{1}', 
-                             PASSWORD = '{2}', 
-                             ROLE_ID = {3}, 
-                             ENTITY_ID = {4}
-                         WHERE USER_ID = {0}
-                         ", 
-                         user.Id, 
-                         user.Username,
-                         hashedPass,
-                         user.Role.Id,
-                         user.EntityId);
+            if (!string.IsNullOrWhiteSpace(user.Password) && user.Password != dummyPass)
+            {
+                var hashedPass = user.Password.GetHashCode();
+
+                sql = string.Format(@"
+                             UPDATE USERS 
+                             SET USERNAME = '{1}', 
+                                 PASSWORD = '{2}', 
+                                 ROLE_ID = {3}, 
+                                 ENTITY_ID = {4}
+                             WHERE USER_ID = {0}
+                             ",
+                             user.Id,
+                             user.Username,
+                             hashedPass,
+                             user.Role.Id,
+                             user.EntityId);
+            }
+            else
+            {
+                sql = string.Format(@"
+                             UPDATE USERS 
+                             SET USERNAME = '{1}', 
+                                 ROLE_ID = {2}, 
+                                 ENTITY_ID = {3}
+                             WHERE USER_ID = {0}
+                             ",
+                             user.Id,
+                             user.Username,
+                             user.Role.Id,
+                             user.EntityId == null ? "NULL" : user.EntityId.ToString());
+            }
 
             ExecuteQuery(sql);
         }

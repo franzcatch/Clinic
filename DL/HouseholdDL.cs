@@ -40,7 +40,10 @@ namespace Clinic.DL
 
             string sql = string.Format(@"
                          SELECT *
-                         FROM HOUSEHOLD_PERSON
+                         FROM USERS u
+                         JOIN HOUSEHOLD_PERSON hp ON u.entity_id = hp.entity_id
+                         JOIN HOUSEHOLD h ON hp.household_id = h.household_id
+                         WHERE u.user_id = {0}
                          ", userId);
 
             ExecuteReader(sql, obj, Populate);
@@ -53,25 +56,23 @@ namespace Clinic.DL
             //TODO InjectionValidator(household.);
             //TODO InjectionValidator(lastName);
 
-            //string sql;
-            //int id = GetNextVal(Sequences.Household);
+            string sql;
+            int id = GetNextVal(Sequences.Household);
 
-            //sql = string.Format(@"
-            //      INSERT INTO HOUSEHOLD_PERSON
-            //      (HOUSEHOLD_PERSON_ID, RELATIONSHIP_ID, HOUSEHOLD_ID, ENTITY_ID, IS_PAYER, DOB)
-            //      VALUES 
-            //      ({0},{1},{2},{3},'{4}','{5}')
-            //      ",
-            //      id,
-            //      household.Relationship.Id,
-            //      household.HouseholdId,
-            //      household.EntityId,
-            //      household.IsPayer,
-            //      household.DateOfBirth);
+            sql = string.Format(@"
+                  INSERT INTO HOUSEHOLD
+                  (HOUSEHOLD_ID, INSURANCE_NAME, POLICY_NUMBER, GROUP_NUMBER)
+                  VALUES 
+                  ({0},'{1}','{2}','{3}')
+                  ",
+                  id,
+                  household.InsuranceName,
+                  household.PolicyNumber,
+                  household.GroupNumber);
 
-            //ExecuteQuery(sql);
+            ExecuteQuery(sql);
 
-            //household.Id = id;
+            household.Id = id;
         }
 
         public void Update(Household household)
@@ -79,23 +80,19 @@ namespace Clinic.DL
             //TODO InjectionValidator(firstName);
             //TODO InjectionValidator(lastName);
 
-            //string sql = string.Format(@"
-            //             UPDATE HOUSEHOLD_PERSON
-            //             SET RELATIONSHIP_ID = {1}, 
-            //                 HOUSEHOLD_ID = {2}, 
-            //                 ENTITY_ID = {3}, 
-            //                 IS_PAYER = '{4}', 
-            //                 DOB = '{5}'
-            //             WHERE HOUSEHOLD_PERSON_ID = {0}
-            //             ",
-            //             household.Id,
-            //             household.Relationship.Id,
-            //             household.HouseholdId,
-            //             household.EntityId,
-            //             household.IsPayer,
-            //             household.DateOfBirth);
+            string sql = string.Format(@"
+                         UPDATE HOUSEHOLD
+                         SET INSURANCE_NAME = '{1}', 
+                             POLICY_NUMBER = '{2}', 
+                             GROUP_NUMBER = '{3}'
+                         WHERE HOUSEHOLD_ID = {0}
+                         ",
+                         household.Id,
+                         household.InsuranceName,
+                         household.PolicyNumber,
+                         household.GroupNumber);
 
-            //ExecuteQuery(sql);
+            ExecuteQuery(sql);
         }
     }
 }

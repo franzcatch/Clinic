@@ -30,10 +30,20 @@
             });
             return dfd.promise;
         }
+        function update(data) {
+            var dfd = $q.defer();
+            ajaxService.post("User", "Update", data).then(function (user) {
+                settings.getSettings(true).then(function () {
+                    dfd.resolve(user);
+                });
+            });
+            return dfd.promise;
+        }
         return {
             login: login,
             logout: logout,
-            register: register
+            register: register,
+            update: update
         };
     }
 }(window.angular));

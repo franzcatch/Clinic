@@ -22,6 +22,7 @@ namespace Clinic.BL
         public void Update(Person person)
         {
             DataLayer.PersonDL.Update(person);
+            BusinessLayer.EntityBL.Update(person);
         }
     }
 }

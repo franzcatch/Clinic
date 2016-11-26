@@ -60,7 +60,7 @@
             .when('/home/profile', {
             name: 'profile',
             templateUrl: 'app/home/profile/profile.html',
-            controller: 'HomeCtrl',
+            controller: 'ProfileCtrl',
             resolve: {
                 factory: checkRouting
             }
@@ -68,7 +68,7 @@
             .when('/home/qualifications', {
             name: 'qualifications',
             templateUrl: 'app/home/qualifications/qualifications.html',
-            controller: 'HomeCtrl',
+            controller: 'QualificationsCtrl',
             resolve: {
                 factory: checkRouting
             }
@@ -84,7 +84,7 @@
             .when('/home/staff', {
             name: 'staff',
             templateUrl: 'app/home/staff/staff.html',
-            controller: 'HomeCtrl',
+            controller: 'StaffCtrl',
             resolve: {
                 factory: checkRouting
             }

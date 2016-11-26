@@ -49,7 +49,15 @@ namespace Clinic.BL
 
         public void Update(User user)
         {
+            
             DataLayer.UserDL.Update(user);
+            if (user.EntityId != null)
+            {
+                BusinessLayer.EntityBL.Update(user);
+            } else
+            {
+                BusinessLayer.EntityBL.Create(user);
+            }
         }
     }
 }

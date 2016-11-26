@@ -10,7 +10,7 @@
         $scope.getName = function () {
             if ($scope.settings.User) {
                 var name = ($scope.settings.User.FirstName ? $scope.settings.User.FirstName : '') +
-                           ($scope.settings.User.LastName ? ' ' + $scope.settings.User.LastName : '') +
+                           ($scope.settings.User.LastName ? ' ' + $scope.settings.User.LastName + ' ' : '') +
                            ($scope.settings.User.Role ? ('(' + $scope.settings.User.Role.Name + ')') : '');
                 return name.trim();
             }

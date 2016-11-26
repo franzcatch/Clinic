@@ -22,7 +22,7 @@ namespace Clinic.Controllers
         [WebMethod(EnableSession = true)]
         public User Login()
         {
-            var obj = JsonParser.GetParams<UserData>(Context);
+            var obj = JsonParser.GetParams<UserDataContext>(Context);
             var user = BusinessLayer.UserBL.Get(obj.username, obj.password);
             CurSession.User = user;
             return user;
@@ -32,7 +32,7 @@ namespace Clinic.Controllers
         [WebMethod(EnableSession = true)]
         public User Register()
         {
-            var obj = JsonParser.GetParams<Registration>(Context);
+            var obj = JsonParser.GetParams<RegistrationContext>(Context);
 
             var user = new BO.User() {
                 Username = obj.username,
@@ -65,16 +65,26 @@ namespace Clinic.Controllers
         {
             CurSession.User = null;
         }
-    }
 
-    public class Registration : UserData
-    {
-        public int householdId { get; set; }
-    }
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public User Update()
+        {
+            var obj = JsonParser.GetParams<User>(Context);
+            BusinessLayer.UserBL.Update(obj);
+            CurSession.User = obj;
+            return obj;
+        }
 
-    public class UserData
-    {
-        public string username { get; set; }
-        public string password { get; set; }
+        public class RegistrationContext : UserDataContext
+        {
+            public int householdId { get; set; }
+        }
+
+        public class UserDataContext
+        {
+            public string username { get; set; }
+            public string password { get; set; }
+        }
     }
 }

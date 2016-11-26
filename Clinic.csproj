@@ -258,6 +258,8 @@
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Controllers\GlobalSettingsController.asmx" />
+    <Content Include="Controllers\HouseholdController.asmx" />
+    <Content Include="Controllers\PersonController.asmx" />
     <Content Include="Controllers\UserController.asmx" />
     <Content Include="Css\site.css">
       <DependentUpon>site.less</DependentUpon>
@@ -1109,6 +1111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\BusinessLayer.cs" />
+    <Compile Include="BL\EntityBL.cs" />
     <Compile Include="BL\PersonBL.cs" />
     <Compile Include="BL\HouseholdBL.cs" />
     <Compile Include="BL\RoleBL.cs" />
@@ -1130,6 +1133,13 @@
     <Compile Include="Controllers\GlobalSettingsController.asmx.cs">
       <DependentUpon>GlobalSettingsController.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\HouseholdController.asmx.cs">
+      <DependentUpon>HouseholdController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PersonController.asmx.cs">
+      <DependentUpon>PersonController.asmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\UserController.asmx.cs">
       <DependentUpon>UserController.asmx</DependentUpon>
@@ -1172,6 +1182,8 @@
     <TypeScriptCompile Include="app\home\homeDirective.ts" />
     <TypeScriptCompile Include="app\home\profile\ProfileCtrl.ts" />
     <TypeScriptCompile Include="app\home\clinics\ClinicsCtrl.ts" />
+    <TypeScriptCompile Include="app\lib\maxLengthDirective.ts" />
+    <TypeScriptCompile Include="app\services\householdService.ts" />
     <TypeScriptCompile Include="app\home\staff\StaffCtrl.ts" />
     <TypeScriptCompile Include="app\home\reports\ReportsCtrl.ts" />
     <TypeScriptCompile Include="app\home\qualifications\QualificationsCtrl.ts" />
@@ -1187,7 +1199,7 @@
     <TypeScriptCompile Include="app\lib\ajaxService.ts" />
     <TypeScriptCompile Include="app\home\homeTiles.ts" />
     <TypeScriptCompile Include="app\lib\settings.ts" />
-    <TypeScriptCompile Include="app\user\userService.ts" />
+    <TypeScriptCompile Include="app\services\userService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

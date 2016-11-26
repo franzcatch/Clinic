@@ -8,9 +8,9 @@ namespace Clinic.BO
     public class Entity : BusinessBase
     {
         public int? EntityId { get; set; }
-        public string Name1 { get; set; }
-        public string Name2 { get; set; }
-        public string Name3 { get; set; }
+        protected string Name1 { get; set; }
+        protected string Name2 { get; set; }
+        protected string Name3 { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
@@ -19,6 +19,28 @@ namespace Clinic.BO
         public string Phone1 { get; set; }
         public string Phone2 { get; set; }
         public string Phone3 { get; set; }
+
+        public void SetName(string name1, string name2, string name3)
+        {
+            Name1 = name1;
+            Name2 = name2;
+            Name3 = name3;
+        }
+
+        public string GetName1()
+        {
+            return Name1;
+        }
+
+        public string GetName2()
+        {
+            return Name2;
+        }
+
+        public string GetName3()
+        {
+            return Name3;
+        }
 
         public Entity Copy ()
         {
