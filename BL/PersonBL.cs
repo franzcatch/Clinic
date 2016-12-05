@@ -19,10 +19,25 @@ namespace Clinic.BL
             return DataLayer.PersonDL.GetPayerByHouseholdId(householdId);
         }
 
-        public void Update(Person person)
+        public void Update(int householdId, Person person)
         {
-            DataLayer.PersonDL.Update(person);
-            BusinessLayer.EntityBL.Update(person);
+            if (person.EntityId == null)
+            {
+                BusinessLayer.EntityBL.Create(person);
+            }
+            else
+            {
+                BusinessLayer.EntityBL.Update(person);
+            }
+
+            if (!person.Id.HasValue)
+            {
+                DataLayer.PersonDL.Create(householdId, person);
+            }
+            else
+            {
+                DataLayer.PersonDL.Update(householdId, person);
+            }
         }
     }
 }

@@ -21,13 +21,6 @@ var _;
                 permissions: [user, office, admin]
             },
             {
-                name: 'Clients',
-                icon: 'fa-users',
-                color: '#6fb7ff',
-                route: '/home/clients',
-                permissions: [office, admin]
-            },
-            {
                 name: 'Qualifications',
                 icon: 'fa-check',
                 color: '#6fb7ff',
@@ -42,10 +35,17 @@ var _;
                 permissions: [office, admin]
             },
             {
-                name: 'Staff',
+                name: 'People',
+                icon: 'fa-users',
+                color: '#6fb7ff',
+                route: '/home/people',
+                permissions: [office, admin]
+            },
+            {
+                name: 'Users',
                 icon: 'fa-cogs',
                 color: '#6fb7ff',
-                route: '/home/staff',
+                route: '/home/users',
                 permissions: [admin]
             },
             {

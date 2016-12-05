@@ -41,8 +41,14 @@ namespace Clinic.BO
             }
         }
         public bool IsPayer { get; set; }
-        public int HouseholdId { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public string DateOfBirthString
+        {
+            get
+            {
+                return DateOfBirth.ToString("dd-MMM-yyyy").ToUpper();
+            }
+        }
         public Relationship Relationship { get; set; }
         public List<Appointment> Appointments { get; set; }
     }

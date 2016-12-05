@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clinic.BO;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Clinic.Utilities
 {
     public static class JsonParser
     {
-        public static T GetParams<T>(HttpContext context)
+        public static T FromJson<T>(HttpContext context)
         {
             var jsonString = String.Empty;
 
@@ -21,6 +22,28 @@ namespace Clinic.Utilities
             }
 
             return new JavaScriptSerializer().Deserialize<T>(jsonString);
+        }
+
+        public static string ToJson(Object obj)
+        {
+            return new JavaScriptSerializer().Serialize(obj);
+        }
+
+        public static string ExceptionToJson (Exception ex)
+        {
+            List<ErrorMessage> errorMessages;
+
+            if (ex.GetType() == typeof(CustomException))
+            {
+                errorMessages = ((CustomException)ex).ErrorMessages;
+            }
+            else
+            {
+                errorMessages = new List<ErrorMessage>();
+                errorMessages.Add(new ErrorMessage("", ex.Message));
+            }
+            
+            return "{\"errorMessages\":" + new JavaScriptSerializer().Serialize(errorMessages) + "}";
         }
     }
 }

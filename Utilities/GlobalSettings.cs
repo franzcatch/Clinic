@@ -42,7 +42,7 @@ namespace Clinic.Utilities
             _adminExists = admins.Count > 0;
         }
 
-        public static object GetJson() {
+        public static string GetJson() {
             dynamic obj = new System.Dynamic.ExpandoObject();
             obj.AdminExists = AdminExists;
             obj.User = User;

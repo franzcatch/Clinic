@@ -49,11 +49,53 @@
             return dfd.promise;
         }
 
+        function remove(data) {
+            var dfd = $q.defer();
+            ajaxService.post("User", "Remove", data).then(function (user) {
+                settings.getSettings(true).then(function () {
+                    dfd.resolve(user);
+                });
+            });
+
+            return dfd.promise;
+        }
+
+        function getStaff() {
+            var dfd = $q.defer();
+            ajaxService.post("User", "GetStaff").then(function (data) {
+                dfd.resolve(data);
+            });
+
+            return dfd.promise;
+        }
+
+        function getClients() {
+            var dfd = $q.defer();
+            ajaxService.post("User", "GetClients").then(function (data) {
+                dfd.resolve(data);
+            });
+
+            return dfd.promise;
+        }
+
+        function getRoles() {
+            var dfd = $q.defer();
+            ajaxService.post("User", "GetRoles").then(function (data) {
+                dfd.resolve(data);
+            });
+
+            return dfd.promise;
+        }
+
         return {
             login: login,
             logout: logout,
             register: register,
-            update: update
+            update: update,
+            remove: remove,
+            getStaff: getStaff,
+            getClients: getClients,
+            getRoles: getRoles
         };
     }
 } ((<any>window).angular));

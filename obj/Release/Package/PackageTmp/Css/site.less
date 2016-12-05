@@ -1,16 +1,18 @@
 ﻿@import url('../Content/font-awesome');
 @import url('../Content/bootstrap/bootstrap');
+//@import url('../Content/select'); 
 @import url('../Content/toastr'); 
+
 
 @import url('../app/home/home');
 @import url('../app/home/appointment/appointment');
 @import url('../app/home/billing/billing');
-@import url('../app/home/clients/clients');
+@import url('../app/home/people/people');
 @import url('../app/home/clinics/clinics');
 @import url('../app/home/profile/profile');
 @import url('../app/home/qualifications/qualifications');
 @import url('../app/home/reports/reports');
-@import url('../app/home/staff/staff');
+@import url('../app/home/users/users');
   
 @headerHeight: 50px;
 @titleHeight: 50px;
@@ -24,6 +26,15 @@ body {
     left: 0;
     right: 0;
     background-color: white !important;
+
+    input.ng-invalid { 
+        border: 1px #d9534f solid !important;
+    }
+
+    .main-view {
+        height: 100%;
+        width: 100%;
+    }
 
     .modal-backdrop {
         display: none !important;
@@ -109,6 +120,20 @@ body {
          }
     }
 
+    .dropdown {
+        button {
+            width: 100%;
+
+            span.message {
+                float: left;
+            }
+
+            span.caret {
+                float: right;
+            }
+        }       
+    }
+
     label.required:after {
         content: "*";
         color: red;
@@ -139,10 +164,67 @@ body {
             font-size: 24px;
             padding: 10px;
             background-color: rgba(0, 0, 0, 0.6);
+
+            .btn {
+                margin-right: 20px;
+                float: right;
+                width: 150px;
+            }
         }
 
         .page-content {
-            padding: 30px;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            display: table;
+
+            .page-content-left {
+                width: 250px;
+                height: 100%;
+                display: table-cell;
+                vertical-align: top;
+                background: rgba(0, 0, 0, 0.6);
+
+                .page-content-left-tab {
+                    width: 100%;
+                    border-bottom: 1px solid #e7e7e7;
+                    text-transform: uppercase;
+                    color: white;
+                    padding: 10px;
+                    cursor: pointer;
+
+                    span {
+                        font-size: 1.2em;
+                        margin-left: 10px;
+                    }
+
+                    .fa-exclamation-triangle {
+                        color: #d9534f;
+                        float: right;
+                    }
+
+                    &.active {
+                        background-color: lightseagreen !important;
+                    }
+
+                    &:hover {
+                        background-color: lightseagreen !important;
+                    }
+                }
+            } 
+
+            .page-content-right {
+                display: table-cell;
+                padding: 30px;
+                 
+                .table-btn {
+                    cursor: pointer;
+                }
+
+                .red {
+                    color: #d9534f;
+                }
+            }
         }
     }
 

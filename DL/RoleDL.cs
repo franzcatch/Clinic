@@ -9,21 +9,21 @@ namespace Clinic.DL
 {
     public class RoleDL : DlBase
     {
-        private List<Role> _roles = new List<Role>();
+        private List<Role> _roles;
 
         private List<Role> Roles {
             get
             {
-                if(_roles.Count > 0)
+                if(_roles == null)
                 {
-                    return _roles;
-                }
+                    _roles = new List<Role>();
 
-                string sql = string.Format(@"
+                    string sql = string.Format(@"
                          SELECT *
                          FROM ROLES");
 
-                this.ExecuteReader(sql, _roles, Populate);
+                    this.ExecuteReader(sql, _roles, Populate);
+                }                
 
                 return _roles;
             }

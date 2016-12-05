@@ -5,12 +5,12 @@
 @import url('../app/home/home');
 @import url('../app/home/appointment/appointment');
 @import url('../app/home/billing/billing');
-@import url('../app/home/clients/clients');
+@import url('../app/home/people/people');
 @import url('../app/home/clinics/clinics');
 @import url('../app/home/profile/profile');
+@import url('../app/home/profile/profileModal');
 @import url('../app/home/qualifications/qualifications');
 @import url('../app/home/reports/reports');
-@import url('../app/home/staff/staff');
   
 @headerHeight: 50px;
 @titleHeight: 50px;
@@ -118,6 +118,20 @@ body {
          }
     }
 
+    .dropdown {
+        button {
+            width: 100%;
+
+            span.message {
+                float: left;
+            }
+
+            span.caret {
+                float: right;
+            }
+        }       
+    }
+
     label.required:after {
         content: "*";
         color: red;
@@ -154,6 +168,13 @@ body {
                 float: right;
                 width: 150px;
             }
+        }
+
+        .sub-banner {
+            width: 100%;
+            padding: 5px;
+            border-bottom: 1px solid #e7e7e7;
+            background-color: rgba(23,97,142,0.1);
         }
 
         .page-content {
@@ -200,6 +221,14 @@ body {
             .page-content-right {
                 display: table-cell;
                 padding: 30px;
+                 
+                .table-btn {
+                    cursor: pointer;
+                }
+
+                .red {
+                    color: #d9534f;
+                }
             }
         }
     }

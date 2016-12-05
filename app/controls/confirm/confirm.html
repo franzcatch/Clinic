@@ -1,0 +1,16 @@
+﻿<div class="modal-header">
+    <button ng-click="close()" type="button" class="close"><span>&times;</span></button>
+    <h4 class="modal-title">Confirm</h4>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        Are you sure you want to do this?
+    </div>
+    <div>
+        <button ng-click="close()" class="btn btn-default">Cancel</button>
+        <button class="btn btn-success" ng-click="confirm()">
+            Confirm
+            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+        </button>
+    </div>
+</div>

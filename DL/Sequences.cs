@@ -16,7 +16,6 @@ namespace Clinic.DL
         public static string Payment = "PAYMENT_S";
         public static string ProviderQualification = "PROVIDER_QUALIFICATION_S";
         public static string Provider = "PROVIDER_S";
-        public static string Relationship = "RELATIONSHIP_S";
         public static string Room = "ROOM_S";
         public static string Service = "SERVICE_S";
         public static string User = "USERS_S";

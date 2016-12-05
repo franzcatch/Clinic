@@ -9,9 +9,9 @@ namespace Clinic.BL
 {
     public class HouseholdBL
     {
-        public User Get(string userId, string password)
+        public Household Get(int id)
         {
-            return DataLayer.UserDL.Get(userId, password);
+            return DataLayer.HouseholdDL.Get(id);
         }
 
         public Household GetByUserId(int userId)
@@ -26,9 +26,17 @@ namespace Clinic.BL
         
         public void Update(Household household)
         {
-            DataLayer.HouseholdDL.Update(household);
+            if (household.Id.HasValue)
+            {
+                DataLayer.HouseholdDL.Update(household);
+            }
+            else
+            {
+                DataLayer.HouseholdDL.Create(household);
+            }
+
             household.People.ForEach(person =>
-                BusinessLayer.PersonBL.Update(person)
+                BusinessLayer.PersonBL.Update(household.Id.Value, person)
             );
         }
     }

@@ -11,28 +11,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="app/app.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
+    </File>
+    <File Include="app/controls/confirm/confirm.html">
+      <publishTime>11/28/2016 00:10:30</publishTime>
+    </File>
+    <File Include="app/controls/confirm/confirm.less">
+      <publishTime>11/27/2016 23:29:37</publishTime>
+    </File>
+    <File Include="app/controls/confirm/ConfirmCtrl.js">
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/header/header.html">
-      <publishTime>11/22/2016 00:26:13</publishTime>
+      <publishTime>11/26/2016 02:52:22</publishTime>
     </File>
     <File Include="app/header/HeaderCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/header/headerDirective.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/header/login/login.html">
-      <publishTime>11/18/2016 00:46:11</publishTime>
+      <publishTime>11/28/2016 00:10:04</publishTime>
     </File>
     <File Include="app/header/login/LoginCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/header/login/register.html">
-      <publishTime>11/22/2016 00:21:04</publishTime>
+      <publishTime>11/28/2016 01:24:20</publishTime>
     </File>
     <File Include="app/header/login/RegisterCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/appointment/appointment.html">
       <publishTime>11/22/2016 10:50:07</publishTime>
@@ -41,7 +50,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2016 00:51:18</publishTime>
     </File>
     <File Include="app/home/appointment/AppointmentCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/billing/billing.html">
       <publishTime>11/22/2016 10:50:07</publishTime>
@@ -50,7 +59,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2016 01:00:02</publishTime>
     </File>
     <File Include="app/home/billing/BillingCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/clients/clients.html">
       <publishTime>11/22/2016 10:50:07</publishTime>
@@ -68,31 +77,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2016 01:00:02</publishTime>
     </File>
     <File Include="app/home/clinics/ClinicsCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/home.html">
-      <publishTime>11/22/2016 09:52:58</publishTime>
+      <publishTime>11/23/2016 23:13:47</publishTime>
     </File>
     <File Include="app/home/home.less">
       <publishTime>11/22/2016 09:59:31</publishTime>
     </File>
     <File Include="app/home/HomeCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/homeDirective.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/homeTiles.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
+    </File>
+    <File Include="app/home/people/people.html">
+      <publishTime>11/28/2016 00:56:30</publishTime>
+    </File>
+    <File Include="app/home/people/people.less">
+      <publishTime>11/27/2016 23:24:42</publishTime>
+    </File>
+    <File Include="app/home/people/PeopleCtrl.js">
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/profile/profile.html">
-      <publishTime>11/22/2016 10:43:37</publishTime>
+      <publishTime>11/27/2016 02:23:41</publishTime>
     </File>
     <File Include="app/home/profile/profile.less">
       <publishTime>11/22/2016 01:01:30</publishTime>
     </File>
     <File Include="app/home/profile/ProfileCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/qualifications/qualifications.html">
       <publishTime>11/22/2016 10:50:07</publishTime>
@@ -101,7 +119,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2016 00:54:27</publishTime>
     </File>
     <File Include="app/home/qualifications/QualificationsCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/reports/reports.html">
       <publishTime>11/22/2016 10:50:07</publishTime>
@@ -110,7 +128,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2016 01:00:02</publishTime>
     </File>
     <File Include="app/home/reports/ReportsCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/home/staff/staff.html">
       <publishTime>11/22/2016 10:50:05</publishTime>
@@ -121,26 +139,50 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="app/home/staff/StaffCtrl.js">
       <publishTime>11/22/2016 10:50:41</publishTime>
     </File>
+    <File Include="app/home/users/users.html">
+      <publishTime>11/28/2016 01:40:33</publishTime>
+    </File>
+    <File Include="app/home/users/users.less">
+      <publishTime>11/27/2016 23:25:37</publishTime>
+    </File>
+    <File Include="app/home/users/UsersCtrl.js">
+      <publishTime>11/28/2016 02:05:34</publishTime>
+    </File>
     <File Include="app/landing/landing.html">
       <publishTime>11/14/2016 23:26:45</publishTime>
     </File>
     <File Include="app/landing/LandingCtrl.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/lib/ajaxService.js">
       <publishTime>11/22/2016 10:50:41</publishTime>
     </File>
+    <File Include="app/lib/focusDirective.js">
+      <publishTime>11/28/2016 02:05:34</publishTime>
+    </File>
+    <File Include="app/lib/maxLengthDirective.js">
+      <publishTime>11/28/2016 02:05:34</publishTime>
+    </File>
     <File Include="app/lib/settings.js">
-      <publishTime>11/22/2016 10:50:41</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/lib/settingsService.js">
       <publishTime>11/21/2016 00:58:27</publishTime>
+    </File>
+    <File Include="app/services/ajaxService.js">
+      <publishTime>11/28/2016 02:05:34</publishTime>
+    </File>
+    <File Include="app/services/householdService.js">
+      <publishTime>11/28/2016 02:05:34</publishTime>
+    </File>
+    <File Include="app/services/userService.js">
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="app/user/userService.js">
       <publishTime>11/22/2016 10:50:41</publishTime>
     </File>
     <File Include="bin/Clinic.dll">
-      <publishTime>11/22/2016 09:47:29</publishTime>
+      <publishTime>11/28/2016 02:05:34</publishTime>
     </File>
     <File Include="bin/dotless.Core.dll">
       <publishTime>03/30/2016 03:36:04</publishTime>
@@ -428,13 +470,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/13/2016 02:01:31</publishTime>
     </File>
     <File Include="Content/select.css">
-      <publishTime>10/30/2016 00:18:16</publishTime>
+      <publishTime>11/27/2016 02:27:36</publishTime>
     </File>
     <File Include="Content/select.min.css">
-      <publishTime>10/30/2016 00:18:16</publishTime>
+      <publishTime>11/27/2016 02:27:35</publishTime>
     </File>
     <File Include="Content/select.min.css.map">
-      <publishTime>10/30/2016 00:18:16</publishTime>
+      <publishTime>11/27/2016 02:27:35</publishTime>
     </File>
     <File Include="Content/tether/tether-theme-arrows-dark.css">
       <publishTime>11/09/2016 00:05:39</publishTime>
@@ -478,17 +520,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Controllers/GlobalSettingsController.asmx">
       <publishTime>11/19/2016 16:47:03</publishTime>
     </File>
+    <File Include="Controllers/HouseholdController.asmx">
+      <publishTime>11/22/2016 22:03:12</publishTime>
+    </File>
+    <File Include="Controllers/PersonController.asmx">
+      <publishTime>11/22/2016 21:54:21</publishTime>
+    </File>
     <File Include="Controllers/UserController.asmx">
       <publishTime>11/09/2016 00:59:28</publishTime>
     </File>
     <File Include="Css/site.css">
-      <publishTime>11/22/2016 10:42:54</publishTime>
+      <publishTime>11/28/2016 02:04:47</publishTime>
     </File>
     <File Include="Css/site.less">
-      <publishTime>11/22/2016 10:45:22</publishTime>
+      <publishTime>11/28/2016 02:04:49</publishTime>
     </File>
     <File Include="Css/site.min.css">
-      <publishTime>11/22/2016 10:42:54</publishTime>
+      <publishTime>11/28/2016 02:04:47</publishTime>
     </File>
     <File Include="Docs/11_02_2016.png">
       <publishTime>11/02/2016 23:45:07</publishTime>
@@ -551,16 +599,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/30/2016 00:20:14</publishTime>
     </File>
     <File Include="Images/banner.jpg">
-      <publishTime>11/14/2016 03:23:11</publishTime>
+      <publishTime>11/23/2016 23:18:35</publishTime>
     </File>
     <File Include="Images/logo.png">
       <publishTime>11/13/2016 10:49:18</publishTime>
     </File>
     <File Include="Index.html">
-      <publishTime>11/22/2016 01:38:13</publishTime>
+      <publishTime>11/27/2016 23:56:58</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/20/2016 21:32:31</publishTime>
+      <publishTime>11/27/2016 02:53:59</publishTime>
     </File>
     <File Include="Scripts/angular-animate.js">
       <publishTime>11/15/2016 23:55:10</publishTime>
@@ -678,6 +726,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/angular-ui/ui-bootstrap.min.js">
       <publishTime>11/15/2016 23:55:11</publishTime>
+    </File>
+    <File Include="Scripts/angular-ui/ui-utils-ieshiv.js">
+      <publishTime>11/27/2016 02:53:59</publishTime>
+    </File>
+    <File Include="Scripts/angular-ui/ui-utils-ieshiv.min.js">
+      <publishTime>11/27/2016 02:53:59</publishTime>
+    </File>
+    <File Include="Scripts/angular-ui/ui-utils.js">
+      <publishTime>11/27/2016 02:53:59</publishTime>
+    </File>
+    <File Include="Scripts/angular-ui/ui-utils.min.js">
+      <publishTime>11/27/2016 02:53:59</publishTime>
     </File>
     <File Include="Scripts/angular.js">
       <publishTime>11/15/2016 23:55:11</publishTime>
@@ -2954,13 +3014,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/20/2016 21:24:17</publishTime>
     </File>
     <File Include="Scripts/select.js">
-      <publishTime>10/30/2016 00:18:16</publishTime>
+      <publishTime>11/27/2016 02:27:35</publishTime>
     </File>
     <File Include="Scripts/select.min.js">
-      <publishTime>10/30/2016 00:18:16</publishTime>
+      <publishTime>11/27/2016 02:27:35</publishTime>
     </File>
     <File Include="Scripts/select.min.js.map">
-      <publishTime>10/30/2016 00:18:16</publishTime>
+      <publishTime>11/27/2016 02:27:35</publishTime>
     </File>
     <File Include="Scripts/tether/tether.js">
       <publishTime>11/09/2016 00:05:39</publishTime>

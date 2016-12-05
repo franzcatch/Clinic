@@ -12,11 +12,19 @@ namespace Clinic.DL
         private void Populate(Object obj, OracleDataReader reader)
         {
             var target = (Person)obj;
-            target.Id = Convert.ToInt32(reader["person_id"]);
-            DataLayer.EntityDL.Populate(obj, reader);
+            
+            int entityId;
+            if (Int32.TryParse(reader["entity_id"].ToString(), out entityId))
+            {
+                DataLayer.EntityDL.Get(entityId).CopyTo(target);
+            }
+
+            target.Id = Convert.ToInt32(reader["household_person_id"]);
             target.Appointments = new List<Appointment>();
-            target.IsPayer = true;
-            target.Relationship = new Relationship();
+            target.IsPayer = reader["is_payer"].ToString() == "Y" ? true : false;
+            target.DateOfBirth = DateTime.Parse(reader["dob"].ToString());
+            var relationshipId = Convert.ToInt32(reader["relationship_id"]);
+            target.Relationship = DataLayer.RelationshipDL.GetRelationships().First(x => x.Id == relationshipId);
         }
 
         public Person Get(int id)
@@ -79,7 +87,7 @@ namespace Clinic.DL
             return obj;
         }
         
-        public void Create(Person person)
+        public void Create(int householdId, Person person)
         {
             //TODO InjectionValidator(person.);
             //TODO InjectionValidator(lastName);
@@ -91,21 +99,21 @@ namespace Clinic.DL
                   INSERT INTO HOUSEHOLD_PERSON
                   (HOUSEHOLD_PERSON_ID, RELATIONSHIP_ID, HOUSEHOLD_ID, ENTITY_ID, IS_PAYER, DOB)
                   VALUES 
-                  ({0},{1},{2},{3},'{4}','{5}')
+                  ({0},{1},{2},{3},'{4}',TO_DATE('{5}'))
                   ", 
                   id, 
                   person.Relationship.Id,
-                  person.HouseholdId,
+                  householdId,
                   person.EntityId,
-                  person.IsPayer,
-                  person.DateOfBirth);
+                  person.IsPayer ? 'Y' : 'N',
+                  person.DateOfBirthString);
             
             ExecuteQuery(sql);
 
             person.Id = id;
         }
 
-        public void Update(Person person)
+        public void Update(int householdId, Person person)
         {
             //TODO InjectionValidator(firstName);
             //TODO InjectionValidator(lastName);
@@ -121,10 +129,10 @@ namespace Clinic.DL
                          ",
                          person.Id,
                          person.Relationship.Id,
-                         person.HouseholdId,
+                         householdId,
                          person.EntityId,
-                         person.IsPayer,
-                         person.DateOfBirth);
+                         person.IsPayer ? 'Y' : 'N',
+                         person.DateOfBirthString);
 
             ExecuteQuery(sql);
         }

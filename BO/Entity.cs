@@ -42,7 +42,7 @@ namespace Clinic.BO
             return Name3;
         }
 
-        public Entity Copy ()
+        public Entity Copy()
         {
             return new Entity
             {
@@ -59,6 +59,22 @@ namespace Clinic.BO
                 Phone2 = this.Phone2,
                 Phone3 = this.Phone3
             };
+        }
+
+        public void CopyTo(Entity destination)
+        {
+            destination.EntityId = this.EntityId;
+            destination.Name1 = this.Name1;
+            destination.Name2 = this.Name2;
+            destination.Name3 = this.Name3;
+            destination.Address1 = this.Address1;
+            destination.Address2 = this.Address2;
+            destination.City = this.City;
+            destination.State = this.State;
+            destination.Zip = this.Zip;
+            destination.Phone1 = this.Phone1;
+            destination.Phone2 = this.Phone2;
+            destination.Phone3 = this.Phone3;
         }
 
         public bool IsEmpty() {

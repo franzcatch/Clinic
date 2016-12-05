@@ -4,15 +4,15 @@
     angular.module('clinic')
         .controller('LoginCtrl', LoginCtrl);
 
-    function LoginCtrl($scope, $uibModalInstance, userService, $location) {
+    function LoginCtrl($scope, $uibModalInstance, params) {
         $scope.username = '';
         $scope.password = '';
-        $scope.loading = false;
-
+        $scope.isLoading = false;
+        
         $scope.isPageValid = function () {
             return $scope.username.length > 0 &&
                    $scope.password.length > 0 &&
-                   !$scope.loading;
+                   !$scope.isLoading;
         };
 
         $scope.close = function () {
@@ -20,15 +20,16 @@
         };
 
         $scope.login = function () {
-            $scope.loading = true;
+            $scope.isLoading = true;
 
-            userService.login({
+            var data = {
                 username: $scope.username,
                 password: $scope.password
-            }).then(function (response) {
-                $scope.loading = false;
-                $uibModalInstance.close();
-                $location.path('/home');
+            };
+
+            params.submit(data).then(function () {
+                $scope.isLoading = false;
+                $scope.close();
             });
         };
     }

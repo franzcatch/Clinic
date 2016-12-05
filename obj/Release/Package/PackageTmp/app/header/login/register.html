@@ -4,7 +4,7 @@
 </div>
 <div class="modal-body">
     <div class="form-group required">
-        <div ng-if="settings.AdminExists">
+        <div ng-if="shouldGatherHouseholdId()">
             <label class="required">Account #</label>
             <input ng-model="householdId" type="number" class="form-control" />
         </div>
@@ -17,12 +17,25 @@
         <label class="required">Confirm Password</label>
         <input ng-model="passConf" type="password" class="form-control" />
         <label ng-if="!passwordsMatch()" class="text-warning small">Passwords don't match</label>
+
+        <div ng-if="isAdmin">
+            <label class="required">Role</label>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="message">{{getRoleMessage()}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="role in roles" ng-click="setRole(role)"><a>{{role.Name}}</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div>
         <button ng-click="close()" class="btn btn-default">Cancel</button>
         <button ng-click="register()" ng-disabled="!isPageValid()" class="btn btn-primary">
-            Register
-            <i class='fa fa-spinner fa-spin' ng-if="loading"></i>
+            {{(isEditMode ? "Save" : "Register")}}
+            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
         </button>
     </div>
 </div>

@@ -3,8 +3,10 @@
     var clinic = angular.module('clinic', [
         'ngRoute',
         'ngAnimate',
+        'ngSanitize',
         'ui.bootstrap',
-        'ui.router'
+        'ui.router',
+        'ui.select'
     ]);
     clinic.config(routeConfig);
     function routeConfig($routeProvider) {
@@ -41,10 +43,10 @@
                 factory: checkRouting
             }
         })
-            .when('/home/clients', {
-            name: 'clients',
-            templateUrl: 'app/home/clients/clients.html',
-            controller: 'ClientsCtrl',
+            .when('/home/people', {
+            name: 'people',
+            templateUrl: 'app/home/people/people.html',
+            controller: 'PeopleCtrl',
             resolve: {
                 factory: checkRouting
             }
@@ -60,7 +62,7 @@
             .when('/home/profile', {
             name: 'profile',
             templateUrl: 'app/home/profile/profile.html',
-            controller: 'HomeCtrl',
+            controller: 'ProfileCtrl',
             resolve: {
                 factory: checkRouting
             }
@@ -68,7 +70,7 @@
             .when('/home/qualifications', {
             name: 'qualifications',
             templateUrl: 'app/home/qualifications/qualifications.html',
-            controller: 'HomeCtrl',
+            controller: 'QualificationsCtrl',
             resolve: {
                 factory: checkRouting
             }
@@ -81,10 +83,10 @@
                 factory: checkRouting
             }
         })
-            .when('/home/staff', {
-            name: 'staff',
-            templateUrl: 'app/home/staff/staff.html',
-            controller: 'HomeCtrl',
+            .when('/home/users', {
+            name: 'users',
+            templateUrl: 'app/home/users/users.html',
+            controller: 'UsersCtrl',
             resolve: {
                 factory: checkRouting
             }

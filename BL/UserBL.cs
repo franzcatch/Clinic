@@ -24,6 +24,16 @@ namespace Clinic.BL
             return DataLayer.UserDL.GetAdmins();
         }
 
+        public List<User> GetClients()
+        {
+            return DataLayer.UserDL.GetClients();
+        }
+
+        public List<User> GetStaff()
+        {
+            return DataLayer.UserDL.GetStaff();
+        }
+
         /// <summary>
         /// Household should already exist if creating user this way
         /// </summary>
@@ -41,23 +51,25 @@ namespace Clinic.BL
 
                 DataLayer.UserDL.Create(user);
             }
-            else
-            {
-                throw new Exception("No primary person has been designated by the Clinic");
-            }
         }
 
         public void Update(User user)
         {
-            
-            DataLayer.UserDL.Update(user);
-            if (user.EntityId != null)
-            {
-                BusinessLayer.EntityBL.Update(user);
-            } else
+            if (user.EntityId == null)
             {
                 BusinessLayer.EntityBL.Create(user);
             }
+            else
+            {
+                BusinessLayer.EntityBL.Update(user);
+            }
+
+            DataLayer.UserDL.Update(user);
+        }
+
+        public void Delete(User user)
+        {
+            DataLayer.UserDL.Delete(user);
         }
     }
 }

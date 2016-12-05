@@ -12,5 +12,7 @@ namespace Clinic.BL
         public static PersonBL PersonBL = new PersonBL();
         public static RoleBL RoleBL = new RoleBL();
         public static EntityBL EntityBL = new EntityBL();
+        public static RelationshipBL RelationshipBL = new RelationshipBL();
+        public static ClinicBL ClinicBL = new ClinicBL();
     }
 }

@@ -20,43 +20,73 @@ namespace Clinic.Controllers
     {
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
-        public User Login()
+        public object Login()
         {
-            var obj = JsonParser.GetParams<UserDataContext>(Context);
-            var user = BusinessLayer.UserBL.Get(obj.username, obj.password);
-            CurSession.User = user;
-            return user;
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<UserDataContext>(Context);
+                var user = BusinessLayer.UserBL.Get(obj.username, obj.password);
+                CurSession.User = user;
+                json = JsonParser.ToJson(user);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
         }
 
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
-        public User Register()
+        public object Register()
         {
-            var obj = JsonParser.GetParams<RegistrationContext>(Context);
+            string json = string.Empty;
 
-            var user = new BO.User() {
-                Username = obj.username,
-                Password = obj.password
-            };
-
-            if (GlobalSettings.AdminExists)
+            try
             {
-                BusinessLayer.UserBL.Create(obj.householdId, user);
+                var obj = JsonParser.FromJson<RegistrationContext>(Context);
+
+                var user = new User() {
+                    Username = obj.username,
+                    Password = obj.password,
+                    Role = obj.role
+                };
+
+                if (GlobalSettings.AdminExists)
+                {
+                    if (obj.householdId.HasValue)
+                    {
+                        BusinessLayer.UserBL.Create(obj.householdId.Value, user);
+                    }
+                    else
+                    {
+                        BusinessLayer.UserBL.Create(user);
+                    }
+                }
+                else
+                {
+                    user.Role = BusinessLayer.RoleBL.Get(Constants.Admin);
+                    BusinessLayer.UserBL.Create(user);
+                }
+
+                if (CurSession.User == null)
+                {
+                    CurSession.User = user;
+                }
+
+                GlobalSettings.CheckForAdmin();
+
+                json = JsonParser.ToJson(user);
             }
-            else
+            catch (Exception ex)
             {
-                user.Role = BusinessLayer.RoleBL.Get(Constants.Admin);
-                BusinessLayer.UserBL.Create(user);
+                json = JsonParser.ExceptionToJson(ex);
             }
 
-            if (user != null)
-            {
-                CurSession.User = user;
-            }
-
-            GlobalSettings.CheckForAdmin();
-
-            return user;
+            return json;
         }
 
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -68,17 +98,116 @@ namespace Clinic.Controllers
 
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
-        public User Update()
+        public object Update()
         {
-            var obj = JsonParser.GetParams<User>(Context);
-            BusinessLayer.UserBL.Update(obj);
-            CurSession.User = obj;
-            return obj;
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<User>(Context);
+                BusinessLayer.UserBL.Update(obj);
+                if (CurSession.User.Id == obj.Id)
+                {
+                    CurSession.User = obj;
+                }
+                json = JsonParser.ToJson(obj);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object Remove()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<User>(Context);
+
+                if (obj.Id == CurSession.User.Id)
+                {
+                    throw new Exception("You can not delete yourself"); 
+                }
+
+                BusinessLayer.UserBL.Update(obj);
+                CurSession.User = obj;
+                json = JsonParser.ToJson(obj);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object GetClients()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = BusinessLayer.UserBL.GetClients();
+                json = JsonParser.ToJson(obj);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object GetStaff()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = BusinessLayer.UserBL.GetStaff();
+                json = JsonParser.ToJson(obj);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object GetRoles()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var roles = BusinessLayer.RoleBL.GetRoles();
+                json = JsonParser.ToJson(roles);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
         }
 
         public class RegistrationContext : UserDataContext
         {
-            public int householdId { get; set; }
+            public int? householdId { get; set; }
+            public Role role { get; set; }
         }
 
         public class UserDataContext

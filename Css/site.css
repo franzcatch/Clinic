@@ -9182,6 +9182,26 @@ button.toast-close-button {
   height: 100%;
   width: 100%;
 }
+.clinics .sub-banner .dropdown {
+  width: 250px;
+  display: inline-block;
+}
+.clinics .sub-banner .btn {
+  display: inline-block;
+}
+.clinics .sub-banner .btn.right {
+  float: right;
+}
+.profile {
+  height: 100%;
+  width: 100%;
+}
+.profile-modal .modal-body {
+  padding: 0 !important;
+}
+.modal-profile-modal-size {
+  width: 60% !important;
+}
 body {
   position: fixed;
   top: 0;
@@ -9270,6 +9290,15 @@ body .navbar-inverse .divider-vertical {
     display: none;
   }
 }
+body .dropdown button {
+  width: 100%;
+}
+body .dropdown button span.message {
+  float: left;
+}
+body .dropdown button span.caret {
+  float: right;
+}
 body label.required:after {
   content: "*";
   color: red;
@@ -9301,6 +9330,12 @@ body .page-wrapper .banner .btn {
   margin-right: 20px;
   float: right;
   width: 150px;
+}
+body .page-wrapper .sub-banner {
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid #e7e7e7;
+  background-color: rgba(23, 97, 142, 0.1);
 }
 body .page-wrapper .page-content {
   width: 100%;
@@ -9340,4 +9375,10 @@ body .page-wrapper .page-content .page-content-left .page-content-left-tab:hover
 body .page-wrapper .page-content .page-content-right {
   display: table-cell;
   padding: 30px;
+}
+body .page-wrapper .page-content .page-content-right .table-btn {
+  cursor: pointer;
+}
+body .page-wrapper .page-content .page-content-right .red {
+  color: #d9534f;
 }

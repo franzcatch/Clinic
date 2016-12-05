@@ -18,5 +18,9 @@ namespace Clinic.BL
         {
             return DataLayer.RoleDL.Get(name);
         }
+
+        public List<Role> GetRoles() {
+            return DataLayer.RoleDL.GetRoles();
+        }
     }
 }

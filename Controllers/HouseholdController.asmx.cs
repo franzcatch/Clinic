@@ -20,25 +20,91 @@ namespace Clinic.Controllers
     {
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
-        public Household GetByUserId()
+        public object GetByUserId()
         {
-            var obj = JsonParser.GetParams<UserContext>(Context);
-            var household = BusinessLayer.HouseholdBL.GetByUserId(obj.UserId);
-            return household;
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<UserContext>(Context);
+                var household = BusinessLayer.HouseholdBL.GetByUserId(obj.UserId);
+                json = JsonParser.ToJson(household);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
         }
 
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
-        public Household Update()
+        public object Get()
         {
-            var obj = JsonParser.GetParams<Household>(Context);
-            BusinessLayer.HouseholdBL.Update(obj);
-            return obj;
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<HouseholdContext>(Context);
+                var household = BusinessLayer.HouseholdBL.Get(obj.Id);
+                json = JsonParser.ToJson(household);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object Update()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<Household>(Context);
+                BusinessLayer.HouseholdBL.Update(obj);
+                json = JsonParser.ToJson(obj);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object GetRelationships()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = BusinessLayer.RelationshipBL.GetRelationships();
+                json = JsonParser.ToJson(obj);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
         }
 
         public class UserContext
         {
             public int UserId { get; set; }
+        }
+
+        public class HouseholdContext
+        {
+            public int Id { get; set; }
         }
     }
 }

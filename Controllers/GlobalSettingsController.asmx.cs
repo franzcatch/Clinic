@@ -22,7 +22,18 @@ namespace Clinic.Controllers
         [WebMethod(EnableSession = true)]
         public object GetSettings()
         {
-            return GlobalSettings.GetJson();
+            string json = string.Empty;
+
+            try
+            {
+                json = GlobalSettings.GetJson();
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex); 
+            }
+
+            return json;
         }
     }
 }

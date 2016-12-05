@@ -10,7 +10,7 @@ var _;
             var dfd = $q.defer();
             if (force || Object.keys(settings).length === 1) {
                 return ajaxService.post("GlobalSettings", "GetSettings").then(function (response) {
-                    _.merge(settings, JSON.parse(response));
+                    _.merge(settings, response);
                     dfd.resolve(settings);
                 });
             }

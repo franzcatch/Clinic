@@ -11,23 +11,17 @@ namespace Clinic.DL
     {
         public void Populate(Object obj, OracleDataReader reader)
         {
-            obj = new Entity()
-            {
-                EntityId = Convert.ToInt32(reader["entity_id"]),
-              //  Name1 = reader["name1"].ToString(),
-              //  Name2 = reader["name2"].ToString(),
-              //B  Name3 = reader["name3"].ToString(),
-                Address1 = reader["address1"].ToString(),
-                Address2 = reader["address2"].ToString(),
-                City = reader["city"].ToString(),
-                State = reader["state"].ToString(),
-                Zip = reader["zip"].ToString(),
-                Phone1 = reader["phone1"].ToString(),
-                Phone2 = reader["phone2"].ToString(),
-                Phone3 = reader["phone3"].ToString()
-            };
-
-            //obj.S
+            var target = (Entity)obj;
+            target.EntityId = Convert.ToInt32(reader["entity_id"]);
+            target.Address1 = reader["address1"].ToString();
+            target.Address2 = reader["address2"].ToString();
+            target.City = reader["city"].ToString();
+            target.State = reader["state"].ToString();
+            target.Zip = reader["zip"].ToString();
+            target.Phone1 = reader["phone1"].ToString();
+            target.Phone2 = reader["phone2"].ToString();
+            target.Phone3 = reader["phone3"].ToString();
+            target.SetName(reader["name1"].ToString(), reader["name2"].ToString(), reader["name3"].ToString());
         }
 
         public Entity Get(int id)
@@ -69,7 +63,7 @@ namespace Clinic.DL
 
             ExecuteQuery(sql);
 
-            entity.Id = id;
+            entity.EntityId = id;
         }
 
         public void Update(Entity entity)
@@ -89,7 +83,7 @@ namespace Clinic.DL
                              PHONE3 = '{11}'
                          WHERE ENTITY_ID = {0}
                          ",
-                         entity.Id,
+                         entity.EntityId,
                          entity.GetName1(),
                          entity.GetName2(),
                          entity.GetName3(),

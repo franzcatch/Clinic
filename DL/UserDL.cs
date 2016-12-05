@@ -15,16 +15,17 @@ namespace Clinic.DL
         private void Populate(Object obj, OracleDataReader reader)
         {
             var target = (User)obj;
-            if (!string.IsNullOrEmpty(reader["entity_id"].ToString()))
+
+            int entityId;
+            if (Int32.TryParse(reader["entity_id"].ToString(), out entityId))
             {
-                target = (User)DataLayer.EntityDL.Get(Convert.ToInt32(reader["entity_id"].ToString()));
+                DataLayer.EntityDL.Get(entityId).CopyTo(target);
             }
             
             target.Id = Convert.ToInt32(reader["user_id"]);
             target.Username = reader["username"].ToString();
             target.Password = dummyPass;
             target.Role = DataLayer.RoleDL.Get(Convert.ToInt32(reader["role_id"]));
-
         }
 
         public List<User> GetAdmins()
@@ -33,9 +34,42 @@ namespace Clinic.DL
 
             string sql = string.Format(@"
                          SELECT *
-                         FROM USERS
-                         WHERE ROLE_ID = 1 -- Admin
-                         ");
+                         FROM USERS u
+                         JOIN ROLES r ON u.ROLE_ID = r.ROLE_ID
+                         WHERE ROLE_NAME = '{0}'
+                         ", Constants.Admin);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
+        public List<User> GetClients()
+        {
+            var obj = new List<User>();
+
+            string sql = string.Format(@"
+                         SELECT *
+                         FROM USERS u
+                         JOIN ROLES r ON u.ROLE_ID = r.ROLE_ID
+                         WHERE ROLE_NAME = '{0}'
+                         ", Constants.User);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
+        public List<User> GetStaff()
+        {
+            var obj = new List<User>();
+
+            string sql = string.Format(@"
+                         SELECT *
+                         FROM USERS u
+                         JOIN ROLES r ON u.ROLE_ID = r.ROLE_ID
+                         WHERE ROLE_NAME IN ('{0}','{1}')
+                         ", Constants.Admin, Constants.Office);
 
             ExecuteReader(sql, obj, Populate);
 
@@ -124,6 +158,16 @@ namespace Clinic.DL
                              user.Role.Id,
                              user.EntityId == null ? "NULL" : user.EntityId.ToString());
             }
+
+            ExecuteQuery(sql);
+        }
+
+        public void Delete(User user)
+        {
+            var sql = string.Format(@"
+                             DELETE FROM USERS 
+                             WHERE USER_ID = {0}
+                             ", user.Id);
 
             ExecuteQuery(sql);
         }

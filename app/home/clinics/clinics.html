@@ -3,7 +3,69 @@
     <div class="banner">
         Manage Clinics
     </div>
+    <div class="sub-banner">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <span class="message">{{'Select a Clinic...'}}</span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="clinic in clinics" ng-click="setClinic(clinic)"><a>{{clinic.Name}}</a></li>
+            </ul>
+        </div>
+        <button class="btn btn-default btn-sm" ng-click="addNewClinic()">Add New</button>
+        <button class="btn btn-danger btn-sm right" ng-if="selectedClinic && selectedClinic.Id" ng-click="deleteClinic()">Delete Clinic</button>
+        <button class="btn btn-success btn-sm right" ng-if="selectedClinic" ng-disabled="!isValid()" ng-click="saveClinic()">Save Clinic</button>
+    </div>
     <div class="page-content">
-        hello
+        <div class="page-content-left" ng-if="selectedClinic">
+            <div class="page-content-left-tab" ng-repeat="tab in tabs" ng-click="setTab(tab)" ng-class="{ 'active': tab.id === curTab.id }" ng-if="selectedClinic">
+                <i class="fa fa-minus"></i>
+                <span>{{tab.title}}</span>
+                <i ng-if="isFormError(tab)" class="fa fa-exclamation-triangle"></i>
+            </div>
+        </div>
+
+        <div ng-show="isLoading">
+            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+        </div>
+
+        <div ng-show="!isLoading" class="page-content-right" ng-if="selectedClinic">
+            <div class="form-group" ng-if="curTab.id === tabs[0].id">
+                <label class="required">Clinic</label>
+                <input type="text" ng-model="selectedClinic.Name" placeholder="user" class="form-control" ng-maxlength="50" ng-required="true" />
+                <button class="btn btn-primary btn-sm" ng-click="saveClinic()" ng-if="dirty">Save</button>
+            </div>
+
+            <div ng-if="curTab.id !== tabs[0].id">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="col in curTab.columns">{{col.colName}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in dataToDisplay">
+                            <td ng-repeat="col in curTab.columns"><span>{{row[col.valueName]}}</span></td>
+                            <td class="table-btn">
+                                <span class="fa-stack" ng-click="edit(row)">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-pencil-square-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </td>
+                            <td class="table-btn red">
+                                <span class="fa-stack" ng-click="delete(row)">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span ng-if="!dataToDisplay.length">None found.  Add least one required.</span>
+                <hr />
+                <button class="btn btn-primary" ng-click="edit()">{{curTab.button}}</button>
+            </div>
+        </div>
     </div>
 </div>

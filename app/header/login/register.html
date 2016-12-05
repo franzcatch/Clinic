@@ -1,28 +1,43 @@
-﻿<div class="modal-header">
-    <button ng-click="close()" type="button" class="close"><span>&times;</span></button>
-    <h4 class="modal-title" id="myModalLabel">Register</h4>
-</div>
-<div class="modal-body">
-    <div class="form-group required">
-        <div ng-if="settings.AdminExists">
-            <label class="required">Account #</label>
-            <input ng-model="householdId" type="number" class="form-control" />
-        </div>
-        <label class="required">Username</label>
-        <input ng-model="username" type="text" class="form-control" />
-
-        <label class="required">Password</label>
-        <input ng-model="password" type="password" class="form-control" />
-
-        <label class="required">Confirm Password</label>
-        <input ng-model="passConf" type="password" class="form-control" />
-        <label ng-if="!passwordsMatch()" class="text-warning small">Passwords don't match</label>
+﻿<div>
+    <div class="modal-header" ng-if="isEditMode">
+        <button ng-click="close()" type="button" class="close"><span>&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register</h4>
     </div>
-    <div>
-        <button ng-click="close()" class="btn btn-default">Cancel</button>
-        <button ng-click="register()" ng-disabled="!isPageValid()" class="btn btn-primary">
-            Register
-            <i class='fa fa-spinner fa-spin' ng-if="loading"></i>
-        </button>
+    <div class="modal-body">
+        <div class="form-group required">
+            <div ng-if="shouldGatherHouseholdId()">
+                <label class="required">Account #</label>
+                <input ng-model="model.householdId" type="number" class="form-control" />
+            </div>
+            <label class="required">Username</label>
+            <input ng-model="model.username" type="text" class="form-control" />
+
+            <label class="required">Password</label>
+            <input ng-model="model.password" type="password" class="form-control" />
+
+            <label class="required">Confirm Password</label>
+            <input ng-model="model.passConf" type="password" class="form-control" />
+            <label ng-if="!passwordsMatch()" class="text-warning small">Passwords don't match</label>
+
+            <div ng-if="shouldGatherRole()">
+                <label class="required">Role</label>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="message">{{getRoleMessage()}}</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="role in roles" ng-click="setRole(role)"><a>{{role.Name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div ng-if="isEditMode">
+            <button ng-click="close()" class="btn btn-default">Cancel</button>
+            <button ng-click="register()" ng-disabled="!isPageValid()" class="btn btn-primary">
+                {{(isEditMode ? "Save" : "Register")}}
+                <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+            </button>
+        </div>
     </div>
 </div>

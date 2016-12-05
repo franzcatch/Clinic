@@ -7,7 +7,6 @@ namespace Clinic.BO
 {
     public class Provider : Entity
     {
-        public Clinic Clinic { get; set; }
         public List<Service> Services { get; set; }
     }
 }
