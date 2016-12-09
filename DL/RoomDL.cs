@@ -22,7 +22,7 @@ namespace Clinic.DL
             var obj = new List<Room>();
 
             string sql = string.Format(@"
-                         SELECT s.* 
+                         SELECT * 
                          FROM ROOM
                          WHERE CLINIC_ID = {0}
                          ", clinicId);
@@ -55,7 +55,7 @@ namespace Clinic.DL
         {
             string sql = string.Format(@"
                          UPDATE ROOM
-                         SET NAME = {1}
+                         SET NAME = '{1}'
                          WHERE ROOM_ID = {0}
                          ",
                          room.Id,

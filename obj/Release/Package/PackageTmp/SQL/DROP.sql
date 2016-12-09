@@ -26,7 +26,6 @@ drop sequence 	HOUSEHOLD_S	;
 drop sequence 	PAYMENT_S	;
 drop sequence 	PROVIDER_QUALIFICATION_S	;
 drop sequence 	PROVIDER_S	;
-drop sequence 	RELATIONSHIP_S	;
 drop sequence 	ROOM_S	;
 drop sequence 	SERVICE_S	;
 drop sequence 	USERS_S	;

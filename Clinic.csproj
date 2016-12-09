@@ -149,12 +149,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controls\confirm\confirm.html" />
+    <Content Include="app\home\appointment\manage\register.html" />
     <Content Include="app\home\clinics\room\room.html" />
     <Content Include="app\home\clinics\service\service.html" />
     <Content Include="app\home\clinics\provider\provider.html" />
     <Content Include="app\home\profile\profileModal.html" />
     <Content Include="app\home\profile\profile.html" />
     <Content Include="app\home\clinics\clinics.html" />
+    <Content Include="app\home\qualifications\qualification\qualification.html" />
     <Content Include="app\home\reports\reports.html" />
     <Content Include="app\home\qualifications\qualifications.html" />
     <Content Include="app\home\people\people.html" />
@@ -249,6 +251,7 @@
     <Content Include="app\home\clinics\provider\provider.less" />
     <Content Include="app\home\clinics\room\room.less" />
     <Content Include="app\home\clinics\service\service.less" />
+    <Content Include="app\home\qualifications\qualification\qualification.less" />
     <None Include="Content\font-awesome.less" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -269,6 +272,7 @@
     <Content Include="Controllers\GlobalSettingsController.asmx" />
     <Content Include="Controllers\HouseholdController.asmx" />
     <Content Include="Controllers\PersonController.asmx" />
+    <Content Include="Controllers\ReportController.asmx" />
     <Content Include="Controllers\UserController.asmx" />
     <Content Include="Css\site.css">
       <DependentUpon>site.less</DependentUpon>
@@ -1131,6 +1135,9 @@
     <Compile Include="BL\PersonBL.cs" />
     <Compile Include="BL\HouseholdBL.cs" />
     <Compile Include="BL\RelationshipBL.cs" />
+    <Compile Include="BL\ReportBL.cs" />
+    <Compile Include="BL\RoomBL.cs" />
+    <Compile Include="BL\ServiceBL.cs" />
     <Compile Include="BL\RoleBL.cs" />
     <Compile Include="BL\UserBL.cs" />
     <Compile Include="BO\AppointmentService.cs" />
@@ -1163,6 +1170,10 @@
     </Compile>
     <Compile Include="Controllers\PersonController.asmx.cs">
       <DependentUpon>PersonController.asmx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ReportController.asmx.cs">
+      <DependentUpon>ReportController.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controllers\UserController.asmx.cs">
       <DependentUpon>UserController.asmx</DependentUpon>
@@ -1207,7 +1218,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\controls\confirm\ConfirmCtrl.ts" />
-    <TypeScriptCompile Include="app\header\login\registerDirective.ts" />
+    <TypeScriptCompile Include="app\home\appointment\manage\RegisterCtrl.ts" />
     <TypeScriptCompile Include="app\home\clinics\room\RoomCtrl.ts" />
     <TypeScriptCompile Include="app\home\clinics\service\ServiceCtrl.ts" />
     <TypeScriptCompile Include="app\home\clinics\provider\ProviderCtrl.ts" />
@@ -1216,9 +1227,12 @@
     <TypeScriptCompile Include="app\home\profile\profileDirective.ts" />
     <TypeScriptCompile Include="app\home\profile\ProfileCtrl.ts" />
     <TypeScriptCompile Include="app\home\clinics\ClinicsCtrl.ts" />
+    <TypeScriptCompile Include="app\home\qualifications\qualification\QualificationCtrl.ts" />
     <TypeScriptCompile Include="app\lib\focusDirective.ts" />
     <TypeScriptCompile Include="app\lib\maxLengthDirective.ts" />
+    <TypeScriptCompile Include="app\services\appointmentService.ts" />
     <TypeScriptCompile Include="app\services\clinicService.ts" />
+    <TypeScriptCompile Include="app\services\reportService.ts" />
     <TypeScriptCompile Include="app\services\householdService.ts" />
     <TypeScriptCompile Include="app\home\reports\ReportsCtrl.ts" />
     <TypeScriptCompile Include="app\home\qualifications\QualificationsCtrl.ts" />

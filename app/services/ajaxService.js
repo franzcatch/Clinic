@@ -14,7 +14,7 @@ var _, toastr;
                 contentType: "application/json; charset=utf-8",
                 data: data ? angular.toJson(data) : '{}',
                 success: function (result) {
-                    var response = JSON.parse(result.d);
+                    var response = result.d ? JSON.parse(result.d) : null;
                     if (response && response.errorMessages) {
                         if (!blockToastErrors) {
                             _.each(response.errorMessages, function (message) {

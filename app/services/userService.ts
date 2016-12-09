@@ -87,6 +87,33 @@
             return dfd.promise;
         }
 
+        function getEligibleQualifications(userId) {
+            var dfd = $q.defer();
+            ajaxService.post("User", "GetEligibleQualifications", { UserId: userId }).then(function (data) {
+                dfd.resolve(data);
+            });
+
+            return dfd.promise;
+        }
+
+        function getQualifications(userId) {
+            var dfd = $q.defer();
+            ajaxService.post("User", "GetQualifications", { UserId: userId }).then(function (data) {
+                dfd.resolve(data);
+            });
+
+            return dfd.promise;
+        }
+
+        function updateQualifications(userId, qualifications) {
+            var dfd = $q.defer();
+            ajaxService.post("User", "UpdateQualifications", { UserId: userId, Services: qualifications }).then(function (data) {
+                dfd.resolve(data);
+            });
+
+            return dfd.promise;
+        }
+
         return {
             login: login,
             logout: logout,
@@ -95,7 +122,10 @@
             remove: remove,
             getStaff: getStaff,
             getClients: getClients,
-            getRoles: getRoles
+            getRoles: getRoles,
+            getEligibleQualifications: getEligibleQualifications,
+            getQualifications: getQualifications,
+            updateQualifications: updateQualifications
         };
     }
 } ((<any>window).angular));

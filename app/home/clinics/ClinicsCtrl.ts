@@ -1,10 +1,12 @@
-﻿(function (angular) {
+﻿var _;
+
+(function (angular) {
     'use strict';
 
     angular.module('clinic')
         .controller('ClinicsCtrl', ClinicsCtrl);
 
-    function ClinicsCtrl($scope, $uibModal, clinicService) {
+    function ClinicsCtrl($scope, $uibModal, $q, clinicService) {
         $scope.isLoading = true;
         $scope.dataToDisplay = [];
         $scope.clinics = [];
@@ -57,35 +59,54 @@
             });
         }
 
+        $scope.selectedClinicMessage = function () {
+            return $scope.selectedClinic ? $scope.selectedClinic.Name : 'Select a clinic...';
+        };
+
+        $scope.getValue = function (row, column) {
+            return row[column.valueName];
+        };
+
         $scope.setTab = function (tab) {
             $scope.curTab = tab;
 
-            $scope.dataToDisplay = tab === $scope.tabs[0]
+            $scope.dataToDisplay = $scope.curTab === $scope.tabs[1]
                 ? $scope.selectedClinic.Providers
-                : tab === $scope.tabs[1]
+                : $scope.curTab === $scope.tabs[2]
                     ? $scope.selectedClinic.Services
-                    : $scope.selectedClinic.Rooms;
+                    : $scope.curTab === $scope.tabs[3]
+                        ? $scope.selectedClinic.Rooms
+                        : [];
         };
 
         $scope.setClinic = function (clinic) {
             $scope.selectedClinic = clinic;
+            $scope.selectedClinicOriginal = _.cloneDeep(clinic);
+            $scope.setTab($scope.tabs[0]);
         }
 
         $scope.addNewClinic = function (obj) {
-            $scope.selectedClinic = {};
+            var newClinic = {
+                Providers: [],
+                Services: [],
+                Rooms: []
+            };
+            $scope.setClinic(newClinic);
             $scope.setTab($scope.tabs[0]);
         };
 
         $scope.isValid = function () {
-            return $scope.selectedClinic &&
-                   $scope.selectedClinic.Name &&
-                   $scope.selectedClinic.Name.length > 0 &&
+            return $scope.clinicForm.$valid &&
                    $scope.selectedClinic.Providers &&
                    $scope.selectedClinic.Providers.length &&
                    $scope.selectedClinic.Services &&
                    $scope.selectedClinic.Services.length &&
                    $scope.selectedClinic.Rooms &&
                    $scope.selectedClinic.Rooms.length;
+        };
+
+        $scope.isModified = function () {
+            return !_.isEqual($scope.selectedClinic, $scope.selectedClinicOriginal);
         };
 
         $scope.isFormError = function (tab) {
@@ -109,17 +130,14 @@
             $scope.isLoading = true;
             clinicService.deleteClinic($scope.selectedClinic.Id).then(function () {
                 init();
+                $scope.isLoading = false;
             });
         };
 
         $scope.delete = function (obj) {
-            // confirm
-
-            $scope.isLoading = true;
-
-            var property = $scope.curTab === $scope.tabs[0]
+            var property = $scope.curTab === $scope.tabs[1]
                 ? 'Provider'
-                : $scope.curTab === $scope.tabs[1]
+                : $scope.curTab === $scope.tabs[2]
                     ? 'Service'
                     : 'Room';
 
@@ -128,30 +146,101 @@
             _.remove(clinic[property + 's'], function (curObj) {
                 return obj === curObj;
             });
-
-            clinicService.update(clinic).then(function () {
-                $scope.isLoading = false;
-            });
         };
 
         $scope.edit = function (obj) {
-            $scope.curTab === $scope.tabs[0]
+            $scope.curTab === $scope.tabs[1]
                 ? openProvider(obj)
-                : $scope.curTab === $scope.tabs[1]
+                : $scope.curTab === $scope.tabs[2]
                     ? openService(obj)
                     : openRoom(obj);
         }
 
-        function openProvider(obj) {
-
+        function openProvider(existingProvider) {
+            $uibModal.open({
+                templateUrl: 'app/home/clinics/provider/provider.html',
+                controller: 'ProviderCtrl',
+                resolve: {
+                    params: function () {
+                        return {
+                            provider: existingProvider,
+                            clinic: $scope.selectedClinic,
+                            submit: function (provider) {
+                                if (existingProvider) {
+                                    existingProvider.Id = provider.Id;
+                                    existingProvider.EntityId = provider.EntityId;
+                                    existingProvider.FirstName = provider.FirstName;
+                                    existingProvider.MiddleName = provider.MiddleName;
+                                    existingProvider.LastName = provider.LastName;
+                                    existingProvider.Username = provider.Username;
+                                } else {
+                                    $scope.dataToDisplay.push({
+                                        Id: null,
+                                        EntityId: provider.EntityId,
+                                        FirstName: provider.FirstName,
+                                        MiddleName: provider.MiddleName,
+                                        LastName: provider.LastName,
+                                        Username: provider.Username
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         }
 
-        function openService(obj) {
-
+        function openService(existingService) {
+            $uibModal.open({
+                templateUrl: 'app/home/clinics/service/service.html',
+                controller: 'ServiceCtrl',
+                resolve: {
+                    params: function () {
+                        return {
+                            service: existingService,
+                            clinic: $scope.selectedClinic,
+                            submit: function (service) {
+                                if (existingService) {
+                                    existingService.Id = service.Id;
+                                    existingService.Name = service.Name;
+                                    existingService.Cost = service.Cost;
+                                } else {
+                                    $scope.dataToDisplay.push({
+                                        Id: null,
+                                        Name: service.Name,
+                                        Cost: service.Cost
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         }
 
-        function openRoom(obj) {
-
+        function openRoom(existingRoom) {
+            $uibModal.open({
+                templateUrl: 'app/home/clinics/room/room.html',
+                controller: 'RoomCtrl',
+                resolve: {
+                    params: function () {
+                        return {
+                            room: existingRoom,
+                            clinic: $scope.selectedClinic,
+                            submit: function (room) {
+                                if (existingRoom) {
+                                    existingRoom.Name = room.Name;
+                                } else {
+                                    $scope.dataToDisplay.push({
+                                        Id: null,
+                                        Name: room.Name
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         init();

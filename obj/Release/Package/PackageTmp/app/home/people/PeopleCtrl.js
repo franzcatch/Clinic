@@ -2,8 +2,8 @@
     'use strict';
     angular.module('clinic')
         .controller('PeopleCtrl', PeopleCtrl);
-    function PeopleCtrl($scope, userService) {
-        $scope.people = [];
+    function PeopleCtrl($scope, userService, $uibModal, $q, settings, $timeout) {
+        $scope.users = [];
         $scope.isLoading = false;
         $scope.tabs = [
             { title: 'Manage Staff', id: 'staff' },
@@ -35,6 +35,26 @@
                 $scope.users = data;
                 $scope.isLoading = false;
             });
+        };
+        $scope.edit = function (user) {
+            settings.temp = {
+                profile: {
+                    isHousehold: $scope.curTab === $scope.tabs[1],
+                    user: user,
+                    close: function () {
+                        $scope.setTab($scope.curTab);
+                        modal.close();
+                    }
+                }
+            };
+            var modal = $uibModal.open({
+                templateUrl: 'app/home/profile/profileModal.html',
+                controller: 'ProfileModalCtrl',
+                size: 'profile-modal-size'
+            });
+        };
+        $scope.delete = function (user) {
+            alert('todo');
         };
         init();
     }

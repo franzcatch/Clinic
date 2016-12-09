@@ -32,10 +32,40 @@
             return dfd.promise;
         }
 
+        function getEligibleProviders(clinicId) {
+            var dfd = $q.defer();
+            ajaxService.post("Clinic", "GetEligibleProviders", { Id: clinicId }).then(function (response) {
+                dfd.resolve(response);
+            });
+
+            return dfd.promise;
+        }
+
+        function getAllServices(clinicId) {
+            var dfd = $q.defer();
+            ajaxService.post("Clinic", "GetAllServices").then(function (response) {
+                dfd.resolve(response);
+            });
+
+            return dfd.promise;
+        }
+
+        function getRooms(clinicId) {
+            var dfd = $q.defer();
+            ajaxService.post("Clinic", "GetRooms", { Id: clinicId }).then(function (response) {
+                dfd.resolve(response);
+            });
+
+            return dfd.promise;
+        }
+
         return {
             getAll: getAll,
             update: update,
-            deleteClinic: deleteClinic
+            deleteClinic: deleteClinic,
+            getEligibleProviders: getEligibleProviders,
+            getAllServices: getAllServices,
+            getRooms: getRooms
         };
     }
 } ((<any>window).angular));

@@ -203,6 +203,70 @@ namespace Clinic.Controllers
 
             return json;
         }
+        
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object GetEligibleQualifications()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<UserContext>(Context);
+                var roles = BusinessLayer.ServiceBL.GetEligibleProviderServicesForUserId(obj.UserId.Value);
+                json = JsonParser.ToJson(roles);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object GetQualifications()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<UserContext>(Context);
+                var roles = BusinessLayer.ServiceBL.GetProviderServicesForUserId(obj.UserId.Value);
+                json = JsonParser.ToJson(roles);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object UpdateQualifications()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<UserQualificationsContext>(Context);
+                BusinessLayer.ServiceBL.UpdateProviderServicesForUserId(obj.UserId, obj.Services);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        public class UserContext
+        {
+            public int? UserId { get; set; }
+        }
 
         public class RegistrationContext : UserDataContext
         {
@@ -214,6 +278,12 @@ namespace Clinic.Controllers
         {
             public string username { get; set; }
             public string password { get; set; }
+        }
+
+        public class UserQualificationsContext
+        {
+            public int UserId { get; set; }
+            public List<Service> Services { get; set; }
         }
     }
 }

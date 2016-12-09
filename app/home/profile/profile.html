@@ -5,7 +5,7 @@
             <span ng-if="!isModalEdit">Manage Profile</span>
             <span ng-if="isModalEdit">Profile</span>
 
-            <button class="btn btn-success" ng-click="update()" ng-disabled="!isValid() || !isDirty() || isLoading">
+            <button class="btn btn-success" ng-click="update()" ng-disabled="isLoading || !isValid() || !isDirty()">
                 Save
                 <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
             </button>
@@ -23,7 +23,7 @@
                 <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
             </div>
 
-            <div ng-show="!isLoading" class="page-content-right">
+            <div ng-show="!isLoading" class="page-content-right is-modal">
                 <ng-form ng-show="curTab.id === 'user'" name="userForm">
                     <div class="form-group">
                         <label class="required">Username</label>
@@ -79,37 +79,37 @@
                 <ng-form ng-show="curTab.id === 'address'" name="addressForm">
                     <div class="form-group">
                         <label class="required">Address 1</label>
-                        <input type="text" ng-model="user.Address1" class="form-control" ng-maxlength="50" ng-required="true" />
+                        <input type="text" ng-model="model.Address1" class="form-control" ng-maxlength="50" ng-required="true" />
                     </div>
                     <div class="form-group">
                         <label>Address 2</label>
-                        <input type="text" ng-model="user.Address2" class="form-control" ng-maxlength="50" />
+                        <input type="text" ng-model="model.Address2" class="form-control" ng-maxlength="50" />
                     </div>
                     <div class="form-group">
                         <label class="required">City</label>
-                        <input type="text" ng-model="user.City" class="form-control" ng-maxlength="50" ng-required="true" />
+                        <input type="text" ng-model="model.City" class="form-control" ng-maxlength="50" ng-required="true" />
                     </div>
                     <div class="form-group">
                         <label class="required">State</label>
-                        <input type="text" ng-model="user.State" class="form-control" ng-minlength="2" ng-maxlength="2" ng-required="true" />
+                        <input type="text" ng-model="model.State" class="form-control" ng-minlength="2" ng-maxlength="2" ng-required="true" />
                     </div>
                     <div class="form-group">
                         <label class="required">Postal Code</label>
-                        <input type="text" ng-model="user.Zip" class="form-control" ng-maxlength="10" ng-required="true" />
+                        <input type="text" ng-model="model.Zip" class="form-control" ng-maxlength="10" ng-required="true" />
                     </div>
                 </ng-form>
                 <ng-form ng-show="curTab.id === 'phone'" name="phoneForm">
                     <div class="form-group">
                         <label class="required">Phone 1</label>
-                        <input type="text" ng-model="user.Phone1" class="form-control" ng-maxlength="15" ng-required="true" />
+                        <input type="text" ng-model="model.Phone1" class="form-control" ng-maxlength="15" ng-required="true" />
                     </div>
                     <div class="form-group">
                         <label>Phone 2</label>
-                        <input type="text" ng-model="user.Phone2" class="form-control" ng-maxlength="15" />
+                        <input type="text" ng-model="model.Phone2" class="form-control" ng-maxlength="15" />
                     </div>
                     <div class="form-group">
                         <label>Phone 3</label>
-                        <input type="text" ng-model="user.Phone3" class="form-control" ng-maxlength="15" />
+                        <input type="text" ng-model="model.Phone3" class="form-control" ng-maxlength="15" />
                     </div>
                 </ng-form>
                 <ng-form ng-show="curTab.id === 'insurance'" name="insuranceForm">

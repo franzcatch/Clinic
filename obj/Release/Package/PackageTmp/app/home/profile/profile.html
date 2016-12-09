@@ -1,111 +1,168 @@
-﻿<home-nav></home-nav>
-<div class="profile page-wrapper">
-    <div class="banner">
-        Manage Profile
+﻿<div class="profile">
+    <home-nav ng-if="!isModalEdit"></home-nav>
+    <div class="profile page-wrapper">
+        <div class="banner">
+            <span ng-if="!isModalEdit">Manage Profile</span>
+            <span ng-if="isModalEdit">Profile</span>
 
-        <button class="btn btn-success" ng-click="update()" ng-disabled="!isValid() || !isDirty() || isLoading">
-            Save
-            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
-        </button>
-    </div>
-    <div class="page-content">
-        <div class="page-content-left">
-            <div class="page-content-left-tab" ng-repeat="tab in tabs" ng-click="setTab(tab)" ng-class="{ 'active': tab === curTab }">
-                <i class="fa fa-minus"></i>
-                <span>{{tab.title}}</span>
-                <i ng-if="isFormError(tab)" class="fa fa-exclamation-triangle"></i>
+            <button class="btn btn-success" ng-click="update()" ng-disabled="!isValid() || !isDirty() || isLoading">
+                Save
+                <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+            </button>
+        </div>
+        <div class="page-content">
+            <div class="page-content-left">
+                <div class="page-content-left-tab" ng-repeat="tab in tabs" ng-click="setTab(tab)" ng-class="{ 'active': tab === curTab }">
+                    <i class="fa fa-minus"></i>
+                    <span>{{tab.title}}</span>
+                    <i ng-if="isFormError(tab)" class="fa fa-exclamation-triangle"></i>
+                </div>
             </div>
-        </div>
 
-        <div ng-show="isLoading">
-            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
-        </div>
+            <div ng-show="isLoading">
+                <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+            </div>
 
-        <div ng-show="!isLoading" class="page-content-right">
-            <ng-form ng-show="curTab.id === 'user'" name="userForm">
-                <div class="form-group required">
-                    <label>Username</label>
-                    <input type="text" ng-model="model.Username" placeholder="user" class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-                <div class="form-group required">
-                    <label>Password</label>
-                    <input type="password" ng-model="model.Password" placeholder="enter new password..." class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-            </ng-form>
-            <ng-form ng-show="curTab.id === 'name'" name="nameForm">
-                <div class="form-group required">
-                    <label>First Name</label>
-                    <input type="text" ng-model="model.FirstName" placeholder="first" class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-                <div class="form-group">
-                    <label>Middle Name</label>
-                    <input type="text" ng-model="model.MiddleName" placeholder="middle" class="form-control" ng-maxlength="50" />
-                </div>
-                <div class="form-group required">
-                    <label>Last Name</label>
-                    <input type="text" ng-model="model.LastName" placeholder="last" class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-            </ng-form>
-            <ng-form ng-show="curTab.id === 'address'" name="addressForm">
-                <div class="form-group required">
-                    <label>Address 1</label>
-                    <input type="text" ng-model="model.Address1" class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-                <div class="form-group">
-                    <label>Address 2</label>
-                    <input type="text" ng-model="model.Address2" class="form-control" ng-maxlength="50" />
-                </div>
-                <div class="form-group required">
-                    <label>City</label>
-                    <input type="text" ng-model="model.City" class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-                <div class="form-group required">
-                    <label>State</label>
-                    <input type="text" ng-model="model.State" class="form-control" ng-minlength="2" ng-maxlength="2" ng-required="true" />
-                </div>
-                <div class="form-group required">
-                    <label>Postal Code</label>
-                    <input type="text" ng-model="model.Zip" class="form-control" ng-maxlength="10" ng-required="true" />
-                </div>
-            </ng-form>
-            <ng-form ng-show="curTab.id === 'phone'" name="phoneForm">
-                <div class="form-group required">
-                    <label>Phone 1</label>
-                    <input type="text" ng-model="model.Phone1" class="form-control" ng-maxlength="15" ng-required="true" />
-                </div>
-                <div class="form-group">
-                    <label>Phone 2</label>
-                    <input type="text" ng-model="model.Phone2" class="form-control" ng-maxlength="15" />
-                </div>
-                <div class="form-group">
-                    <label>Phone 3</label>
-                    <input type="text" ng-model="model.Phone3" class="form-control" ng-maxlength="15" />
-                </div>
-            </ng-form>
-            <ng-form ng-show="curTab.id === 'insurance'" name="insuranceForm">
-                <div class="form-group required">
-                    <label>Company Name</label>
-                    <input type="text" ng-model="model.InsuranceName" class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-                <div class="form-group required">
-                    <label>Policy Number</label>
-                    <input type="text" ng-model="model.PolicyNumber" class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-                <div class="form-group required">
-                    <label>Group Number</label>
-                    <input type="text" ng-model="model.GroupNumber" class="form-control" ng-maxlength="50" ng-required="true" />
-                </div>
-            </ng-form>
-            <ng-form ng-show="curTab.id === 'dependents'" name="dependentsForm">
-                dependents
-            </ng-form>
-
-
-            <div ng-if="isHousehold">
-                Relationship
-                DOB
-                IsPayer
-                Dependents
+            <div ng-show="!isLoading" class="page-content-right">
+                <ng-form ng-show="curTab.id === 'user'" name="userForm">
+                    <div class="form-group">
+                        <label class="required">Username</label>
+                        <input type="text" ng-model="user.Username" placeholder="user" class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                    <div class="form-group required">
+                        <label class="required">Password</label>
+                        <input type="password" ng-model="user.Password" placeholder="enter new password..." class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                    <div>
+                        <label class="required">Role</label>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" ng-disabled="!shouldGatherRole()">
+                                <span class="message">{{getRoleMessage()}}</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="role in roles" ng-click="setRole(role)"><a>{{role.Name}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </ng-form>
+                <ng-form ng-show="curTab.id === 'name'" name="nameForm">
+                    <div class="form-group">
+                        <label class="required">First Name</label>
+                        <input type="text" ng-model="model.FirstName" placeholder="first" class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label>Middle Name</label>
+                        <input type="text" ng-model="model.MiddleName" placeholder="middle" class="form-control" ng-maxlength="50" />
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Last Name</label>
+                        <input type="text" ng-model="model.LastName" placeholder="last" class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                    <div ng-if="isHousehold" class="form-group">
+                        <label class="required">Date of Birth</label>
+                        <input type="date" ng-model="householdPerson.DateOfBirth" class="form-control" placeholder="MM/dd/yyyy" max="{{getToday()}}" required />
+                    </div>
+                    <div ng-if="isHousehold">
+                        <label class="required">Relationship</label>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" ng-disabled="true">
+                                <span class="message">{{getRelationshipMessage()}}</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="relationship in relationships" ng-click="setRelationship(relationship)"><a>{{relationship.Name}}</a></li>
+                            </ul>
+                        </div>
+                    </div>                    
+                </ng-form>
+                <ng-form ng-show="curTab.id === 'address'" name="addressForm">
+                    <div class="form-group">
+                        <label class="required">Address 1</label>
+                        <input type="text" ng-model="user.Address1" class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label>Address 2</label>
+                        <input type="text" ng-model="user.Address2" class="form-control" ng-maxlength="50" />
+                    </div>
+                    <div class="form-group">
+                        <label class="required">City</label>
+                        <input type="text" ng-model="user.City" class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label class="required">State</label>
+                        <input type="text" ng-model="user.State" class="form-control" ng-minlength="2" ng-maxlength="2" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Postal Code</label>
+                        <input type="text" ng-model="user.Zip" class="form-control" ng-maxlength="10" ng-required="true" />
+                    </div>
+                </ng-form>
+                <ng-form ng-show="curTab.id === 'phone'" name="phoneForm">
+                    <div class="form-group">
+                        <label class="required">Phone 1</label>
+                        <input type="text" ng-model="user.Phone1" class="form-control" ng-maxlength="15" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone 2</label>
+                        <input type="text" ng-model="user.Phone2" class="form-control" ng-maxlength="15" />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone 3</label>
+                        <input type="text" ng-model="user.Phone3" class="form-control" ng-maxlength="15" />
+                    </div>
+                </ng-form>
+                <ng-form ng-show="curTab.id === 'insurance'" name="insuranceForm">
+                    <div class="form-group">
+                        <label class="required">Company Name</label>
+                        <input type="text" ng-model="household.InsuranceName" class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Policy Number</label>
+                        <input type="text" ng-model="household.PolicyNumber" class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Group Number</label>
+                        <input type="text" ng-model="household.GroupNumber" class="form-control" ng-maxlength="50" ng-required="true" />
+                    </div>
+                </ng-form>
+                <ng-form ng-show="curTab.id === 'dependents'" name="dependentsForm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Middle Name</th>
+                                <th>Last Name</th>
+                                <th>ID</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="dependent in dependents">
+                                <td><span>{{(dependent.FirstName ? dependent.FirstName : 'N/A')}}</span></td>
+                                <td><span>{{(dependent.MiddleName ? dependent.MiddleName : 'N/A')}}</span></td>
+                                <td><span>{{(dependent.LastName ? dependent.LastName : 'N/A')}}</span></td>
+                                <td><span>{{dependent.Id}}</span></td>
+                                <td class="table-btn">
+                                    <span class="fa-stack" ng-click="editDependent(dependent)">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-pencil-square-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </td>
+                                <td class="table-btn red">
+                                    <span class="fa-stack" ng-click="deleteDependent(dependent)">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span ng-if="!dependents.length">None found.  Add one below.</span>
+                    <hr />
+                    <button class="btn btn-primary" ng-click="edit()">Create Profile</button>
+                </ng-form>
             </div>
         </div>
     </div>

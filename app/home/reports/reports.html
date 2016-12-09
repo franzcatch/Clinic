@@ -1,9 +1,42 @@
-﻿<home-nav></home-nav>
-<div class="reports page-wrapper">
-    <div class="banner">
-        Generate Reports
-    </div>
-    <div class="page-content">
-        hello
+﻿<div class="reports">
+    <home-nav></home-nav>
+    <div class="page-wrapper">
+        <div class="banner">
+            <span>Generate Reports</span>
+        </div>
+        <div class="page-content">
+            <div class="page-content-left">
+                <div class="page-content-left-tab" ng-repeat="tab in tabs" ng-click="setTab(tab)" ng-class="{ 'active': tab === curTab }">
+                    <i class="fa fa-minus"></i>
+                    <span>{{tab.title}}</span>
+                </div>
+            </div>
+
+            <div ng-if="isLoading">
+                <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+            </div>
+
+            <div ng-if="!isLoading" class="page-content-right">
+                <div ng-repeat="input in curTab.requiredInputs" class="form-group">
+                    <label class="required">{{input.title}}</label>
+                    <input ng-if="input.type === 'date'" type="date" ng-model="input.value" class="form-control" placeholder="MM/dd/yyyy" required />
+                </div>
+                <div ng-if="curTab.requiredInputs">
+                    <button class="btn btn-sm" ng-click="doSearch()">Search</button>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="col in columns">{{col}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in data">
+                            <td ng-repeat="(key, value) in row"><span>{{value}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

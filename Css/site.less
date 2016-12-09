@@ -7,9 +7,13 @@
 @import url('../app/home/billing/billing');
 @import url('../app/home/people/people');
 @import url('../app/home/clinics/clinics');
+@import url('../app/home/clinics/provider/provider');
+@import url('../app/home/clinics/room/room');
+@import url('../app/home/clinics/service/service');
 @import url('../app/home/profile/profile');
 @import url('../app/home/profile/profileModal');
 @import url('../app/home/qualifications/qualifications');
+@import url('../app/home/qualifications/qualification/qualification');
 @import url('../app/home/reports/reports');
   
 @headerHeight: 50px;
@@ -183,6 +187,14 @@ body {
             overflow-y: auto;
             display: table;
 
+            .red {
+                color: #d9534f;
+            }
+
+            .table-btn {
+                cursor: pointer;
+            }
+
             .page-content-left {
                 width: 250px;
                 height: 100%;
@@ -219,15 +231,14 @@ body {
             } 
 
             .page-content-right {
-                display: table-cell;
+                height: calc(~"100% - 180px");
+                overflow-y: auto;
                 padding: 30px;
-                 
-                .table-btn {
-                    cursor: pointer;
-                }
-
-                .red {
-                    color: #d9534f;
+                
+                &.is-modal {
+                    height: inherit !important;
+                    overflow-y: inherit !important;
+                    display: table-cell;
                 }
             }
         }

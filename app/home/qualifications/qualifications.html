@@ -2,8 +2,38 @@
 <div class="qualifications page-wrapper">
     <div class="banner">
         My Qualifications
+
+        <button class="btn btn-success" ng-click="update()" ng-disabled="isSaveDisabled()">
+            Save
+            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+        </button>
     </div>
-    <div class="page-content">
-        hello
+    <div class="page-content" style="padding: 30px;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Service Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="service in services">
+                    <td><span>{{service.Name}}</span></td>
+                    <td class="table-btn red">
+                        <span class="fa-stack" ng-click="delete(service)">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <span ng-if="!services.length">
+            None found.  Add one below. <br /><br />
+            Note: Make sure you are a designated by the Admin as a Provider. <br />
+            Services you add here will be available to any Clinic you work in that provides that service.
+        </span>
+        <hr />
+        <button class="btn btn-primary" ng-click="addService()">Add Service</button>
     </div>
 </div>

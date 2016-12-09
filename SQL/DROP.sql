@@ -27,5 +27,6 @@ drop sequence 	PAYMENT_S	;
 drop sequence 	PROVIDER_QUALIFICATION_S	;
 drop sequence 	PROVIDER_S	;
 drop sequence 	ROOM_S	;
+drop sequence 	SERVICE_CLINIC_S	;
 drop sequence 	SERVICE_S	;
 drop sequence 	USERS_S	;

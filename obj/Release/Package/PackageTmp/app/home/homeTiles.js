@@ -22,7 +22,7 @@ var _;
             },
             {
                 name: 'Qualifications',
-                icon: 'fa-check',
+                icon: 'fa-graduation-cap',
                 color: '#6fb7ff',
                 route: '/home/qualifications',
                 permissions: [office, admin]
@@ -40,13 +40,6 @@ var _;
                 color: '#6fb7ff',
                 route: '/home/people',
                 permissions: [office, admin]
-            },
-            {
-                name: 'Users',
-                icon: 'fa-cogs',
-                color: '#6fb7ff',
-                route: '/home/users',
-                permissions: [admin]
             },
             {
                 name: 'Clinics',

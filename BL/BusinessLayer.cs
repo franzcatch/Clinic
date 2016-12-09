@@ -14,5 +14,8 @@ namespace Clinic.BL
         public static EntityBL EntityBL = new EntityBL();
         public static RelationshipBL RelationshipBL = new RelationshipBL();
         public static ClinicBL ClinicBL = new ClinicBL();
+        public static ServiceBL ServiceBL = new ServiceBL();
+        public static RoomBL RoomBL = new RoomBL();
+        public static ReportBL ReportBL = new ReportBL();
     }
 }

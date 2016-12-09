@@ -14,6 +14,10 @@ namespace Clinic.BL
             return DataLayer.HouseholdDL.Get(id);
         }
 
+        public List<Household> GetAll() {
+            return DataLayer.HouseholdDL.GetAll();
+        }
+
         public Household GetByUserId(int userId)
         {
             return DataLayer.HouseholdDL.GetByUserId(userId);

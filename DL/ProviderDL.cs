@@ -16,7 +16,7 @@ namespace Clinic.DL
             int entityId = Int32.Parse(reader["entity_id"].ToString());
             DataLayer.EntityDL.Get(entityId).CopyTo(target);
 
-            target.Id = Int32.Parse(reader["clinic_id"].ToString());
+            target.Id = Int32.Parse(reader["provider_id"].ToString());
             target.Services = DataLayer.ServiceDL.GetServicesByProviderId(target.Id.Value);
         }
 
@@ -43,6 +43,22 @@ namespace Clinic.DL
                          SELECT * FROM PROVIDER 
                          WHERE CLINIC_ID = {0}
                          ", clinicId);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
+        public Provider GetProviderByUserId(int userId)
+        {
+            var obj = new Provider();
+
+            string sql = string.Format(@"
+                         SELECT p.*
+                         FROM PROVIDER p
+                         JOIN USERS u ON p.ENTITY_ID = u.ENTITY_ID
+                         WHERE u.USER_ID = {0}
+                         ", userId);
 
             ExecuteReader(sql, obj, Populate);
 

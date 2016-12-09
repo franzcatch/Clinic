@@ -64,7 +64,14 @@ namespace Clinic.BL
                 BusinessLayer.EntityBL.Update(user);
             }
 
-            DataLayer.UserDL.Update(user);
+            if (user.Id.HasValue)
+            {
+                DataLayer.UserDL.Update(user);
+            }
+            else
+            {
+                DataLayer.UserDL.Create(user);
+            }
         }
 
         public void Delete(User user)

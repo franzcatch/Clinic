@@ -36,6 +36,65 @@ namespace Clinic.Controllers
 
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
+        public object GetEligibleProviders()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var clinicId = JsonParser.FromJson<IdContext>(Context).Id;
+                var users = BusinessLayer.ClinicBL.GetEligibleProviders(clinicId.HasValue ? clinicId.Value : -1);
+                json = JsonParser.ToJson(users);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object GetAllServices()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var services = BusinessLayer.ServiceBL.Get();
+                json = JsonParser.ToJson(services);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
+        public object GetRooms()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var clinicId = JsonParser.FromJson<IdContext>(Context).Id;
+                var roles = BusinessLayer.RoomBL.GetRoomsByClinicId(clinicId.Value);
+                json = JsonParser.ToJson(roles);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
         public object Update()
         {
             string json = string.Empty;
@@ -62,8 +121,8 @@ namespace Clinic.Controllers
 
             try
             {
-                var obj = JsonParser.FromJson<Context>(Context);
-                BusinessLayer.ClinicBL.Delete(obj.Id);
+                var obj = JsonParser.FromJson<IdContext>(Context);
+                BusinessLayer.ClinicBL.Delete(obj.Id.Value);
             }
             catch (Exception ex)
             {
@@ -74,8 +133,8 @@ namespace Clinic.Controllers
         }
     }
 
-    public class Context
+    public class IdContext
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
     }
 }

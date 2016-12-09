@@ -18,6 +18,7 @@ namespace Clinic.DL
         public static string Provider = "PROVIDER_S";
         public static string Room = "ROOM_S";
         public static string Service = "SERVICE_S";
+        public static string ServiceClinic = "SERVICE_CLINIC_S";
         public static string User = "USERS_S";
     }
 }

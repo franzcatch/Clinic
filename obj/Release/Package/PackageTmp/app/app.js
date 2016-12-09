@@ -75,6 +75,14 @@
                 factory: checkRouting
             }
         })
+            .when('/home/services', {
+            name: 'services',
+            templateUrl: 'app/home/services/services.html',
+            controller: 'ServicesCtrl',
+            resolve: {
+                factory: checkRouting
+            }
+        })
             .when('/home/reports', {
             name: 'reports',
             templateUrl: 'app/home/reports/reports.html',
@@ -83,19 +91,12 @@
                 factory: checkRouting
             }
         })
-            .when('/home/users', {
-            name: 'users',
-            templateUrl: 'app/home/users/users.html',
-            controller: 'UsersCtrl',
-            resolve: {
-                factory: checkRouting
-            }
-        })
             .otherwise('/');
     }
     function checkRouting($q, settings, $route, $location) {
+        settings.clearTemp();
         var dfd = $q.defer();
-        settings.getSettings().then(function () {
+        settings.getSettings(true).then(function () {
             if (!settings.User && $route.current.$$route.name !== 'landing') {
                 $location.path('/');
             }

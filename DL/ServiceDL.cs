@@ -25,7 +25,7 @@ namespace Clinic.DL
             string sql = string.Format(@"
                          SELECT * 
                          FROM SERVICE
-                         WHERE NAME = {0}
+                         WHERE NAME = '{0}'
                          ", name);
 
             ExecuteReader(sql, obj, Populate);
@@ -42,6 +42,20 @@ namespace Clinic.DL
                          FROM SERVICE
                          WHERE SERVICE_ID = {0}
                          ", id);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
+        public List<Service> Get()
+        {
+            var obj = new List<Service>();
+
+            string sql = string.Format(@"
+                         SELECT * 
+                         FROM SERVICE
+                         ");
 
             ExecuteReader(sql, obj, Populate);
 
@@ -80,6 +94,55 @@ namespace Clinic.DL
             return obj;
         }
 
+        public List<Service> GetEligibleProviderServicesForUserId(int userId)
+        {
+            var services = new List<Service>();
+            var clinics = new List<Clinic.BO.Clinic>();
+
+            string sql = string.Format(@"
+                         SELECT c.*
+                         FROM USERS u
+                         JOIN ENTITY e ON u.ENTITY_ID = e.ENTITY_ID
+                         JOIN PROVIDER p ON e.ENTITY_ID = p.ENTITY_ID
+                         JOIN CLINIC c ON p.CLINIC_ID = p.CLINIC_ID
+                         WHERE u.USER_ID = {0}
+                         ", userId);
+
+            ExecuteReader(sql, clinics, DataLayer.ClinicDL.Populate);
+
+            foreach(var clinic in clinics)
+            {
+                foreach(var service in clinic.Services)
+                {
+                    if (!services.Any(x => x.Id == service.Id))
+                    {
+                        services.Add(service);
+                    }
+                }
+            }
+
+            return services;
+        }
+
+        public List<Service> GetProviderServicesForUserId(int userId)
+        {
+            var obj = new List<Service>();
+
+            string sql = string.Format(@"
+                         SELECT s.*
+                         FROM SERVICE s
+                         JOIN PROVIDER_QUALIFICATION pq ON s.SERVICE_ID = pq.SERVICE_ID
+                         JOIN PROVIDER p ON pq.PROVIDER_ID = p.PROVIDER_ID
+                         JOIN ENTITY e ON p.ENTITY_ID = e.ENTITY_ID
+                         JOIN USERS u ON e.ENTITY_ID = u.ENTITY_ID
+                         WHERE u.USER_ID = {0}
+                         ", userId);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
         public void Create(Service service)
         {
             string sql;
@@ -106,23 +169,44 @@ namespace Clinic.DL
             int id = GetNextVal(Sequences.ProviderQualification);
 
             sql = string.Format(@"
-                  INSERT INTO SERVICE
-                  (SERVICE_ID, NAME, COST)
+                  INSERT INTO PROVIDER_QUALIFICATION
+                  (PROVIDER_QUALIFICATION_ID, PROVIDER_ID, SERVICE_ID)
                   VALUES 
-                  ({0},'{1}',{2})
+                  ({0},{1},{2})
                   ",
                   id,
-                  service.Name,
-                  service.Cost);
+                  provider.Id,
+                  service.Id);
 
             ExecuteQuery(sql);
-
-            service.Id = id;
         }
 
         public void AddToClinic(Service service, Clinic.BO.Clinic clinic)
         {
-            
+            var existingService = Get(service.Name);
+
+            if (existingService.Id == null)
+            {
+                Create(service);
+            } else
+            {
+                service = existingService;
+            }
+
+            string sql;
+            int id = GetNextVal(Sequences.ServiceClinic);
+
+            sql = string.Format(@"
+                  INSERT INTO SERVICE_CLINIC
+                  (SERVICE_CLINIC_ID, CLINIC_ID, SERVICE_ID)
+                  VALUES 
+                  ({0},{1},{2})
+                  ",
+                  id,
+                  clinic.Id,
+                  service.Id);
+
+            ExecuteQuery(sql);
         }
 
         public void DeleteFromProvider(Service service, Provider provider)
@@ -130,7 +214,7 @@ namespace Clinic.DL
             string sql = string.Format(@"
                               DELETE FROM PROVIDER_QUALIFICATION
                               WHERE SERVICE_ID = {0} 
-                                AND PROVIDER = {1}
+                                AND PROVIDER_ID = {1}
                               ",
                               service.Id,
                               provider.Id);
