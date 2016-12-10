@@ -17,5 +17,6 @@ namespace Clinic.BL
         public static ServiceBL ServiceBL = new ServiceBL();
         public static RoomBL RoomBL = new RoomBL();
         public static ReportBL ReportBL = new ReportBL();
+        public static AppointmentBL AppointmentBL = new AppointmentBL();
     }
 }

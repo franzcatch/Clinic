@@ -56,25 +56,6 @@ namespace Clinic.Controllers
 
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
-        public object GetAllServices()
-        {
-            string json = string.Empty;
-
-            try
-            {
-                var services = BusinessLayer.ServiceBL.Get();
-                json = JsonParser.ToJson(services);
-            }
-            catch (Exception ex)
-            {
-                json = JsonParser.ExceptionToJson(ex);
-            }
-
-            return json;
-        }
-
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        [WebMethod(EnableSession = true)]
         public object GetRooms()
         {
             string json = string.Empty;

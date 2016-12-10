@@ -12,6 +12,5 @@ namespace Clinic.BO
         public Room Room { get; set; }
         public decimal Cost { get; set; }
         public DateTime StartTime { get; set; }
-        public int Minutes { get; set; }
     }
 }

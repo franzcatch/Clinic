@@ -149,7 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controls\confirm\confirm.html" />
-    <Content Include="app\home\appointment\manage\register.html" />
+    <Content Include="app\home\appointment\manage\newAppointment.html" />
     <Content Include="app\home\clinics\room\room.html" />
     <Content Include="app\home\clinics\service\service.html" />
     <Content Include="app\home\clinics\provider\provider.html" />
@@ -268,10 +268,10 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="Controllers\AppointmentController.asmx" />
     <Content Include="Controllers\ClinicController.asmx" />
     <Content Include="Controllers\GlobalSettingsController.asmx" />
     <Content Include="Controllers\HouseholdController.asmx" />
-    <Content Include="Controllers\PersonController.asmx" />
     <Content Include="Controllers\ReportController.asmx" />
     <Content Include="Controllers\UserController.asmx" />
     <Content Include="Css\site.css">
@@ -1129,6 +1129,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\AppointmentBL.cs" />
     <Compile Include="BL\BusinessLayer.cs" />
     <Compile Include="BL\ClinicBL.cs" />
     <Compile Include="BL\EntityBL.cs" />
@@ -1156,6 +1157,10 @@
     <Compile Include="BO\Room.cs" />
     <Compile Include="BO\Service.cs" />
     <Compile Include="BO\User.cs" />
+    <Compile Include="Controllers\AppointmentController.asmx.cs">
+      <DependentUpon>AppointmentController.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controllers\ClinicController.asmx.cs">
       <DependentUpon>ClinicController.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -1168,9 +1173,6 @@
       <DependentUpon>HouseholdController.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controllers\PersonController.asmx.cs">
-      <DependentUpon>PersonController.asmx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\ReportController.asmx.cs">
       <DependentUpon>ReportController.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -1181,6 +1183,7 @@
     </Compile>
     <Compile Include="DL\DataLayer.cs" />
     <Compile Include="DL\ClinicDL.cs" />
+    <Compile Include="DL\AppointmentDL.cs" />
     <Compile Include="DL\RoomDL.cs" />
     <Compile Include="DL\ServiceDL.cs" />
     <Compile Include="DL\ProviderDL.cs" />
@@ -1218,7 +1221,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\controls\confirm\ConfirmCtrl.ts" />
-    <TypeScriptCompile Include="app\home\appointment\manage\RegisterCtrl.ts" />
+    <TypeScriptCompile Include="app\home\appointment\manage\NewAppointmentCtrl.ts" />
     <TypeScriptCompile Include="app\home\clinics\room\RoomCtrl.ts" />
     <TypeScriptCompile Include="app\home\clinics\service\ServiceCtrl.ts" />
     <TypeScriptCompile Include="app\home\clinics\provider\ProviderCtrl.ts" />

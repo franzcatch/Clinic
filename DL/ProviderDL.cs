@@ -116,8 +116,7 @@ namespace Clinic.DL
 
         private void InsertProviderQualification(Provider provider, Service qualification)
         {
-            var obj = new Service();
-            int id = GetNextVal(Sequences.Provider);
+            int id = GetNextVal(Sequences.ProviderQualification);
 
             string sql = string.Format(@"
                               INSERT INTO PROVIDER_QUALIFICATION
@@ -129,11 +128,9 @@ namespace Clinic.DL
                               provider.Id,
                               qualification.Id);
 
-            ExecuteReader(sql, obj, Populate);
+            ExecuteQuery(sql);
 
-            obj.Id = id;
-
-            provider.Services.Add(obj);
+            provider.Services.Add(qualification);
         }
 
         private void DeleteProviderQualification(Provider provider, Service qualification)

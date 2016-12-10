@@ -9,6 +9,6 @@ namespace Clinic.BO
     {
         public Person Person { get; set; }
         public Clinic Clinic { get; set; }
-        public List<AppointmentService> Services { get; set; }
+        public List<AppointmentService> AppointmentServices { get; set; }
     }
 }

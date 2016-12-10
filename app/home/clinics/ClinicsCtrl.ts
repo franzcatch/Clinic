@@ -30,7 +30,8 @@
                 title: 'Services', id: 'services', button: 'Add Service',
                 columns: [
                     { colName: 'Service', valueName: 'Name' },
-                    { colName: 'Base Price', valueName: 'Cost' }
+                    { colName: 'Base Price', valueName: 'Cost' },
+                    { colName: 'Duration', valueName: 'Minutes' }
                 ]
             },
             {
@@ -204,11 +205,13 @@
                                     existingService.Id = service.Id;
                                     existingService.Name = service.Name;
                                     existingService.Cost = service.Cost;
+                                    existingService.Minutes = service.Minutes;
                                 } else {
                                     $scope.dataToDisplay.push({
                                         Id: null,
                                         Name: service.Name,
-                                        Cost: service.Cost
+                                        Cost: service.Cost,
+                                        Minutes: service.Minutes
                                     });
                                 }
                             }

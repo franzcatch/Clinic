@@ -7,6 +7,13 @@ namespace Clinic.BO
 {
     public class Household : BusinessBase
     {
+        public Person Payer
+        {
+            get
+            {
+                return People.SingleOrDefault(x => x.IsPayer == true);
+            }
+        }
         public List<Person> People { get; set; }
         public string InsuranceName { get; set; }
         public string PolicyNumber { get; set; }

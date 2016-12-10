@@ -65,6 +65,51 @@ namespace Clinic.DL
             return obj;
         }
 
+        public List<Household> GetByPayerName(string firstName, string middleName, string lastName)
+        {
+            var obj = new List<Household>();
+
+            var where = string.Empty;
+
+            if (!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(middleName) && !string.IsNullOrEmpty(lastName))
+            {
+                where = string.Format(@"
+                    UPPER(e.NAME1) LIKE UPPER('{0}%') AND
+                    UPPER(e.NAME2) LIKE UPPER('{1}%') AND
+                    UPPER(e.NAME3) LIKE UPPER('{2}%')
+                    ", firstName, middleName, lastName);
+            }
+            else if (!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
+            {
+                where = string.Format(@"
+                    UPPER(e.NAME1) LIKE UPPER('{0}%') AND
+                    UPPER(e.NAME3) LIKE UPPER('{1}%')
+                    ", firstName, lastName);
+            }
+            else if (!string.IsNullOrEmpty(lastName))
+            {
+                where = string.Format(@"
+                    UPPER(e.NAME3) LIKE UPPER('{0}%')
+                    ", lastName);
+            }
+            else
+            {
+                return obj;
+            }
+
+            string sql = string.Format(@"
+                         SELECT *
+                         FROM HOUSEHOLD h
+                         JOIN HOUSEHOLD_PERSON hp ON h.household_id = hp.household_id
+                         JOIN ENTITY e ON hp.ENTITY_ID = e.ENTITY_ID
+                         WHERE {0}"
+                         , where);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
         public void Create(Household household)
         {
             //TODO InjectionValidator(household.);

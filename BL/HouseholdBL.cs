@@ -23,6 +23,11 @@ namespace Clinic.BL
             return DataLayer.HouseholdDL.GetByUserId(userId);
         }
 
+        public List<Household> GetByPayerName(string firstName, string middleName, string lastName)
+        {
+            return DataLayer.HouseholdDL.GetByPayerName(firstName, middleName, lastName);
+        }
+
         public void Create(Household household)
         {
             DataLayer.HouseholdDL.Create(household);

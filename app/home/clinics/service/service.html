@@ -22,12 +22,22 @@
         <hr />
         <button class="btn btn-primary btn-sm" ng-click="startCreateNew()">Create New Service</button>
     </div>
-    <ng-form name="serviceForm" ng-show="shouldCreate()">
+    <ng-form ng-if="!isLoading" name="serviceForm" ng-show="shouldCreate()">
         <div class="form-group">
             <label class="required">Service Name</label>
             <input type="text" ng-model="selectedService.Name" placeholder="name" class="form-control" ng-maxlength="50" ng-required="true" />
             <label class="required">Cost</label>
             <input type="number" ng-model="selectedService.Cost" placeholder="$" class="form-control" ng-maxlength="50" ng-required="true" />
+            <label class="required">Duration</label>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="message">{{getDurationMessage()}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="duration in durations" ng-click="setDuration(duration)"><a>{{duration}}</a></li>
+                </ul>
+            </div>
         </div>
     </ng-form>
     <hr />

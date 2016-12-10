@@ -3,8 +3,22 @@
     <div class="banner">
         Manage Appointments
     </div>
-    <div class="page-content">
-        clinic dropdown
+    <div class="page-content" style="padding: 25px;">
+        <div ng-if="isLoading">
+            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+        </div>
+        <div class="form-group" ng-if="!isLoading">
+            <label class="required">Select a Clinic</label>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="message">{{selectedClinic.Name}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="clinic in clinincs" ng-click="setClinic(clinic)"><a>{{clinic.Name}}</a></li>
+                </ul>
+            </div>
+        </div>
 
         get appointments for date (default to today)
         or
@@ -26,7 +40,7 @@
                 <tr ng-repeat="row in dataToDisplay">
                     <td ng-repeat="col in curTab.columns"><span>{{getValue(row, col)}}</span></td>
                     <td class="table-btn">
-                        <span class="fa-stack" ng-click="edit(row)">
+                        <span class="fa-stack" ng-click="openAppointment(row)">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-pencil-square-o fa-stack-1x fa-inverse"></i>
                         </span>
@@ -41,8 +55,11 @@
             </tbody>
         </table>
         <hr />
+        <span ng-if="!dataToDisplay.length">None found.</span>
+
+        scroll past 20 or so
         <div>snap me to the bottom
-            <button class="btn btn-primary" ng-click="edit()">Create Appointment</button>
+            <button class="btn btn-primary" ng-click="openAppointment()">Create Appointment</button>
         </div>
     </div>
 </div>

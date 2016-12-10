@@ -17,6 +17,13 @@
             });
             return dfd.promise;
         }
+        function getByPayerName(params) {
+            var dfd = $q.defer();
+            ajaxService.post("Household", "GetByPayerName", params).then(function (results) {
+                dfd.resolve(results);
+            });
+            return dfd.promise;
+        }
         function update(household) {
             var dfd = $q.defer();
             ajaxService.post("Household", "Update", household).then(function (household) {
@@ -34,6 +41,7 @@
         return {
             get: get,
             getByUserId: getByUserId,
+            getByPayerName: getByPayerName,
             update: update,
             getRelationships: getRelationships
         };

@@ -9,5 +9,6 @@ namespace Clinic.BO
     {
         public string Name { get; set; }
         public decimal Cost { get; set; }
+        public int Minutes { get; set; }
     }
 }

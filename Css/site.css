@@ -9182,6 +9182,9 @@ button.toast-close-button {
   height: 100%;
   width: 100%;
 }
+.modal-appointment-modal-size {
+  width: 60% !important;
+}
 .clinics .sub-banner .dropdown {
   width: 250px;
   display: inline-block;

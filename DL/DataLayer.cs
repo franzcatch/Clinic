@@ -17,5 +17,6 @@ namespace Clinic.DL
         public static ServiceDL ServiceDL = new ServiceDL();
         public static RoomDL RoomDL = new RoomDL();
         public static ClinicDL ClinicDL = new ClinicDL();
+        public static AppointmentDL AppointmentDL = new AppointmentDL();
     }
 }

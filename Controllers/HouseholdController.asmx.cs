@@ -40,6 +40,26 @@ namespace Clinic.Controllers
 
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         [WebMethod(EnableSession = true)]
+        public object GetByPayerName()
+        {
+            string json = string.Empty;
+
+            try
+            {
+                var obj = JsonParser.FromJson<PayerContext>(Context);
+                var households = BusinessLayer.HouseholdBL.GetByPayerName(obj.FirstName, obj.MiddleName, obj.LastName);
+                json = JsonParser.ToJson(households);
+            }
+            catch (Exception ex)
+            {
+                json = JsonParser.ExceptionToJson(ex);
+            }
+
+            return json;
+        }
+
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        [WebMethod(EnableSession = true)]
         public object Get()
         {
             string json = string.Empty;
@@ -105,6 +125,13 @@ namespace Clinic.Controllers
         public class HouseholdContext
         {
             public int Id { get; set; }
+        }
+
+        public class PayerContext
+        {
+            public string FirstName { get; set; }
+            public string MiddleName { get; set; }
+            public string LastName { get; set; }
         }
     }
 }

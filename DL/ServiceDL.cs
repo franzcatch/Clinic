@@ -16,6 +16,7 @@ namespace Clinic.DL
             target.Id = Int32.Parse(reader["service_id"].ToString());
             target.Name = reader["name"].ToString();
             target.Cost = Decimal.Parse(reader["cost"].ToString());
+            target.Minutes = Int32.Parse(reader["minutes"].ToString());
         }
 
         public Service Get(string name)
@@ -150,13 +151,14 @@ namespace Clinic.DL
 
             sql = string.Format(@"
                   INSERT INTO SERVICE
-                  (SERVICE_ID, NAME, COST)
+                  (SERVICE_ID, NAME, COST, MINUTES)
                   VALUES 
-                  ({0},'{1}',{2})
+                  ({0},'{1}',{2},{3})
                   ",
                   id,
                   service.Name,
-                  service.Cost);
+                  service.Cost,
+                  service.Minutes);
 
             ExecuteQuery(sql);
 
@@ -264,12 +266,14 @@ namespace Clinic.DL
             string sql = string.Format(@"
                          UPDATE SERVICE
                          SET NAME = '{1}', 
-                             COST = '{2}'
+                             COST = '{2}',
+                             MINUTES = {3}
                          WHERE SERVICE_ID = {0}
                          ",
                          service.Id,
                          service.Name,
-                         service.Cost);
+                         service.Cost,
+                         service.Minutes);
 
             ExecuteQuery(sql);
         }
