@@ -1,4 +1,5 @@
-﻿(function (angular) {
+﻿var _;
+(function (angular) {
     'use strict';
 
     angular.module('clinic')
@@ -34,7 +35,7 @@
 
         function update(household) {
             var dfd = $q.defer();
-            ajaxService.post("Household", "Update", household).then(function (household) {
+            ajaxService.post("Household", "Update", household).then(function (input) {
                 dfd.resolve(household);
             });
 

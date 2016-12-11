@@ -17,6 +17,20 @@ namespace Clinic.DL
             target.Name = reader["name"].ToString();
         }
 
+        public Room Get(int id)
+        {
+            var obj = new Room();
+
+            string sql = string.Format(@"
+                         SELECT * FROM ROOM
+                         WHERE ROOM_ID = {0}
+                         ", id);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
         public List<Room> GetRoomsByClinicId(int clinicId)
         {
             var obj = new List<Room>();

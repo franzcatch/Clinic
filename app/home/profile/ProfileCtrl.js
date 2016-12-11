@@ -92,7 +92,17 @@ var _;
             _.each($scope.household.People, function (person) {
                 person.DateOfBirth = new Date($scope.household.People[0].DateOfBirthString);
             });
-            _.merge($scope.model, $scope.householdPerson);
+            $scope.model.FirstName = $scope.householdPerson.FirstName;
+            $scope.model.MiddleName = $scope.householdPerson.MiddleName;
+            $scope.model.LastName = $scope.householdPerson.LastName;
+            $scope.model.Address1 = $scope.householdPerson.Address1;
+            $scope.model.Address2 = $scope.householdPerson.Address2;
+            $scope.model.City = $scope.householdPerson.City;
+            $scope.model.State = $scope.householdPerson.State;
+            $scope.model.Zip = $scope.householdPerson.Zip;
+            $scope.model.Phone1 = $scope.householdPerson.Phone1;
+            $scope.model.Phone2 = $scope.householdPerson.Phone2;
+            $scope.model.Phone3 = $scope.householdPerson.Phone3;
         }
         $scope.getToday = function () {
             var today = new Date();

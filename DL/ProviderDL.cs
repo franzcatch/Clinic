@@ -20,6 +20,33 @@ namespace Clinic.DL
             target.Services = DataLayer.ServiceDL.GetServicesByProviderId(target.Id.Value);
         }
 
+        public Provider Get(int id)
+        {
+            var obj = new Provider();
+
+            string sql = string.Format(@"
+                         SELECT * FROM PROVIDER 
+                         WHERE PROVIDER_ID = {0}
+                         ", id);
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
+        public List<Provider> GetAll()
+        {
+            var obj = new List<Provider>();
+
+            string sql = string.Format(@"
+                         SELECT * FROM PROVIDER 
+                         ");
+
+            ExecuteReader(sql, obj, Populate);
+
+            return obj;
+        }
+
         private bool GetIsProvider(int providerId, int clinicId, int entityId)
         {
             string sql = string.Format(@"

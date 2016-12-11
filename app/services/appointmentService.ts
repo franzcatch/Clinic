@@ -5,15 +5,35 @@
         .factory('appointmentService', appointmentService);
 
     function appointmentService($q, ajaxService, settings) {
-        function getAppointmentsForClinic(clinicId) {
+        function getAppointmentsForClinic(clinicId, date) {
+            var params = {
+                Id: clinicId,
+                ServiceDate: date
+            };
 
+            var dfd = $q.defer();
+            ajaxService.post("Appointment", "GetAppointmentsForClinic", params).then(function (results) {
+                dfd.resolve(results);
+            });
+
+            return dfd.promise;
         }
 
-        function getAppointmentsForUser(userId) {
+        function getAppointmentsForUser(userId, date) {
+            var params = {
+                Id: userId,
+                ServiceDate: date
+            };
 
+            var dfd = $q.defer();
+            ajaxService.post("Appointment", "GetAppointmentsForUser", params).then(function (results) {
+                dfd.resolve(results);
+            });
+
+            return dfd.promise;
         }
 
-        function getAvailableTimesAndProvidersForService(clinicId, serviceId, date) {
+        function getAvailableAppointments(clinicId, serviceId, date) {
             var params = {
                 ClinicId: clinicId,
                 ServiceId: serviceId,
@@ -21,25 +41,37 @@
             };
 
             var dfd = $q.defer();
-            ajaxService.post("Appointment", "GetAvailableTimesAndProvidersForService", params).then(function (results) {
+            ajaxService.post("Appointment", "GetAvailableAppointments", params).then(function (results) {
                 dfd.resolve(results);
             });
 
             return dfd.promise;
         }
 
-        function updateAppointment(appointment) {
+        function createAppointment(appointment) {
+            var dfd = $q.defer();
+            ajaxService.post("Appointment", "Create", appointment).then(function (results) {
+                dfd.resolve(results);
+            });
 
+            return dfd.promise;
         }
 
         function deleteAppointment(appointment) {
+            var dfd = $q.defer();
+            ajaxService.post("Appointment", "Delete", appointment).then(function (results) {
+                dfd.resolve(results);
+            });
 
+            return dfd.promise;
         }
 
-        
-
         return {
-            getAvailableTimesAndProvidersForService: getAvailableTimesAndProvidersForService
+            getAppointmentsForClinic: getAppointmentsForClinic,
+            getAppointmentsForUser: getAppointmentsForUser,
+            getAvailableAppointments: getAvailableAppointments,
+            createAppointment: createAppointment,
+            deleteAppointment: deleteAppointment
         };
     }
 } ((<any>window).angular));

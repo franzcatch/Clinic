@@ -9182,6 +9182,13 @@ button.toast-close-button {
   height: 100%;
   width: 100%;
 }
+.appointment .panel {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.appointment .panel .panel-body {
+  margin: 25px;
+}
 .modal-appointment-modal-size {
   width: 60% !important;
 }

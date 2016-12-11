@@ -1,4 +1,4 @@
-﻿var _;
+﻿var _, toastr;
 
 (function (angular) {
     'use strict';
@@ -6,7 +6,7 @@
     angular.module('clinic')
         .controller('NewAppointmentCtrl', NewAppointmentCtrl);
 
-    function NewAppointmentCtrl($scope, appointmentService, householdService, clinicService, settings, params) {
+    function NewAppointmentCtrl($scope, $timeout, appointmentService, householdService, clinicService, settings, params) {
         $scope.model = {
             Clinic: params.clinic,
             Person: null,
@@ -18,7 +18,7 @@
         $scope.householdResults = [];
         $scope.desiredServices = [];
         $scope.selectedService = null;
-        $scope.serviceDate = null;
+        $scope.serviceDate = new Date();
         $scope.availableTimesForService = [];
 
         function init() {
@@ -93,29 +93,19 @@
             $scope.model.Person = member;
         };
 
-        $scope.serviceDateChanged = function () {
+        $scope.serviceDateChanged = function (date) {
+            $scope.serviceDate = date;
             _.remove($scope.model.AppointmentServices, function () { return true; });
+            if ($scope.selectedService && $scope.serviceDate && $scope.model.Person) {
+                $scope.searchServiceAvailability($scope.selectedService);
+            }
         };
 
         $scope.isAdded = function (service) {
-            return $scope.model.AppointmentServices && 
-                   _.Any($scope.model.AppointmentServices, function (aptSvc) { return aptSvc.Service.Name === service.Name; });
+            return $scope.model.AppointmentServices.length && 
+                   _.find($scope.model.AppointmentServices, function (aptSvc) { return aptSvc.Service.Name === service.Name; });
         };
-
-        $scope.addAppointmentService = function (availableService) {
-            var appointmentService = {
-                Provider: availableService.Provider,
-                Service: availableService.Service,
-                Room: availableService.Room,
-                Cost: availableService.Service.Cost,
-                StartTime: availableService.StartTime
-            };
-
-            $scope.model.AppointmentServices.push(appointmentService);
-
-            _.remove($scope.availableTimesForService, availableService);
-        };
-
+        
         $scope.removeServiceFromAppointment = function (addedService) {
             $scope.isLoading = true;
 
@@ -145,22 +135,46 @@
             $scope.selectedService = service;
             $scope.isLoading = true;
 
-            appointmentService.getAvailableTimesAndProvidersForService($scope.model.Clinic.Id, $scope.selectedService.Id, $scope.serviceDate)
+            appointmentService.getAvailableAppointments($scope.model.Clinic.Id, $scope.selectedService.Id, $scope.serviceDate)
                 .then(function (results) {
-                    // TODO remove timeslots already chosen or that fall within existing ranges
-
+                    _.each(results, function (result) {
+                        result.StartTime = new Date(result.StartTimeString);
+                    });
                     $scope.availableTimesForService = results;
 
                     $scope.isLoading = false;
                 });
         };
 
+        $scope.addServiceToAppointment = function (availableService) {
+            if ($scope.isAdded(availableService)) {
+                toastr.info('You can only add a service type once');
+                return;
+            }
+
+            $scope.model.AppointmentServices.push(availableService);
+        };
+
+        $scope.removeAddedService = function (addedService) {
+            _.remove($scope.model.AppointmentServices, addedService);
+        };
+
         $scope.isPageValid = function () {
-            return false;
+            return $scope.model.Clinic &&
+                $scope.model.Person &&
+                $scope.model.AppointmentServices &&
+                $scope.model.AppointmentServices.length;
         };
 
         $scope.close = function () {
             params.close();
+        };
+
+        $scope.save = function () {
+            $scope.isLoading = true;
+            params.submit($scope.model).then(function () {
+                $scope.isLoading = false;
+            });
         };
 
         $scope.NewAppointment = function () {
