@@ -1,4 +1,5 @@
-﻿(function (angular) {
+﻿var _;
+(function (angular) {
     'use strict';
 
     angular.module('clinic')
@@ -49,17 +50,29 @@
         }
 
         function createAppointment(appointment) {
+            var appt = _.clone(appointment);
+            appt.Person.DateOfBirth = new Date(appt.Person.DateOfBirthString);
+            _.each(appt.AppointmentServices, function (svc) {
+                delete svc.Id;
+            });
+
             var dfd = $q.defer();
-            ajaxService.post("Appointment", "Create", appointment).then(function (results) {
-                dfd.resolve(results);
+            ajaxService.post("Appointment", "Create", appt).then(function (result) {
+                dfd.resolve(result);
             });
 
             return dfd.promise;
         }
 
         function deleteAppointment(appointment) {
+            var appt = _.clone(appointment);
+            appt.Person.DateOfBirth = new Date(appt.Person.DateOfBirthString);
+            _.each(appt.AppointmentServices, function (svc) {
+                svc.StartTime = new Date(svc.StartTimeString);
+            });
+
             var dfd = $q.defer();
-            ajaxService.post("Appointment", "Delete", appointment).then(function (results) {
+            ajaxService.post("Appointment", "Delete", appt).then(function (results) {
                 dfd.resolve(results);
             });
 

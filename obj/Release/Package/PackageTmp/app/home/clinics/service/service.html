@@ -1,1 +1,46 @@
-﻿service
+﻿<div class="modal-header">
+    <button ng-click="close()" type="button" class="close"><span>&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Service</h4>
+</div>
+<div class="modal-body">
+    <div ng-show="isLoading">
+        <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+    </div>
+    <div ng-if="!isLoading && !shouldCreate()">
+        <label class="required">Service to Add</label>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <span class="message">{{getServiceMessage()}}</span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="service in services" ng-click="setService(service)"><a>{{service.Name}}</a></li>
+            </ul>
+        </div>
+        <hr />
+        <span>OR</span>
+        <hr />
+        <button class="btn btn-primary btn-sm" ng-click="startCreateNew()">Create New Service</button>
+    </div>
+    <ng-form ng-if="!isLoading" name="serviceForm" ng-show="shouldCreate()">
+        <div class="form-group">
+            <label class="required">Service Name</label>
+            <input type="text" ng-model="selectedService.Name" placeholder="name" class="form-control" ng-maxlength="50" ng-required="true" />
+            <label class="required">Cost</label>
+            <input type="number" ng-model="selectedService.Cost" placeholder="$" class="form-control" ng-maxlength="50" ng-required="true" />
+            <label class="required">Duration</label>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="message">{{getDurationMessage()}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="duration in durations" ng-click="setDuration(duration)"><a>{{duration}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </ng-form>
+    <hr />
+    <button class="btn btn-danger" ng-click="close()">Cancel</button>
+    <button class="btn btn-success" ng-disabled="isLoading || !selectedService || !isValid()" ng-click="save()">Save</button>
+</div>

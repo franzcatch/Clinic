@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="APPOINTMENT" directorySegmentName="seg_0" id="2A6D8028-D9F0-386D-EE31-63C378F8B153">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:05 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>E7B6C3E1-D0FE-2B69-1D28-F3A9980A8FD0</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HOUSEHOLD_PERSON_ID" id="7F797E8F-136C-22D0-13EC-796B2FD08E1B">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:05 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="APPOINTMENT_ID" id="9B6416E9-550B-3F76-355D-3A613119E00F">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:05 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CLINIC_ID" id="F8BA320E-55B7-E3E9-D38E-C5083AF947A6">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:05 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="APPOINTMENT_PK" id="68A452E0-1AFB-67AB-9021-E39951DA39B3">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:05 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="APPOINTMENT_CLINIC_FK" id="16845B20-E5D0-9E8C-1957-907A718AD71E">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:10:37 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="APPOINTMENT_HOUSEHOLD_PERSON_FK" id="88678E80-396D-80F5-39F5-0971F90EE3FD">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:10:37 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="APPOINTMENT_PK" id="4AEE08E7-BC24-D7F8-369D-3FE9E72A2FBD">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:05 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<existingIndex>68A452E0-1AFB-67AB-9021-E39951DA39B3</existingIndex>
+<indexSegment>CD9556BC-9740-BA9A-92C8-1117E25BF220</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

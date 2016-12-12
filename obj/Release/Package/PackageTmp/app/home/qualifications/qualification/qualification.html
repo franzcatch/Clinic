@@ -1,0 +1,21 @@
+﻿<div class="modal-header">
+    <button ng-click="close()" type="button" class="close"><span>&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Room</h4>
+</div>
+<div class="modal-body">
+    <div ng-show="isLoading">
+        <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+    </div>
+    <div class="dropdown" ng-show="!isLoading">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="message">{{getServiceMessage()}}</span>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li ng-repeat="service in services" ng-click="setService(service)"><a>{{service.Name}}</a></li>
+        </ul>
+    </div>
+    <hr />
+    <button class="btn btn-danger" ng-click="close()">Cancel</button>
+    <button class="btn btn-success" ng-disabled="!isValid()" ng-click="save()">Save</button>
+</div>

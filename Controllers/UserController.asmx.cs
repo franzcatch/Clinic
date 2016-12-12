@@ -28,6 +28,10 @@ namespace Clinic.Controllers
             {
                 var obj = JsonParser.FromJson<UserDataContext>(Context);
                 var user = BusinessLayer.UserBL.Get(obj.username, obj.password);
+                if (user.Id == null)
+                {
+                    throw new Exception("Login not valid");
+                }
                 CurSession.User = user;
                 json = JsonParser.ToJson(user);
             }

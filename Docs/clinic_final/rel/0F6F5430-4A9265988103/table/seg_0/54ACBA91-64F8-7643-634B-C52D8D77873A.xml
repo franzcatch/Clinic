@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="54ACBA91-64F8-7643-634B-C52D8D77873A" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="CLINIC">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>CLINIC</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:18 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CLINIC_ID" id="9E5A4035-B286-F360-7E79-F7AA1D2E4DFB">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>CLINIC_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:18 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENTITY_ID" id="87623CA8-0BAF-DA18-B5E6-BBE7CB4A2B2F">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>ENTITY_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:18 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9632A392-FF9D-E93F-1BB6-57241F3915A7" referredColumn="F9B9B487-C988-9BCD-D69E-5990B469047F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="762E7937-D8E1-E3CA-614B-40A36307203B" name="CLINIC_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>CLINIC_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:18 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E5A4035-B286-F360-7E79-F7AA1D2E4DFB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4397715B-C78F-D755-322C-221188676988" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="CLINIC_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>CLINIC_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:18 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E5A4035-B286-F360-7E79-F7AA1D2E4DFB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AE68CE92-E4F4-3611-7195-2B8AD8E58AE1" name="CLINIC_ENTITY_FK">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:10:37 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="87623CA8-0BAF-DA18-B5E6-BBE7CB4A2B2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

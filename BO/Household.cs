@@ -11,7 +11,7 @@ namespace Clinic.BO
         {
             get
             {
-                return People.SingleOrDefault(x => x.IsPayer == true);
+                return People != null ? People.SingleOrDefault(x => x.IsPayer == true) : null;
             }
         }
         public List<Person> People { get; set; }

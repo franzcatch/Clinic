@@ -5,7 +5,6 @@ var _;
         .controller('ProviderCtrl', ProviderCtrl);
     function ProviderCtrl($scope, $uibModalInstance, params, clinicService) {
         $scope.isEdit = params.provider && params.provider.Id ? true : false;
-        $scope.isCreating = false;
         $scope.selectedUser = null;
         $scope.isLoading = true;
         $scope.users = [];
@@ -15,7 +14,7 @@ var _;
                 if (params.provider) {
                     _.each(users, function (user) {
                         if (user.EntityId === params.provider.EntityId) {
-                            $scope.selectedUser = user;
+                            $scope.selectedUser = _.cloneDeep(user);
                         }
                     });
                 }
@@ -29,10 +28,6 @@ var _;
         }
         $scope.getProviderMessage = function () {
             return $scope.selectedUser ? ($scope.selectedUser.FirstName + ' ' + $scope.selectedUser.LastName) : 'Select a staff member...';
-        };
-        $scope.isValid = function () {
-            return (($scope.isEdit || $scope.isCreating) &&
-                $scope.userForm.$valid);
         };
         $scope.setUser = function (user) {
             $scope.selectedUser = user;

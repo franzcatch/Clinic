@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4738A160-9B7D-B125-C59F-CB9AA344FACC" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="SERVICE">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>SERVICE</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SERVICE_ID" id="9910791C-11B4-4ACE-075E-FBD4B0024D2A">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>SERVICE</sourceObjSchema>
+<sourceObjName>SERVICE_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="8D1B7C39-9AD1-677D-63D4-2BB94406608F">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>SERVICE</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COST" id="C382A9E3-F953-8624-BCCB-BC1A4C1E5726">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>SERVICE</sourceObjSchema>
+<sourceObjName>COST</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MINUTES" id="38D0D925-6E08-66CA-AB35-77BA7267653A">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>SERVICE</sourceObjSchema>
+<sourceObjName>MINUTES</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3A9A7E86-E960-FC50-E2BC-0D0D22F8C2DB" name="SERVICE_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>SERVICE_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9910791C-11B4-4ACE-075E-FBD4B0024D2A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="12108380-1833-24E9-FD50-22A073C6540D" name="SERVICE_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>SERVICE_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8D1B7C39-9AD1-677D-63D4-2BB94406608F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="50D6C86B-982A-281C-52D6-3DFF14301411" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="SERVICE_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>SERVICE_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9910791C-11B4-4ACE-075E-FBD4B0024D2A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9F24DCD4-F306-F24B-2706-8D6A1FC95D1C" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="SERVICE_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>SERVICE_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8D1B7C39-9AD1-677D-63D4-2BB94406608F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

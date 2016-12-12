@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="PROVIDER_QUALIFICATION" directorySegmentName="seg_0" id="23836FA2-5C1E-71CB-FDD1-2BFCBEC14807">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>E7B6C3E1-D0FE-2B69-1D28-F3A9980A8FD0</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="SERVICE_ID" id="04BB4B57-6F40-A833-7D05-C048AD5970A0">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PROVIDER_ID" id="478285EF-1BE5-9DFC-45DB-568D6DFB74BD">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PROVIDER_QUALIFICATION_ID" id="934DE4D3-17F0-6153-4948-453215E1C9B7">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PROVIDER_QUALIFICATION_UC1" id="0DB48868-D358-0823-7117-F2D3BC6EE2DC">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PROVIDER_QUALIFICATION_PK" id="52AA93B6-4BCA-41DA-8C84-E348CA7F1153">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="PROVIDER_QUALIFICATION_SERVICE_FK" id="605D4867-056E-A461-74E0-3331E56E02D7">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:10:37 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="PROVIDER_QUALIFICATION_FK1" id="E83FE802-5B39-C103-12D0-9A5900D44594">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PROVIDER_QUALIFICATION_PK" id="9D4322B3-3CF5-D2C6-A243-14DAE0D7C8A3">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<existingIndex>52AA93B6-4BCA-41DA-8C84-E348CA7F1153</existingIndex>
+<indexSegment>CD9556BC-9740-BA9A-92C8-1117E25BF220</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="PROVIDER_QUALIFICATION_UC1" id="5AEEAA1B-B0B9-2A62-D080-4227FA5133B6">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<existingIndex>0DB48868-D358-0823-7117-F2D3BC6EE2DC</existingIndex>
+<indexSegment>CD9556BC-9740-BA9A-92C8-1117E25BF220</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

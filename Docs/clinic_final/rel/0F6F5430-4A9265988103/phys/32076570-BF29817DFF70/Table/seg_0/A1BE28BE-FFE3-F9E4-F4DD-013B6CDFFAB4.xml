@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ROOM" directorySegmentName="seg_0" id="A1BE28BE-FFE3-F9E4-F4DD-013B6CDFFAB4">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:11 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>E7B6C3E1-D0FE-2B69-1D28-F3A9980A8FD0</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CLINIC_ID" id="17714919-C499-1623-EAEF-FB90938E0B31">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="75A544B0-4C17-E0F1-DF70-64D4C3916EF1">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ROOM_ID" id="FE60260A-5619-8CCE-3824-8E7776E9211F">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ROOM_PK" id="1F6EF58E-80D0-26B2-ED3E-02A80BC3612B">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="ROOM_FK1" id="9A1D5025-D8B3-C2AC-3CFF-BD371CF0239E">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ROOM_PK" id="5158428A-5FB7-3FC8-930F-D03BB7B95AC2">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<existingIndex>1F6EF58E-80D0-26B2-ED3E-02A80BC3612B</existingIndex>
+<indexSegment>CD9556BC-9740-BA9A-92C8-1117E25BF220</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

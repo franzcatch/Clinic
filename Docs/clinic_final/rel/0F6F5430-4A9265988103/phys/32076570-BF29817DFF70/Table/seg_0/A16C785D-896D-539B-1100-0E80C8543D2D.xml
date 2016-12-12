@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ENTITY" directorySegmentName="seg_0" id="A16C785D-896D-539B-1100-0E80C8543D2D">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>E7B6C3E1-D0FE-2B69-1D28-F3A9980A8FD0</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CITY" id="1BDE1EC0-DFA1-C319-2738-C70709530AA7">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATE" id="36A62823-B435-66A9-C001-82214BE19D7B">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME3" id="464BFBED-53FD-47CA-56D1-2BCBD821FD9E">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS2" id="6EF96A71-DB7C-24DE-C363-CCF362920E33">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ZIP" id="7A7A4FEE-E3D0-B159-E6EC-B4525C1B7A03">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE1" id="A8B75B77-9DBB-F284-A891-D22E893ECEFF">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE3" id="AF193DC5-74CD-9950-0450-9A74F1F13972">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME1" id="B427522D-D95A-FD68-3636-FB418DD18D92">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS1" id="C818EE34-3731-4028-BE35-81CCFB9F50E2">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE2" id="E01A11F1-D81B-4445-0D11-5214217D8025">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME2" id="E8D1ECE5-02C4-ED60-1CEA-3A0B368E06AE">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENTITY_ID" id="F9B9B487-C988-9BCD-D69E-5990B469047F">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ENTITY_PK" id="A49E4812-FD1B-6F8D-4664-C5656DAA248D">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ENTITY_PK" id="3C38E888-BA9C-1333-A3E9-D836E076D780">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<segment>CD9556BC-9740-BA9A-92C8-1117E25BF220</segment>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+<existingIndex>A49E4812-FD1B-6F8D-4664-C5656DAA248D</existingIndex>
+<indexSegment>CD9556BC-9740-BA9A-92C8-1117E25BF220</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

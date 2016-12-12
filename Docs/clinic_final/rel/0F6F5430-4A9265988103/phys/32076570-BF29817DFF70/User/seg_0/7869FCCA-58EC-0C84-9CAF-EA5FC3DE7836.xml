@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="AFRANZEN" directorySegmentName="seg_0" id="7869FCCA-58EC-0C84-9CAF-EA5FC3DE7836">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjName>AFRANZEN</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:05 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<schemaObject>035D63A0-F336-5BCF-5039-7676671ED514</schemaObject>
+<defTableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</defTableSpace>
+<privileges>CREATE TRIGGER, CREATE ANY CONTEXT, CREATE OPERATOR, CREATE DIMENSION, CREATE INDEXTYPE, CREATE JOB, CREATE CLUSTER, CREATE PROCEDURE, CREATE TABLE, CREATE SYNONYM, CREATE VIEW, CREATE MATERIALIZED VIEW, CREATE SEQUENCE, CREATE TYPE</privileges>
+<quotaItems>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="5C8A7A3B-70B7-83D6-F33F-9D60108858E0">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:05 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem2" id="163A4715-810C-31AD-E320-1E1D20011E11">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:10 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem3" id="D6404A15-9C91-3756-C093-857C005B4E7B">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:18 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem4" id="E6B752C0-EB67-E951-04B3-6B9C40B6ECA6">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem5" id="C23C764F-E393-B6EA-EE43-38C8E84F7824">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:55 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem6" id="27465B0C-F2C0-9C22-BE11-6BD8F2283A8E">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem7" id="86C07A4D-EA34-FB51-297F-2EA5F6FC8959">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:11 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem8" id="27AF03CC-53BF-3F9A-6369-6D764546D126">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem9" id="23D81C01-ED2E-EA09-A6FD-EB73B272A963">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem10" id="18505D53-0AFF-0041-B559-D1E12E00B705">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:53 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem11" id="2D298BA3-5FD5-3920-0E41-F9F4C4FA2F2C">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem12" id="71D1D760-4D41-DA63-6300-EEAB655BF440">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:11 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem13" id="91146BE2-9DB7-3252-3E75-B9C806C337E6">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:21 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem14" id="85313125-BDDF-18FA-361F-1919B7ECA6E1">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:28 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem15" id="388E32DE-4617-EC00-AABE-3B15D1CA77DA">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem16" id="B020D6C8-464A-D987-3782-DDF98B4C637A">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:47:09 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem17" id="4CD46A7F-4986-D93B-2641-700422959EB6">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:47:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem18" id="30F0BF28-33CB-3A21-5CE5-48DDEB0D5B8E">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:07:07 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<size>10485760</size>
+<tableSpace>BEB89DDC-170D-F814-A24C-F8B892687A42</tableSpace>
+</QuotaItem>
+</quotaItems>
+</UserOraclev10g>

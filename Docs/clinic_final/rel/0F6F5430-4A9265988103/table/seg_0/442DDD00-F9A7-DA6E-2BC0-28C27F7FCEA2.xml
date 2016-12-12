@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="442DDD00-F9A7-DA6E-2BC0-28C27F7FCEA2" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="ROLES">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ROLES</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROLE_ID" id="3DFA93CE-1ABC-9CE8-4242-03F04B93F79F">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ROLES</sourceObjSchema>
+<sourceObjName>ROLE_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ROLE_NAME" id="B57847E0-9AA5-499E-E269-E423B04DDBBB">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ROLES</sourceObjSchema>
+<sourceObjName>ROLE_NAME</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A96D2B74-6018-4F8F-41D5-378C41DBF8A8" name="ROLE_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ROLE_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3DFA93CE-1ABC-9CE8-4242-03F04B93F79F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6D1B52CF-2182-E4D5-D2D1-3860A0D39F9E" name="ROLE_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ROLE_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B57847E0-9AA5-499E-E269-E423B04DDBBB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="62352640-FD6C-6395-833D-A38633993C33" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="ROLE_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ROLE_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3DFA93CE-1ABC-9CE8-4242-03F04B93F79F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1022AE89-AAAA-EF16-6213-960BDA03D338" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="ROLE_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ROLE_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:01 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B57847E0-9AA5-499E-E269-E423B04DDBBB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

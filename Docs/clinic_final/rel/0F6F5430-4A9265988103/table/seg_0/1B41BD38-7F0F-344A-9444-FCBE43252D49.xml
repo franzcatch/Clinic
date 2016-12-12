@@ -1,0 +1,179 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1B41BD38-7F0F-344A-9444-FCBE43252D49" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="USERS">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>USERS</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_ID" id="F1D3739F-404B-459C-F481-AAC6B5E4755A">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ROLE_ID" id="48D318AF-D9CD-6E54-AC46-FD9E358BA711">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>ROLE_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A063EA75-D06B-D89E-9F36-FB7139F60257" referredColumn="3DFA93CE-1ABC-9CE8-4242-03F04B93F79F"/>
+</associations>
+</Column>
+<Column name="ENTITY_ID" id="EFAC9046-84F7-A624-1C04-335900D461F6">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>ENTITY_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DB64018E-87CC-3B35-CC13-2394DCA0B596" referredColumn="F9B9B487-C988-9BCD-D69E-5990B469047F"/>
+</associations>
+</Column>
+<Column name="USERNAME" id="E98AF92D-25BD-0F89-41FD-1EA4AF5D372E">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>USERNAME</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="76CDD333-1DC3-166A-C7A7-9BEDD6F8DD22">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>PASSWORD</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 BYTE</dataTypeSize>
+<ownDataTypeParameters>500 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IS_ACTIVE" id="056FAE2A-503A-A754-71BB-333F4C0F8F8F">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>IS_ACTIVE</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;Y&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6F8905E4-AB42-6A3A-F1FA-D5046F549D6D" name="USERS_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>USERS_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1D3739F-404B-459C-F481-AAC6B5E4755A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="64D89FC9-0FAC-B158-7BB9-C54031BA4658" name="USERS_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>USERS_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E98AF92D-25BD-0F89-41FD-1EA4AF5D372E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DAF13009-87E9-2735-DA80-114D1AEB689E" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="USERS_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>USERS_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1D3739F-404B-459C-F481-AAC6B5E4755A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="15BC0F2B-9831-C94F-FA69-42EE794F8F80" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="USERS_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>USERS_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E98AF92D-25BD-0F89-41FD-1EA4AF5D372E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="142C1868-FEEC-8D6D-D49D-E6315B3C6907" name="USERS_FK1">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFAC9046-84F7-A624-1C04-335900D461F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C25444A4-C7B9-429B-C811-F6F3A00A193D" name="USERS_FK2">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:34 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48D318AF-D9CD-6E54-AC46-FD9E358BA711"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

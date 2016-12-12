@@ -31,11 +31,19 @@
             });
             return dfd.promise;
         }
+        function getRooms(clinicId) {
+            var dfd = $q.defer();
+            ajaxService.post("Clinic", "GetRooms", { Id: clinicId }).then(function (response) {
+                dfd.resolve(response);
+            });
+            return dfd.promise;
+        }
         return {
             getAll: getAll,
             update: update,
             deleteClinic: deleteClinic,
-            getEligibleProviders: getEligibleProviders
+            getEligibleProviders: getEligibleProviders,
+            getRooms: getRooms
         };
     }
 }(window.angular));

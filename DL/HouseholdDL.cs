@@ -98,7 +98,7 @@ namespace Clinic.DL
             }
 
             string sql = string.Format(@"
-                         SELECT *
+                         SELECT DISTINCT h.*
                          FROM HOUSEHOLD h
                          JOIN HOUSEHOLD_PERSON hp ON h.household_id = hp.household_id
                          JOIN ENTITY e ON hp.ENTITY_ID = e.ENTITY_ID

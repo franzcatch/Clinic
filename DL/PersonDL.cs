@@ -20,6 +20,7 @@ namespace Clinic.DL
             }
 
             target.Id = Convert.ToInt32(reader["household_person_id"]);
+            target.HouseholdId = Convert.ToInt32(reader["household_id"]);
             target.Appointments = new List<Appointment>();
             target.IsPayer = reader["is_payer"].ToString() == "Y" ? true : false;
             target.DateOfBirth = DateTime.Parse(reader["dob"].ToString());

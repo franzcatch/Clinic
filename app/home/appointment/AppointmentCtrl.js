@@ -1,3 +1,4 @@
+var _;
 (function (angular) {
     'use strict';
     angular.module('clinic')
@@ -24,23 +25,63 @@
             $scope.serviceDate = null;
             doSearch();
         };
+        $scope.getStartTime = function (appointment) {
+            return appointment.AppointmentServices[0].StartTimeString;
+        };
+        $scope.getServicesString = function (appointment) {
+            var services = _.map(appointment.AppointmentServices, function (aptSvc) {
+                return aptSvc.Service.Name;
+            });
+            return _.join(services, ', ');
+        };
+        $scope.getProvidersString = function (appointment) {
+            var rooms = _.map(appointment.AppointmentServices, function (aptSvc) {
+                return aptSvc.Provider.FirstName + ' ' + aptSvc.Provider.LastName;
+            });
+            return _.join(rooms, ', ');
+        };
+        $scope.getRoomsString = function (appointment) {
+            var rooms = _.map(appointment.AppointmentServices, function (aptSvc) {
+                return aptSvc.Room.Name;
+            });
+            return _.join(rooms, ', ');
+        };
+        $scope.getTotalTime = function (appointment) {
+            var total = 0;
+            _.each(appointment.AppointmentServices, function (apsSvc) {
+                total += apsSvc.Service.Minutes;
+            });
+            return total;
+        };
+        $scope.getTotalPrice = function (appointment) {
+            var total = 0;
+            _.each(appointment.AppointmentServices, function (apsSvc) {
+                total += apsSvc.Service.Cost;
+            });
+            return total;
+        };
         function doSearch() {
             $scope.isLoading = true;
             if ($scope.isUser) {
-                appointmentService.getAppointmentsForUser($scope.settings.User.Id, $scope.serviceDate).then(function (appointments) {
-                    $scope.appointments = appointments;
+                appointmentService.getAppointmentsForUser(settings.User.Id, $scope.serviceDate).then(function (appointments) {
+                    $scope.appointments = _.uniqBy(appointments, function (apt) {
+                        return apt.Id;
+                    });
+                    ;
                     $scope.isLoading = false;
                 });
             }
             else {
                 appointmentService.getAppointmentsForClinic($scope.selectedClinic.Id, $scope.serviceDate).then(function (appointments) {
-                    $scope.appointments = appointments;
+                    $scope.appointments = _.uniqBy(appointments, function (apt) {
+                        return apt.Id;
+                    });
                     $scope.isLoading = false;
                 });
             }
         }
         $scope.openAppointment = function (origAppointment) {
-            $uibModal.open({
+            var modal = $uibModal.open({
                 templateUrl: 'app/home/appointment/manage/newAppointment.html',
                 controller: 'NewAppointmentCtrl',
                 size: 'appointment-modal-size',
@@ -50,9 +91,15 @@
                             appointment: origAppointment,
                             clinic: $scope.selectedClinic,
                             submit: function (appointment) {
-                                return appointmentService.createAppointment(appointment).then(function () {
-                                    return;
+                                return appointmentService.createAppointment(appointment).then(function (appointment) {
+                                    if (appointment.Id) {
+                                        $scope.appointments.push(appointment);
+                                        modal.close();
+                                    }
                                 });
+                            },
+                            close: function () {
+                                modal.close();
                             }
                         };
                     }
@@ -62,6 +109,7 @@
         $scope.delete = function (appointment) {
             $scope.isLoading = true;
             appointmentService.deleteAppointment(appointment).then(function () {
+                _.remove($scope.appointments, appointment);
                 $scope.isLoading = false;
             });
         };

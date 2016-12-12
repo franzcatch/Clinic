@@ -1,0 +1,136 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="23836FA2-5C1E-71CB-FDD1-2BFCBEC14807" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="PROVIDER_QUALIFICATION">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>PROVIDER_QUALIFICATION</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROVIDER_QUALIFICATION_ID" id="934DE4D3-17F0-6153-4948-453215E1C9B7">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>PROVIDER_QUALIFICATION</sourceObjSchema>
+<sourceObjName>PROVIDER_QUALIFICATION_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROVIDER_ID" id="478285EF-1BE5-9DFC-45DB-568D6DFB74BD">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>PROVIDER_QUALIFICATION</sourceObjSchema>
+<sourceObjName>PROVIDER_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="74C81FA0-B8BD-F99B-7665-6C660C874394" referredColumn="08E14876-F56F-5C08-F6F2-41ED8B93875F"/>
+</associations>
+</Column>
+<Column name="SERVICE_ID" id="04BB4B57-6F40-A833-7D05-C048AD5970A0">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>PROVIDER_QUALIFICATION</sourceObjSchema>
+<sourceObjName>SERVICE_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6BD3F1B7-4987-F6DE-0C39-690DD45D0CAA" referredColumn="9910791C-11B4-4ACE-075E-FBD4B0024D2A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9D4322B3-3CF5-D2C6-A243-14DAE0D7C8A3" name="PROVIDER_QUALIFICATION_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>PROVIDER_QUALIFICATION_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="934DE4D3-17F0-6153-4948-453215E1C9B7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5AEEAA1B-B0B9-2A62-D080-4227FA5133B6" name="PROVIDER_QUALIFICATION_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>PROVIDER_QUALIFICATION_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="478285EF-1BE5-9DFC-45DB-568D6DFB74BD"/>
+<colUsage columnID="04BB4B57-6F40-A833-7D05-C048AD5970A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="52AA93B6-4BCA-41DA-8C84-E348CA7F1153" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="PROVIDER_QUALIFICATION_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>PROVIDER_QUALIFICATION_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="934DE4D3-17F0-6153-4948-453215E1C9B7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0DB48868-D358-0823-7117-F2D3BC6EE2DC" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="PROVIDER_QUALIFICATION_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>PROVIDER_QUALIFICATION_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="478285EF-1BE5-9DFC-45DB-568D6DFB74BD"/>
+<colUsage columnID="04BB4B57-6F40-A833-7D05-C048AD5970A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E83FE802-5B39-C103-12D0-9A5900D44594" name="PROVIDER_QUALIFICATION_FK1">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:44 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="478285EF-1BE5-9DFC-45DB-568D6DFB74BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="605D4867-056E-A461-74E0-3331E56E02D7" name="PROVIDER_QUALIFICATION_SERVICE_FK">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:10:37 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04BB4B57-6F40-A833-7D05-C048AD5970A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

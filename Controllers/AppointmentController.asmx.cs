@@ -25,7 +25,12 @@ namespace Clinic.Controllers
             try
             {
                 var obj = JsonParser.FromJson<IdContext>(Context);
-                var result = BusinessLayer.AppointmentBL.GetAppointmentsForClinic(obj.Id, obj.ServiceDate);
+                Nullable<DateTime> date = null;
+                if (!string.IsNullOrWhiteSpace(obj.ServiceDate))
+                {
+                    date = Convert.ToDateTime(obj.ServiceDate);
+                }
+                var result = BusinessLayer.AppointmentBL.GetAppointmentsForClinic(obj.Id, date);
                 json = JsonParser.ToJson(result);
             }
             catch (Exception ex)
@@ -45,7 +50,12 @@ namespace Clinic.Controllers
             try
             {
                 var obj = JsonParser.FromJson<IdContext>(Context);
-                var result = BusinessLayer.AppointmentBL.GetAppointmentsForUser(obj.Id, obj.ServiceDate);
+                Nullable<DateTime> date = null;
+                if (!string.IsNullOrWhiteSpace(obj.ServiceDate))
+                {
+                    date = Convert.ToDateTime(obj.ServiceDate);
+                }
+                var result = BusinessLayer.AppointmentBL.GetAppointmentsForUser(obj.Id, date);
                 json = JsonParser.ToJson(result);
             }
             catch (Exception ex)
@@ -65,8 +75,8 @@ namespace Clinic.Controllers
             try
             {
                 var obj = JsonParser.FromJson<GetAvailabilityContext>(Context);
-                return BusinessLayer.AppointmentBL.GetAvailableAppointments(obj.ClinicId, obj.ServiceId, obj.ServiceDate);
-                //json = JsonParser.ToJson(result);
+                var result = BusinessLayer.AppointmentBL.GetAvailableAppointments(obj.ClinicId, obj.ServiceId, obj.ServiceDate);
+                json = JsonParser.ToJson(result);
             }
             catch (Exception ex)
             {
@@ -124,7 +134,7 @@ namespace Clinic.Controllers
         public class IdContext
         {
             public int Id { get; set; }
-            public DateTime? ServiceDate { get; set; }
+            public string ServiceDate { get; set; }
         }
     }
 }

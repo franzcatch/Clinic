@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AC931373-7DC2-5B26-62DC-59176B1A31EA" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="RELATIONSHIP">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>RELATIONSHIP</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:07:07 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RELATIONSHIP_ID" id="ADAC12EF-7301-ED53-F895-E7EF52BE3C83">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>RELATIONSHIP</sourceObjSchema>
+<sourceObjName>RELATIONSHIP_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:07:07 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="55035D11-1C0C-FA4C-939A-EC8C7065B4EA">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>RELATIONSHIP</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:07:07 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E98D69D2-21E9-0543-B12B-83ED07A3BD92" name="RELATIONSHIP_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>RELATIONSHIP_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:07:07 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ADAC12EF-7301-ED53-F895-E7EF52BE3C83"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3E79309A-933E-E693-4BB6-0F7209E88B57" name="RELATIONSHIP_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>RELATIONSHIP_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:07:07 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55035D11-1C0C-FA4C-939A-EC8C7065B4EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F10BF0A7-1218-C5ED-6DBA-348ECCCC9915" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="RELATIONSHIP_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>RELATIONSHIP_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:07:07 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ADAC12EF-7301-ED53-F895-E7EF52BE3C83"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2405780C-FEA4-10CC-E440-E9681EE578A0" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="RELATIONSHIP_UC1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>RELATIONSHIP_UC1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 16:07:07 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55035D11-1C0C-FA4C-939A-EC8C7065B4EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

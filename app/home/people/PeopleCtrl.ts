@@ -48,7 +48,7 @@
             settings.temp = {
                 profile: {
                     isHousehold: $scope.curTab === $scope.tabs[1],
-                    user: user,
+                    user: user ? user : {},
                     close: function () {
                         $scope.setTab($scope.curTab);
                         modal.close();

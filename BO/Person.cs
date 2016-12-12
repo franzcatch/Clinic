@@ -40,6 +40,7 @@ namespace Clinic.BO
                 this.Name3 = value;
             }
         }
+        public int HouseholdId { get; set; }
         public bool IsPayer { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string DateOfBirthString

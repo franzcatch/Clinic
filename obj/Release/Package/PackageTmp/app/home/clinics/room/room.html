@@ -1,1 +1,15 @@
-﻿room
+﻿<div class="modal-header">
+    <button ng-click="close()" type="button" class="close"><span>&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Room</h4>
+</div>
+<div class="modal-body">
+    <ng-form name="roomForm">
+        <div class="form-group">
+            <label class="required">Room Name</label>
+            <input type="text" ng-model="Name" placeholder="name" class="form-control" ng-maxlength="50" ng-required="true" />
+        </div>
+    </ng-form>
+    <hr />
+    <button class="btn btn-danger" ng-click="close()">Cancel</button>
+    <button class="btn btn-success" ng-disabled="!isValid()" ng-click="save()">Save</button>
+</div>

@@ -11,12 +11,20 @@ namespace Clinic.BL
     {
         public List<Appointment> GetAppointmentsForClinic(int clinicId, DateTime? date)
         {
-            return DataLayer.AppointmentDL.GetAppointmentsForClinic(clinicId, date);
+            return DataLayer.AppointmentDL.GetAppointmentsForClinic(clinicId, date)
+                .OrderBy(x => x.AppointmentServices[0].StartTime)
+                .ThenBy(x => x.Person.LastName)
+                .ThenBy(x => x.Person.FirstName)
+                .ToList();
         }
 
         public List<Appointment> GetAppointmentsForUser(int userId, DateTime? date)
         {
-            return DataLayer.AppointmentDL.GetAppointmentsForUser(userId, date);
+            return DataLayer.AppointmentDL.GetAppointmentsForUser(userId, date)
+                .OrderBy(x => x.AppointmentServices[0].StartTime)
+                .ThenBy(x => x.Person.LastName)
+                .ThenBy(x => x.Person.FirstName)
+                .ToList();
         }
 
         public void Create(Appointment appointment)
@@ -73,7 +81,7 @@ namespace Clinic.BL
             // making takenAptSvcs a list of appointment times consumed for every half hour each existing appointment occupies a room
             foreach (var time in allStartTimes)
             {
-                var aptSvcsAtCurTime = existingAptSvcs.Where(x => x.StartTime == curTime).ToList();
+                var aptSvcsAtCurTime = existingAptSvcs.Where(x => x.StartTime == time).ToList();
                 foreach (var aptSvc in aptSvcsAtCurTime)
                 {
                     for (var curMinutes = 0; curMinutes < aptSvc.Service.Minutes; curMinutes += minBetween)
@@ -96,22 +104,22 @@ namespace Clinic.BL
                 avail.StartTime.AddMinutes(avail.Service.Minutes) > closeTime
             );
 
-            // remove "available" appointments that start less than "desiredService.Minutes" prior to an existing appointment
             foreach (var takenAptSvc in takenAptSvcs)
             {
+                DateTime takenEndTime = takenAptSvc.StartTime.AddMinutes(takenAptSvc.Service.Minutes);
                 availableAppointments.RemoveAll(avail =>
-                    avail.StartTime.AddMinutes(avail.Service.Minutes) > avail.StartTime
-                );
-            }
-
-            // remove "available" appointments that are already taken
-            foreach (var takenAptSvc in takenAptSvcs)
-            {
-                availableAppointments.RemoveAll(avail =>
-                    avail.StartTime == avail.StartTime &&
                     avail.Provider.Id == avail.Provider.Id &&
                     avail.Service.Id == avail.Service.Id &&
-                    avail.Room.Id == avail.Room.Id);
+                    avail.Room.Id == avail.Room.Id &&
+                    // if available timeslot starts or ends in the middle of a taken timeslot
+                    ( 
+                      ( avail.StartTime > takenAptSvc.StartTime && 
+                        avail.StartTime < takenEndTime )
+                        ||
+                      ( avail.StartTime.AddMinutes(avail.Service.Minutes) > takenAptSvc.StartTime &&
+                        avail.StartTime.AddMinutes(avail.Service.Minutes) < takenEndTime ) 
+                    )
+                );
             }
 
             return availableAppointments

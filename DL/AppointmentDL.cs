@@ -15,7 +15,7 @@ namespace Clinic.DL
             target.Id = Convert.ToInt32(reader["appointment_id"]);
             target.Clinic = DataLayer.ClinicDL.Get(Convert.ToInt32(reader["clinic_id"]));
             target.Person = DataLayer.PersonDL.Get(Convert.ToInt32(reader["household_person_id"]));
-            target.AppointmentServices = GetAppointmentServices(target.Id.Value);
+            target.AppointmentServices = GetAppointmentServices(target.Id.Value).OrderBy(x => x.StartTime).ToList();
         }
 
         private void PopulateService(Object obj, OracleDataReader reader)
@@ -113,10 +113,10 @@ namespace Clinic.DL
                              : "AND TRUNC(aps.TIME) = TO_DATE('" + date.Value.ToString("dd-MMM-yyyy").ToUpper() + "')";
 
             string sql = string.Format(@"
-                         SELECT aps.*
+                         SELECT a.*
                          FROM APPOINTMENT_SERVICE aps
                          JOIN APPOINTMENT a ON aps.APPOINTMENT_ID = a.APPOINTMENT_ID
-                         JOIN HOUSEHOLD_PERSON_ID hp ON a.HOUSEHOLD_PERSON_ID = hp.HOUSEHOLD_PERSON_ID
+                         JOIN HOUSEHOLD_PERSON hp ON a.HOUSEHOLD_PERSON_ID = hp.HOUSEHOLD_PERSON_ID
                          JOIN USERS u ON hp.ENTITY_ID = u.ENTITY_ID
                          WHERE u.USER_ID = {0}
                                {1}
@@ -137,7 +137,7 @@ namespace Clinic.DL
                              : "AND TRUNC(aps.TIME) = TO_DATE('" + date.Value.ToString("dd-MMM-yyyy").ToUpper() + "')";
 
             string sql = string.Format(@"
-                         SELECT aps.*
+                         SELECT a.*
                          FROM APPOINTMENT_SERVICE aps
                          JOIN APPOINTMENT a ON aps.APPOINTMENT_ID = a.APPOINTMENT_ID
                          WHERE a.CLINIC_ID = {0}

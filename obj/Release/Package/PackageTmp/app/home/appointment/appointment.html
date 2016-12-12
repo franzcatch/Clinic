@@ -3,7 +3,75 @@
     <div class="banner">
         Manage Appointments
     </div>
-    <div class="page-content">
-        hello
+    <div class="page-content" style="padding: 25px;">
+        <div ng-if="isLoading">
+            <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+        </div>
+        <div class="form-group" ng-if="!isLoading && !isUser">
+            <label class="required">Select a Clinic</label>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="message">{{selectedClinic.Name}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="clinic in clinincs" ng-click="setClinic(clinic)"><a>{{clinic.Name}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="required">Service Date</label>
+            <div class="input-group">
+                <input type="date" ng-model="serviceDate" ng-change="serviceDateChanged()" class="form-control" placeholder="MM/dd/yyyy" />
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" ng-click="clearDate()">Clear</button>
+                </span>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">Appointments</div>
+            <div class="panel-body" style="margin: 25px;">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Account #</th>
+                            <th>Patient Name</th>
+                            <th>Date/Time</th>
+                            <th>Services</th>
+                            <th>Providers</th>
+                            <th>Rooms</th>
+                            <th>Total (min)</th>
+                            <th>Total ($)</th>
+                            <th>Cancel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="appointment in appointments">
+                            <td><span>{{appointment.Person.HouseholdId}}</span></td>
+                            <td><span>{{appointment.Person.FirstName + ' ' + appointment.Person.LastName}}</span></td>
+                            <td><span>{{getStartTime(appointment)}}</span></td>
+                            <td><span>{{getServicesString(appointment)}}</span></td>
+                            <td><span>{{getProvidersString(appointment)}}</span></td>
+                            <td><span>{{getRoomsString(appointment)}}</span></td>
+                            <td><span>{{getTotalTime(appointment)}}</span></td>
+                            <td><span>{{getTotalPrice(appointment)}}</span></td>
+                            <td class="table-btn red">
+                                <span class="fa-stack" ng-click="delete(appointment)">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div ng-if="isLoading">
+                    <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
+                </div>
+                <span ng-if="!appointments.length">None found.</span>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" ng-click="openAppointment()" ng-if="!isUser">Create Appointment</button>
+        </div>
     </div>
 </div>

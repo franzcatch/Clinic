@@ -9182,6 +9182,16 @@ button.toast-close-button {
   height: 100%;
   width: 100%;
 }
+.appointment .panel {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.appointment .panel .panel-body {
+  margin: 25px;
+}
+.modal-appointment-modal-size {
+  width: 60% !important;
+}
 .clinics .sub-banner .dropdown {
   width: 250px;
   display: inline-block;
@@ -9190,6 +9200,7 @@ button.toast-close-button {
   display: inline-block;
 }
 .clinics .sub-banner .btn.right {
+  margin-left: 15px;
   float: right;
 }
 .profile {
@@ -9343,6 +9354,12 @@ body .page-wrapper .page-content {
   overflow-y: auto;
   display: table;
 }
+body .page-wrapper .page-content .red {
+  color: #d9534f;
+}
+body .page-wrapper .page-content .table-btn {
+  cursor: pointer;
+}
 body .page-wrapper .page-content .page-content-left {
   width: 250px;
   height: 100%;
@@ -9373,12 +9390,12 @@ body .page-wrapper .page-content .page-content-left .page-content-left-tab:hover
   background-color: lightseagreen !important;
 }
 body .page-wrapper .page-content .page-content-right {
-  display: table-cell;
+  height: calc(100% - 180px);
+  overflow-y: auto;
   padding: 30px;
 }
-body .page-wrapper .page-content .page-content-right .table-btn {
-  cursor: pointer;
-}
-body .page-wrapper .page-content .page-content-right .red {
-  color: #d9534f;
+body .page-wrapper .page-content .page-content-right.is-modal {
+  height: inherit !important;
+  overflow-y: inherit !important;
+  display: table-cell;
 }

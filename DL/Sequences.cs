@@ -13,7 +13,6 @@ namespace Clinic.DL
         public static string Entity = "ENTITY_S";
         public static string Person = "HOUSEHOLD_PERSON_S";
         public static string Household = "HOUSEHOLD_S";
-        public static string Payment = "PAYMENT_S";
         public static string ProviderQualification = "PROVIDER_QUALIFICATION_S";
         public static string Provider = "PROVIDER_S";
         public static string Room = "ROOM_S";

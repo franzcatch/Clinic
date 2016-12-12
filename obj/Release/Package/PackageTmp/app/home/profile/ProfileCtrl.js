@@ -10,11 +10,12 @@ var _;
         $scope.user = _.cloneDeep($scope.settings ? $scope.settings.user : settings.User);
         $scope.model = $scope.user;
         $scope.isModalEdit = $scope.settings ? true : false;
-        $scope.isHousehold = ($scope.user && $scope.user.Role.Name === 'User') || ($scope.settings && $scope.settings.isHousehold) ? true : false;
+        $scope.isHousehold = (($scope.settings && $scope.settings.isHousehold) || (!$scope.settings && $scope.user.Role.Name === 'User')) ? true : false;
         $scope.isLoading = true;
         $scope.roles = [];
         $scope.relationships = [];
-        $scope.dependents = [];
+        $scope.originalDependents = [];
+        $scope.curDependent = null;
         $scope.tabs = $scope.isHousehold
             ? [
                 { title: 'Name', id: 'name' },
@@ -48,16 +49,23 @@ var _;
                 $scope.roles = data[0];
                 $scope.relationships = data[1];
                 $scope.household = data[2];
-                initHouseholdInfo();
                 initUserInfo();
+                initHouseholdInfo();
                 $scope.isLoading = false;
             });
         }
         function initUserInfo() {
-            if (!$scope.user) {
-                $scope.user = {
-                    Role: _.find($scope.roles, function (role) { return role.Name === "User"; })
-                };
+            if ($scope.isHousehold) {
+                $scope.user.Role = _.find($scope.roles, function (role) { return role.Name === "User"; });
+            }
+            else {
+                _.remove($scope.roles, function (role) {
+                    return role.Name === "User";
+                });
+                if ($scope.user && $scope.user.Role) {
+                    $scope.user.Role = _.find($scope.roles, function (role) { return role.Name === $scope.user.Role.Name; });
+                }
+                _.merge($scope.model, $scope.user);
             }
         }
         function initHouseholdInfo() {
@@ -67,29 +75,37 @@ var _;
             if (!$scope.household) {
                 $scope.household = {};
             }
+            if (!($scope.household.People && $scope.household.People.length)) {
+                $scope.household.People = [
+                    {
+                        IsPayer: true,
+                        Relationship: _.find($scope.relationships, function (relationship) {
+                            return relationship.Name === "Primary";
+                        })
+                    }
+                ];
+            }
             $scope.dependents = _.filter($scope.household.People, function (person) {
                 return person.IsPayer === false;
             });
-            if (!$scope.household.People) {
-                $scope.household.People = [];
-            }
             $scope.householdPerson = _.find($scope.household.People, function (person) {
-                return $scope.user && $scope.user.EntityId === person.EntityId;
+                return person.IsPayer;
             });
             _.each($scope.household.People, function (person) {
                 person.DateOfBirth = new Date($scope.household.People[0].DateOfBirthString);
             });
-            if (!$scope.householdPerson) {
-                $scope.householdPerson = {
-                    IsPayer: true,
-                };
-            }
-            _.merge($scope.model, $scope.householdPerson);
-            if ($scope.householdPerson && !$scope.householdPerson.Relationship) {
-                $scope.householdPerson.Relationship = _.find($scope.relationships, function (relationship) {
-                    return relationship.Name === "Primary";
-                });
-            }
+            $scope.model.FirstName = $scope.householdPerson.FirstName;
+            $scope.model.MiddleName = $scope.householdPerson.MiddleName;
+            $scope.model.LastName = $scope.householdPerson.LastName;
+            $scope.model.Address1 = $scope.householdPerson.Address1;
+            $scope.model.Address2 = $scope.householdPerson.Address2;
+            $scope.model.City = $scope.householdPerson.City;
+            $scope.model.State = $scope.householdPerson.State;
+            $scope.model.Zip = $scope.householdPerson.Zip;
+            $scope.model.Phone1 = $scope.householdPerson.Phone1;
+            $scope.model.Phone2 = $scope.householdPerson.Phone2;
+            $scope.model.Phone3 = $scope.householdPerson.Phone3;
+            $scope.originalDependents = _.cloneDeep($scope.household.People);
         }
         $scope.getToday = function () {
             var today = new Date();
@@ -122,11 +138,33 @@ var _;
         $scope.shouldGatherRelationship = function () {
             return $scope.settings.user ? true : false;
         };
-        $scope.getRelationshipMessage = function () {
-            return $scope.householdPerson.Relationship ? $scope.householdPerson.Relationship.Name : 'Select a relationship...';
+        $scope.getRelationshipMessage = function (householdPerson) {
+            return householdPerson && householdPerson.Relationship ? householdPerson.Relationship.Name : 'Select a relationship...';
         };
         $scope.shouldGatherRole = function () {
-            return !$scope.isHousehold && $scope.user && $scope.user.Id !== settings.User.Id;
+            return !$scope.isHousehold && $scope.settings && $scope.user.Id !== settings.User.Id;
+        };
+        $scope.cancelEditDependent = function () {
+            $scope.curDependent = null;
+            $scope.isAddingDependent = false;
+        };
+        $scope.editDependent = function (dependent) {
+            $scope.isAddingDependent = true;
+            $scope.curDependent = dependent;
+            if ($scope.householdPerson && !$scope.curDependent.FirstName) {
+                _.merge($scope.curDependent, $scope.model);
+                $scope.curDependent.FirstName = '';
+                $scope.curDependent.MiddleName = '';
+                $scope.curDependent.LastName = '';
+                $scope.curDependent.DateOfBirth = null;
+                $scope.curDependent.Relationship = null;
+                $scope.curDependent.Id = null;
+                $scope.curDependent.EntityId = null;
+            }
+        };
+        $scope.saveDependent = function () {
+            $scope.household.People.push($scope.curDependent);
+            $scope.cancelEditDependent();
         };
         $scope.isDirty = function () {
             var val = ($scope.userForm.$dirty ||
@@ -134,7 +172,7 @@ var _;
                 $scope.addressForm.$dirty ||
                 $scope.phoneForm.$dirty ||
                 $scope.insuranceForm.$dirty ||
-                $scope.dependentsForm.$dirty);
+                ($scope.isHousehold && !_.isEqual($scope.originalDependents, $scope.household.People)));
             return val;
         };
         $scope.isValid = function () {
@@ -143,39 +181,42 @@ var _;
                 $scope.addressForm.$valid &&
                 $scope.phoneForm.$valid &&
                 (!$scope.isHousehold ||
-                    ($scope.insuranceForm.$valid &&
-                        $scope.dependentsForm.$valid)));
+                    ($scope.isHousehold && $scope.insuranceForm.$valid && $scope.household.People.length > 0) // one is the primary
+                ));
             return val;
         };
         $scope.update = function () {
             $scope.isLoading = true;
-            if ($scope.isHousehold) {
-                var id = $scope.householdPerson.Id;
-                _.merge($scope.householdPerson, $scope.model);
-                $scope.householdPerson.Id = id;
-                if ($scope.householdPerson.Id) {
-                    _.each($scope.household.People, function (person) {
-                        if (person.Id === $scope.householdPerson.Id) {
-                            _.merge(person, $scope.householdPerson);
+            _.merge($scope.user, $scope.model);
+            userService.update($scope.user).then(function (user) {
+                $scope.user = user;
+                if ($scope.isHousehold) {
+                    var personId = $scope.householdPerson.Id;
+                    _.merge($scope.householdPerson, $scope.model);
+                    $scope.householdPerson.Id = personId;
+                    $scope.householdPerson.EntityId = $scope.user.EntityId;
+                    householdService.update($scope.household).then(function (household) {
+                        $scope.household = household;
+                        $scope.householdPerson = _.find($scope.household.People, function (person) {
+                            return person.IsPayer === true;
+                        });
+                        if ($scope.settings) {
+                            $scope.settings.close();
+                        }
+                        else {
+                            init();
+                            $scope.isLoading = false;
                         }
                     });
                 }
                 else {
-                    $scope.household.People.push($scope.householdPerson);
-                }
-                householdService.update($scope.household).then(function (household) {
-                    $scope.household = household;
-                    $scope.isLoading = false;
                     if ($scope.settings) {
                         $scope.settings.close();
                     }
-                });
-            }
-            userService.update($scope.user).then(function () {
-                init();
-                $scope.isLoading = false;
-                if ($scope.settings) {
-                    $scope.settings.close();
+                    else {
+                        init();
+                        $scope.isLoading = false;
+                    }
                 }
             });
         };

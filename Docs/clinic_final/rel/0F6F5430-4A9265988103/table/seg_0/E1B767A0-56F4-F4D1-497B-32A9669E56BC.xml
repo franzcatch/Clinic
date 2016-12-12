@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E1B767A0-56F4-F4D1-497B-32A9669E56BC" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="PROVIDER">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>PROVIDER</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROVIDER_ID" id="08E14876-F56F-5C08-F6F2-41ED8B93875F">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>PROVIDER</sourceObjSchema>
+<sourceObjName>PROVIDER_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLINIC_ID" id="C2FFFB5B-DCDC-D100-E1D5-E9E88F85DBA8">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>PROVIDER</sourceObjSchema>
+<sourceObjName>CLINIC_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="63FE5B06-05BF-469A-1FCD-07368AB06FD7" referredColumn="9E5A4035-B286-F360-7E79-F7AA1D2E4DFB"/>
+</associations>
+</Column>
+<Column name="ENTITY_ID" id="385767EF-D30B-D553-6B35-4C392853DBAF">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>PROVIDER</sourceObjSchema>
+<sourceObjName>ENTITY_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="15AC737F-3F73-447F-8EFA-A46957C527F5" referredColumn="F9B9B487-C988-9BCD-D69E-5990B469047F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C58BB0D0-2B51-7191-5D26-0613B4ADDB44" name="PROVIDER_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>PROVIDER_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="08E14876-F56F-5C08-F6F2-41ED8B93875F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1CCDBC19-38DB-1949-22E1-AF6E6DDF2AD4" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="PROVIDER_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>PROVIDER_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="08E14876-F56F-5C08-F6F2-41ED8B93875F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="94813CF6-3744-732E-D6C7-7C952E47F16D" name="PROVIDER_FK1">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2FFFB5B-DCDC-D100-E1D5-E9E88F85DBA8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91297C25-0103-0C35-48C9-64CE207F92AA" name="PROVIDER_FK2">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:44:38 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="385767EF-D30B-D553-6B35-4C392853DBAF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

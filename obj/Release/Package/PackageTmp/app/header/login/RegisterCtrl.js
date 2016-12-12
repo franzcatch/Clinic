@@ -3,8 +3,7 @@ var _;
     'use strict';
     angular.module('clinic')
         .controller('RegisterCtrl', RegisterCtrl);
-    function RegisterCtrl($scope, userService, householdService, settings) {
-        $scope.settings = settings.temp.register;
+    function RegisterCtrl($scope, userService, householdService, settings, params) {
         $scope.model = {
             householdId: null,
             username: '',
@@ -15,7 +14,6 @@ var _;
         $scope.isLoading = false;
         $scope.isAdmin = (settings.User && settings.User.Role && settings.User.Role.Name === "Administrator") ? true : false;
         $scope.roles = [];
-        $scope.isEditMode = ($scope.settings && $scope.settings.user);
         function init() {
             $scope.isLoading = true;
             userService.getRoles().then(function (roles) {
@@ -33,20 +31,6 @@ var _;
                         });
                         $scope.isLoading = false;
                     }
-                    if ($scope.settings) {
-                        $scope.model.householdId = $scope.settings.householdId;
-                        $scope.model.username = $scope.settings.user.Username;
-                        $scope.model.password = $scope.settings.user.Password;
-                        $scope.model.passConf = $scope.settings.user.Password;
-                        if ($scope.shouldGatherHouseholdId()) {
-                            $scope.model.selectedRole = _.find($scope.roles, function (role) {
-                                return role.Name === 'User';
-                            });
-                        }
-                        else {
-                            $scope.model.selectedRole = $scope.settings.user.Role;
-                        }
-                    }
                 }
                 else {
                     $scope.isLoading = false;
@@ -60,7 +44,7 @@ var _;
             return $scope.isAdmin && !$scope.shouldGatherHouseholdId();
         };
         $scope.shouldGatherHouseholdId = function () {
-            return settings.AdminExists && $scope.settings.gatherHouseholdId;
+            return settings.AdminExists && params.gatherHouseholdId;
         };
         $scope.setRole = function (role) {
             $scope.model.selectedRole = role;
@@ -77,7 +61,7 @@ var _;
                 !$scope.isLoading;
         };
         $scope.close = function () {
-            $scope.settings.close();
+            params.close();
         };
         $scope.register = function () {
             $scope.isLoading = true;
@@ -88,7 +72,7 @@ var _;
                 password: $scope.model.password,
                 role: $scope.model.selectedRole
             };
-            $scope.settings.submit(data);
+            params.submit(data);
         };
         init();
     }

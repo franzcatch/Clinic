@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A1BE28BE-FFE3-F9E4-F4DD-013B6CDFFAB4" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="ROOM">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ROOM</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:11 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROOM_ID" id="FE60260A-5619-8CCE-3824-8E7776E9211F">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ROOM</sourceObjSchema>
+<sourceObjName>ROOM_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLINIC_ID" id="17714919-C499-1623-EAEF-FB90938E0B31">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ROOM</sourceObjSchema>
+<sourceObjName>CLINIC_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8A4A259C-D123-2DA7-861E-3822759582F1" referredColumn="9E5A4035-B286-F360-7E79-F7AA1D2E4DFB"/>
+</associations>
+</Column>
+<Column name="NAME" id="75A544B0-4C17-E0F1-DF70-64D4C3916EF1">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ROOM</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5158428A-5FB7-3FC8-930F-D03BB7B95AC2" name="ROOM_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ROOM_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE60260A-5619-8CCE-3824-8E7776E9211F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F6EF58E-80D0-26B2-ED3E-02A80BC3612B" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="ROOM_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ROOM_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE60260A-5619-8CCE-3824-8E7776E9211F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A1D5025-D8B3-C2AC-3CFF-BD371CF0239E" name="ROOM_FK1">
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:45:12 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="17714919-C499-1623-EAEF-FB90938E0B31"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

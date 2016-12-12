@@ -1,0 +1,215 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A16C785D-896D-539B-1100-0E80C8543D2D" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="ENTITY">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ENTITY</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ENTITY_ID" id="F9B9B487-C988-9BCD-D69E-5990B469047F">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>ENTITY_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME1" id="B427522D-D95A-FD68-3636-FB418DD18D92">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>NAME1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME2" id="E8D1ECE5-02C4-ED60-1CEA-3A0B368E06AE">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>NAME2</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME3" id="464BFBED-53FD-47CA-56D1-2BCBD821FD9E">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>NAME3</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADDRESS1" id="C818EE34-3731-4028-BE35-81CCFB9F50E2">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>ADDRESS1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADDRESS2" id="6EF96A71-DB7C-24DE-C363-CCF362920E33">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>ADDRESS2</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CITY" id="1BDE1EC0-DFA1-C319-2738-C70709530AA7">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>CITY</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATE" id="36A62823-B435-66A9-C001-82214BE19D7B">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>STATE</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ZIP" id="7A7A4FEE-E3D0-B159-E6EC-B4525C1B7A03">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>ZIP</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE1" id="A8B75B77-9DBB-F284-A891-D22E893ECEFF">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>PHONE1</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE2" id="E01A11F1-D81B-4445-0D11-5214217D8025">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>PHONE2</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE3" id="AF193DC5-74CD-9950-0450-9A74F1F13972">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>ENTITY</sourceObjSchema>
+<sourceObjName>PHONE3</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3C38E888-BA9C-1333-A3E9-D836E076D780" name="ENTITY_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ENTITY_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9B9B487-C988-9BCD-D69E-5990B469047F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A49E4812-FD1B-6F8D-4664-C5656DAA248D" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="ENTITY_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>ENTITY_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:24 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9B9B487-C988-9BCD-D69E-5990B469047F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

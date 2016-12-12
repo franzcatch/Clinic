@@ -15,11 +15,12 @@
         $scope.model = $scope.user;
 
         $scope.isModalEdit = $scope.settings ? true : false;
-        $scope.isHousehold = ($scope.user && $scope.user.Role.Name === 'User') || ($scope.settings && $scope.settings.isHousehold) ? true : false;
+        $scope.isHousehold = (($scope.settings && $scope.settings.isHousehold) || (!$scope.settings && $scope.user.Role.Name === 'User')) ? true : false;
         $scope.isLoading = true;
         $scope.roles = [];
         $scope.relationships = [];
-        $scope.dependents = [];
+        $scope.originalDependents = [];
+        $scope.curDependent = null;
         
         $scope.tabs = $scope.isHousehold
             ? [
@@ -85,16 +86,18 @@
             }
 
             if (!$scope.household) {
-                $scope.household = {
-                    People: [
-                        {
-                            IsPayer: true,
-                            Relationship: _.find($scope.relationships, function (relationship) {
-                                return relationship.Name === "Primary";
-                            })
-                        }
-                    ]
-                };
+                $scope.household = {};
+            }
+
+            if (!($scope.household.People && $scope.household.People.length)) {
+                $scope.household.People = [
+                    {
+                        IsPayer: true,
+                        Relationship: _.find($scope.relationships, function (relationship) {
+                            return relationship.Name === "Primary";
+                        })
+                    }
+                ]
             }
 
             $scope.dependents = _.filter($scope.household.People, function (person) {
@@ -120,6 +123,8 @@
             $scope.model.Phone1 = $scope.householdPerson.Phone1;
             $scope.model.Phone2 = $scope.householdPerson.Phone2;
             $scope.model.Phone3 = $scope.householdPerson.Phone3;
+
+            $scope.originalDependents = _.cloneDeep($scope.household.People);
         }
 
         $scope.getToday = function () {
@@ -163,12 +168,39 @@
             return $scope.settings.user ? true : false;
         };
 
-        $scope.getRelationshipMessage = function () {
-            return $scope.householdPerson.Relationship ? $scope.householdPerson.Relationship.Name : 'Select a relationship...';
+        $scope.getRelationshipMessage = function (householdPerson) {
+            return householdPerson && householdPerson.Relationship ? householdPerson.Relationship.Name : 'Select a relationship...';
         };
 
         $scope.shouldGatherRole = function () {
             return !$scope.isHousehold && $scope.settings && $scope.user.Id !== settings.User.Id;
+        };
+
+        $scope.cancelEditDependent = function () {
+            $scope.curDependent = null;
+            $scope.isAddingDependent = false;
+        };
+
+        $scope.editDependent = function (dependent) {
+            $scope.isAddingDependent = true;
+
+            $scope.curDependent = dependent;
+
+            if ($scope.householdPerson && !$scope.curDependent.FirstName) {
+                _.merge($scope.curDependent, $scope.model);
+                $scope.curDependent.FirstName = '';
+                $scope.curDependent.MiddleName = '';
+                $scope.curDependent.LastName = '';
+                $scope.curDependent.DateOfBirth = null;
+                $scope.curDependent.Relationship = null;
+                $scope.curDependent.Id = null;
+                $scope.curDependent.EntityId = null;
+            }
+        }
+
+        $scope.saveDependent = function () {
+            $scope.household.People.push($scope.curDependent);
+            $scope.cancelEditDependent();
         };
 
         $scope.isDirty = function () {
@@ -177,7 +209,7 @@
                        $scope.addressForm.$dirty ||
                        $scope.phoneForm.$dirty ||
                        $scope.insuranceForm.$dirty ||
-                       $scope.dependentsForm.$dirty);
+                       ($scope.isHousehold && !_.isEqual($scope.originalDependents, $scope.household.People)));
             return val;
         };
 
@@ -188,10 +220,7 @@
                        $scope.phoneForm.$valid &&
                        (
                            !$scope.isHousehold ||
-                           (
-                               $scope.insuranceForm.$valid &&
-                               $scope.dependentsForm.$valid
-                           )
+                           ($scope.isHousehold && $scope.insuranceForm.$valid && $scope.household.People.length > 0) // one is the primary
                        ));
             return val;
         };
@@ -204,7 +233,9 @@
                 $scope.user = user;
 
                 if ($scope.isHousehold) {
+                    var personId = $scope.householdPerson.Id;
                     _.merge($scope.householdPerson, $scope.model);
+                    $scope.householdPerson.Id = personId;
                     $scope.householdPerson.EntityId = $scope.user.EntityId;
 
                     householdService.update($scope.household).then(function (household) {

@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E165A41E-48F1-BCB1-0723-C3A3ED17310C" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="HOUSEHOLD">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>HOUSEHOLD</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:55 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="HOUSEHOLD_ID" id="CCC6B913-70F8-99C4-8830-05E871B9FC92">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>HOUSEHOLD</sourceObjSchema>
+<sourceObjName>HOUSEHOLD_ID</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:55 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSURANCE_NAME" id="E9B23744-C313-81DE-DD6A-F859BFDCB0DB">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>HOUSEHOLD</sourceObjSchema>
+<sourceObjName>INSURANCE_NAME</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:55 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POLICY_NUMBER" id="2978967E-63B6-98A9-A5CE-C3D03412F12F">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>HOUSEHOLD</sourceObjSchema>
+<sourceObjName>POLICY_NUMBER</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:55 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GROUP_NUMBER" id="50409304-749A-8544-B608-EE48A6C6F6EF">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>HOUSEHOLD</sourceObjSchema>
+<sourceObjName>GROUP_NUMBER</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:55 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EEEF170F-DF4C-B07B-4B6A-C0DE820D9D91" name="HOUSEHOLD_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>HOUSEHOLD_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:55 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CCC6B913-70F8-99C4-8830-05E871B9FC92"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CAE86F4D-E6F0-A0A6-24C1-EFA79B0D9DD9" schemaObject="035D63A0-F336-5BCF-5039-7676671ED514" name="HOUSEHOLD_PK">
+<sourceConnName>Terminus</sourceConnName>
+<sourceObjSchema>AFRANZEN</sourceObjSchema>
+<sourceObjName>HOUSEHOLD_PK</sourceObjName>
+<createdBy>franz</createdBy>
+<createdTime>2016-12-12 15:43:55 UTC</createdTime>
+<ownerDesignName>clinic_final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CCC6B913-70F8-99C4-8830-05E871B9FC92"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

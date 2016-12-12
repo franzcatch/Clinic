@@ -76,17 +76,12 @@
             }
 
             var names = _.map(household.People, function (person) {
-                if (person.IsPayer === 'N') {
-                    return person.FirstName + ' ' + person.LastName;
-                }
+                return person.FirstName + ' ' + person.LastName;
             });
 
             var nameString = _.join(names, ', ');
 
-            return household.Id + ' - ' +
-                   household.Payer.FirstName + ' ' + 
-                   household.Payer.LastName + ' ' +
-                   (nameString ? '( ' + nameString + ' )' : '');
+            return household.Id + ' - ' + '( ' + nameString + ' )';
         };
 
         $scope.setMember = function (member) {
@@ -103,7 +98,7 @@
 
         $scope.isAdded = function (service) {
             return $scope.model.AppointmentServices.length && 
-                   _.find($scope.model.AppointmentServices, function (aptSvc) { return aptSvc.Service.Name === service.Name; });
+                   _.find($scope.model.AppointmentServices, function (aptSvc) { return aptSvc.Service.Name === service.Service.Name; });
         };
         
         $scope.removeServiceFromAppointment = function (addedService) {
@@ -148,8 +143,18 @@
 
         $scope.addServiceToAppointment = function (availableService) {
             if ($scope.isAdded(availableService)) {
-                toastr.info('You can only add a service type once');
+                toastr.warning('You can only add a service type once');
                 return;
+            }
+
+            if ($scope.model.AppointmentServices.length) {
+                var lastSvc = $scope.model.AppointmentServices[$scope.model.AppointmentServices.length - 1];
+                var correctNextStartTime = new Date(lastSvc.StartTime.getTime() + lastSvc.Service.Minutes * 60000);
+
+                if (availableService.StartTime.getTime() !== correctNextStartTime.getTime()) {
+                    toastr.warning('Next service should start at ' + correctNextStartTime.toLocaleTimeString());
+                    return;
+                }
             }
 
             $scope.model.AppointmentServices.push(availableService);
@@ -175,12 +180,6 @@
             params.submit($scope.model).then(function () {
                 $scope.isLoading = false;
             });
-        };
-
-        $scope.NewAppointment = function () {
-            $scope.isLoading = true;
-            
-            params.submit($scope.model);
         };
 
         init();
