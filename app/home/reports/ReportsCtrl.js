@@ -6,7 +6,6 @@ var _;
     function ReportsCtrl($scope, reportService) {
         $scope.isLoading = true;
         $scope.data = null;
-        $scope.columns = null;
         function init() {
             $scope.setTab($scope.tabs[0]);
         }
@@ -74,18 +73,13 @@ var _;
                 });
             }
             $scope.curTab.getter(params).then(function (response) {
-                $scope.columns = getColumnsFromData(response);
                 $scope.data = response;
                 $scope.isLoading = false;
             });
         };
-        function getColumnsFromData(data) {
-            var keys = [];
-            for (var key in data) {
-                keys.push(key);
-            }
-            return keys;
-        }
+        $scope.stripUnder = function (str) {
+            return _.replace(str, '_', ' ');
+        };
         init();
     }
 }(window.angular));

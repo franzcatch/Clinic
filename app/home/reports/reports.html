@@ -27,12 +27,12 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th ng-repeat="col in columns">{{col}}</th>
+                            <th ng-repeat="col in data[0]">{{stripUnder(col.Key)}}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="row in data">
-                            <td ng-repeat="(key, value) in row"><span>{{value}}</span></td>
+                            <td ng-repeat="element in row"><span>{{element.Value}}</span></td>
                         </tr>
                     </tbody>
                 </table>

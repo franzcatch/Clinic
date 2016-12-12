@@ -1193,6 +1193,7 @@
     <Compile Include="DL\RelationshipDL.cs" />
     <Compile Include="DL\RoleDL.cs" />
     <Compile Include="DL\Sequences.cs" />
+    <Compile Include="DL\ReportDL.cs" />
     <Compile Include="DL\UserDL.cs" />
     <Compile Include="DL\DlBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

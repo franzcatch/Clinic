@@ -1,5 +1,6 @@
 ﻿
 using Clinic.BO;
+using Clinic.DL;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -15,12 +16,9 @@ namespace Clinic.BL
         /// patient ID, name and relationship for each patient.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GenerateAllHouseholdReport()
+        public List<ExpandoObject> GenerateAllHouseholdReport()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-            obj.Households = BusinessLayer.HouseholdBL.GetAll();
-
-            return obj;
+            return DataLayer.ReportDL.GenerateAllHouseholdReport();
         }
 
         /// <summary>
@@ -28,12 +26,9 @@ namespace Clinic.BL
         /// company ID and company name.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetHouseholdAndInsurance()
+        public List<ExpandoObject> GetHouseholdAndInsurance()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-            obj.Households = BusinessLayer.HouseholdBL.GetAll();
-
-            return obj;
+            return DataLayer.ReportDL.GetHouseholdAndInsurance();
         }
 
         /// <summary>
@@ -41,12 +36,9 @@ namespace Clinic.BL
         /// name of the insurance company and policy number.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetAllPatientsAndInsurance()
+        public List<ExpandoObject> GetAllPatientsAndInsurance()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-            
-
-            return obj;
+            return DataLayer.ReportDL.GetAllPatientsAndInsurance();
         }
 
         /// <summary>
@@ -55,48 +47,36 @@ namespace Clinic.BL
         /// order by household name, patient name and billing date.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetAllBilling()
+        public List<ExpandoObject> GetAllBilling()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-
-
-            return obj;
+            return DataLayer.ReportDL.GetAllBilling();
         }
 
         /// <summary>
         /// List the total cost of all services received for each household.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetHouseholdTotalCosts()
+        public List<ExpandoObject> GetHouseholdTotalCosts()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-
-
-            return obj;
+            return DataLayer.ReportDL.GetHouseholdTotalCosts();
         }
 
         /// <summary>
         /// List each provider with all services he or she is qualified to render.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetProvidersAndServices()
+        public List<ExpandoObject> GetProvidersAndServices()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-
-
-            return obj;
+            return DataLayer.ReportDL.GetProvidersAndServices();
         }
 
         /// <summary>
         /// List each service available with all providers who are qualified to offer this service.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetServicesAndProviders()
+        public List<ExpandoObject> GetServicesAndProviders()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-
-
-            return obj;
+            return DataLayer.ReportDL.GetServicesAndProviders();
         }
 
         /// <summary>
@@ -105,12 +85,9 @@ namespace Clinic.BL
         /// for each patient.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetFutureAppointmentsByPatient()
+        public List<ExpandoObject> GetFutureAppointmentsByPatient()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-
-
-            return obj;
+            return DataLayer.ReportDL.GetFutureAppointmentsByPatient();
         }
 
         /// <summary>
@@ -118,12 +95,9 @@ namespace Clinic.BL
         /// the provider.Show the service ID, service description and cost of service.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetAllServicesProvided()
+        public List<ExpandoObject> GetAllServicesProvided()
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-
-
-            return obj;
+            return DataLayer.ReportDL.GetAllServicesProvided();
         }
 
         /// <summary>
@@ -131,12 +105,9 @@ namespace Clinic.BL
         /// alphabetical order by the provider’s name.
         /// </summary>
         /// <returns></returns>
-        public ExpandoObject GetTotalServicesForProviders(DateTime serviceDate)
+        public List<ExpandoObject> GetTotalServicesForProviders(DateTime serviceDate)
         {
-            dynamic obj = new System.Dynamic.ExpandoObject();
-
-
-            return obj;
+            return DataLayer.ReportDL.GetTotalServicesForProviders(serviceDate);
         }
     }
 }
