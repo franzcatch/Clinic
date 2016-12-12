@@ -88,7 +88,9 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Account_Number = reader["account_number"].ToString();
+                newObj.Name = reader["name"].ToString();
+                newObj.Insurance_Name = reader["insurance_name"].ToString();
                 list.Add(newObj);
             }
             CloseConnection(cmd);
@@ -125,7 +127,12 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Patient_ID = reader["patient_id"].ToString();
+                newObj.Name = reader["name"].ToString();
+                newObj.Date_Of_Birth = reader["dob"].ToString();
+                newObj.Insurance_Name = reader["insurance_name"].ToString();
+                newObj.Policy_Number = reader["policy_number"].ToString();
+                newObj.Group_Number = reader["group_number"].ToString();
                 list.Add(newObj);
             }
             CloseConnection(cmd);
@@ -175,7 +182,13 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Account_Number = reader["account_number"].ToString();
+                newObj.Household_Name = reader["household_name"].ToString();
+                newObj.Patient_ID = reader["patient_id"].ToString();
+                newObj.Patient_Name = reader["patient_name"].ToString();
+                newObj.Service = reader["service"].ToString();
+                newObj.Cost = "$" + reader["cost"].ToString();
+                newObj.Start_Time = reader["service_date"].ToString();
                 list.Add(newObj);
             }
             CloseConnection(cmd);
@@ -226,7 +239,8 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Household_Name = reader["household_name"].ToString();
+                newObj.Total = "$" + reader["total"].ToString();
                 list.Add(newObj);
             }
             CloseConnection(cmd);
@@ -258,7 +272,8 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Provider = reader["provider"].ToString();
+                newObj.Qualified_Service = reader["qualified_service"].ToString();
                 list.Add(newObj);
             }
             CloseConnection(cmd);
@@ -290,7 +305,8 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Service = reader["service"].ToString();
+                newObj.Qualified_Provider = reader["qualified_provider"].ToString();
                 list.Add(newObj);
             }
             CloseConnection(cmd);
@@ -328,7 +344,10 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Patient = reader["patient"].ToString();
+                newObj.Appointment_Date = reader["appointment_date"].ToString();
+                newObj.Minutes = reader["minutes"].ToString();
+                newObj.Phone = reader["phone"].ToString();
                 list.Add(newObj);
             }
 
@@ -364,7 +383,11 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Service_Date = reader["service_date"].ToString();
+                newObj.Provider = reader["provider"].ToString();
+                newObj.Service_ID = reader["service_id"].ToString();
+                newObj.Service_Name = reader["service_name"].ToString();
+                newObj.Cost = "$" + reader["Cost"].ToString();
                 list.Add(newObj);
             }
             CloseConnection(cmd);
@@ -399,7 +422,9 @@ namespace Clinic.DL
             while (reader.Read())
             {
                 dynamic newObj = new ExpandoObject();
-                newObj.TEST = "";
+                newObj.Service_Date = reader["service_date"].ToString();
+                newObj.Provider = reader["provider"].ToString();
+                newObj.Total = "$" + reader["total"].ToString();
                 list.Add(newObj);
             }
 
