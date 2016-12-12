@@ -19,13 +19,13 @@
                 route: '/home/appointment',
                 permissions: [user, office, admin]
             },
-            {
-                name: 'Billing',
-                icon: 'fa-dollar',
-                color: '#6fb7ff',
-                route: '/home/billing',
-                permissions: [user, office, admin]
-            },
+            //{
+            //    name: 'Billing',
+            //    icon: 'fa-dollar',
+            //    color: '#6fb7ff',
+            //    route: '/home/billing',
+            //    permissions: [user, office, admin]
+            //},
             {
                 name: 'Qualifications',
                 icon: 'fa-graduation-cap',

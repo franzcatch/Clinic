@@ -7,14 +7,16 @@
     function PeopleCtrl($scope, userService, $uibModal, $q, settings, $timeout) {
         $scope.users = []
         $scope.isLoading = false;
-        $scope.tabs = [
-            { title: 'Manage Staff', id: 'staff' },
-            { title: 'Manage Clients', id: 'clients' }
-        ];
-
+        $scope.tabs = [];
         $scope.curTab = {};
 
         function init() {
+            if (settings.User.Role.Name === "Administrator") {
+                $scope.tabs.push({ title: 'Manage Staff', id: 'staff' });
+            }
+
+            $scope.tabs.push({ title: 'Manage Clients', id: 'clients' });
+
             $scope.setTab($scope.tabs[0]);
         }
 
