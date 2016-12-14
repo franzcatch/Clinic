@@ -1,4 +1,5 @@
 var toastr;
+var _baseUrl;
 (function (angular) {
     'use strict';
     angular.module('clinic')
@@ -22,7 +23,7 @@ var toastr;
         };
         $scope.login = function () {
             $uibModal.open({
-                templateUrl: 'app/header/login/login.html',
+                templateUrl: _baseUrl + 'app/header/login/login.html',
                 controller: 'LoginCtrl',
                 resolve: {
                     params: function () {
@@ -42,7 +43,7 @@ var toastr;
         };
         $scope.register = function () {
             $uibModal.open({
-                templateUrl: 'app/header/login/register.html',
+                templateUrl: _baseUrl + 'app/header/login/register.html',
                 controller: 'RegisterCtrl',
                 resolve: {
                     params: function () {

@@ -1,3 +1,4 @@
+var _baseUrl;
 (function (angular) {
     'use strict';
     angular.module('clinic')
@@ -21,7 +22,7 @@
         };
         $scope.addService = function () {
             $uibModal.open({
-                templateUrl: 'app/home/qualifications/qualification/qualification.html',
+                templateUrl: _baseUrl + 'app/home/qualifications/qualification/qualification.html',
                 controller: 'QualificationCtrl',
                 resolve: {
                     params: function () {

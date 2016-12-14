@@ -9,12 +9,12 @@ namespace Clinic.DL
 {
     public class RoleDL : DlBase
     {
-        private List<Role> _roles;
+        private List<Role> _roles = new List<Role>();
 
         private List<Role> Roles {
             get
             {
-                if(_roles == null)
+                if(_roles.Count == 0)
                 {
                     _roles = new List<Role>();
 
@@ -38,7 +38,8 @@ namespace Clinic.DL
 
         public Role Get(int id)
         {
-            return Roles.First(x => x.Id == id);
+            var roles = Roles;
+            return roles.First(x => x.Id == id);
         }
 
         public Role Get(string name)

@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="USERS_S" directorySegmentName="seg_0" id="6790FD2A-3E97-9132-9168-4B114A9506F9">
-<sourceDDLFile>ddl.sql</sourceDDLFile>
-<createdBy>franz</createdBy>
-<createdTime>2016-11-21 13:09:21 UTC</createdTime>
-<ownerDesignName>clinic_Nov_21</ownerDesignName>
-<order>YES</order>
-<startWith>1</startWith>
-</SequenceOraclev10g>

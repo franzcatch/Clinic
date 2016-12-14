@@ -1,4 +1,5 @@
-﻿(function (angular) {
+﻿var _baseUrl;
+(function (angular) {
     'use strict';
 
     angular.module('clinic')
@@ -59,7 +60,7 @@
             };
 
             var modal = $uibModal.open({
-                templateUrl: 'app/home/profile/profileModal.html',
+                templateUrl: _baseUrl + 'app/home/profile/profileModal.html',
                 controller: 'ProfileModalCtrl',
                 size: 'profile-modal-size'
             });

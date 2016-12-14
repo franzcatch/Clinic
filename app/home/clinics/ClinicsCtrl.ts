@@ -1,5 +1,5 @@
 ﻿var _;
-
+var _baseUrl;
 (function (angular) {
     'use strict';
 
@@ -159,7 +159,7 @@
 
         function openProvider(existingProvider) {
             $uibModal.open({
-                templateUrl: 'app/home/clinics/provider/provider.html',
+                templateUrl: _baseUrl + 'app/home/clinics/provider/provider.html',
                 controller: 'ProviderCtrl',
                 resolve: {
                     params: function () {
@@ -193,7 +193,7 @@
 
         function openService(existingService) {
             $uibModal.open({
-                templateUrl: 'app/home/clinics/service/service.html',
+                templateUrl: _baseUrl + 'app/home/clinics/service/service.html',
                 controller: 'ServiceCtrl',
                 resolve: {
                     params: function () {
@@ -223,7 +223,7 @@
 
         function openRoom(existingRoom) {
             $uibModal.open({
-                templateUrl: 'app/home/clinics/room/room.html',
+                templateUrl: _baseUrl + 'app/home/clinics/room/room.html',
                 controller: 'RoomCtrl',
                 resolve: {
                     params: function () {

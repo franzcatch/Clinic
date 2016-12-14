@@ -1,3 +1,4 @@
+var _baseUrl;
 (function (angular) {
     'use strict';
     angular.module('clinic').directive('profile', profile);
@@ -6,7 +7,7 @@
             restrict: 'E',
             replace: true,
             scope: true,
-            templateUrl: 'app/home/profile/profile.html',
+            templateUrl: _baseUrl + 'app/home/profile/profile.html',
             controller: 'ProfileCtrl'
         };
     }

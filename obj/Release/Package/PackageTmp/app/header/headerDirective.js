@@ -1,3 +1,4 @@
+var _baseUrl;
 (function (angular) {
     'use strict';
     angular.module('clinic').directive('appNav', appNav);
@@ -6,7 +7,7 @@
             restrict: 'E',
             replace: true,
             scope: true,
-            templateUrl: 'app/header/header.html',
+            templateUrl: _baseUrl + 'app/header/header.html',
             controller: 'HeaderCtrl'
         };
     }

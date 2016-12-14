@@ -16,10 +16,11 @@
                 <i class='fa fa-spinner fa-spin' ng-if="isLoading"></i>
             </div>
 
-            <div ng-if="!isLoading" class="page-content-right">
+            <div ng-if="!isLoading" class="page-content-right is-modal">
+                <div class="well well-lg"><h3>{{curTab.message}}</h3></div>
                 <div ng-repeat="input in curTab.requiredInputs" class="form-group">
                     <label class="required">{{input.title}}</label>
-                    <input ng-if="input.type === 'date'" type="date" ng-model="input.value" class="form-control" placeholder="MM/dd/yyyy" required />
+                    <input ng-if="input.type === 'date'" type="date" ng-model="input.value" class="form-control" placeholder="MM/dd/yyyy" ng-disabled="true" />
                 </div>
                 <div ng-if="curTab.requiredInputs">
                     <button class="btn btn-sm" ng-click="doSearch()">Search</button>
@@ -27,12 +28,12 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th ng-repeat="col in columns">{{col}}</th>
+                            <th ng-repeat="col in data[0]">{{stripUnder(col.Key)}}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="row in data">
-                            <td ng-repeat="(key, value) in row"><span>{{value}}</span></td>
+                            <td ng-repeat="element in row"><span>{{element.Value}}</span></td>
                         </tr>
                     </tbody>
                 </table>

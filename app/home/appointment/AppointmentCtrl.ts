@@ -1,4 +1,5 @@
 ﻿var _;
+var _baseUrl;
 (function (angular) {
     'use strict';
 
@@ -94,7 +95,7 @@
 
         $scope.openAppointment = function (origAppointment) {
             var modal = $uibModal.open({
-                templateUrl: 'app/home/appointment/manage/newAppointment.html',
+                templateUrl: _baseUrl + 'app/home/appointment/manage/newAppointment.html',
                 controller: 'NewAppointmentCtrl',
                 size: 'appointment-modal-size',
                 resolve: {

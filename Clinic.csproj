@@ -675,6 +675,8 @@
     <Content Include="Docs\clinic_Nov_21.dmd" />
     <Content Include="Content\select.min.css.map" />
     <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 6.pptx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation 7.pptx" />
+    <Content Include="Docs\Adam Franzen COSC6000 FA2 2016 Presentation Final.pptx" />
     <None Include="Properties\PublishProfiles\labwebs.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_fr-nc.js" />

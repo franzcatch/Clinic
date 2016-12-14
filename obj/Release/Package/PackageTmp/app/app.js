@@ -1,3 +1,4 @@
+var _baseUrl;
 (function (angular) {
     'use strict';
     var clinic = angular.module('clinic', [
@@ -10,10 +11,11 @@
     ]);
     clinic.config(routeConfig);
     function routeConfig($routeProvider) {
+        var base = 'adamfranzen71';
         $routeProvider
             .when('/', {
             name: 'landing',
-            templateUrl: 'app/landing/landing.html',
+            templateUrl: _baseUrl + 'app/landing/landing.html',
             controller: 'LandingCtrl',
             resolve: {
                 factory: checkRouting
@@ -21,7 +23,7 @@
         })
             .when('/home', {
             name: 'home',
-            templateUrl: 'app/home/home.html',
+            templateUrl: _baseUrl + 'app/home/home.html',
             controller: 'HomeCtrl',
             resolve: {
                 factory: checkRouting
@@ -29,7 +31,7 @@
         })
             .when('/home/appointment', {
             name: 'appointment',
-            templateUrl: 'app/home/appointment/appointment.html',
+            templateUrl: _baseUrl + 'app/home/appointment/appointment.html',
             controller: 'AppointmentCtrl',
             resolve: {
                 factory: checkRouting
@@ -37,7 +39,7 @@
         })
             .when('/home/billing', {
             name: 'billing',
-            templateUrl: 'app/home/billing/billing.html',
+            templateUrl: _baseUrl + 'app/home/billing/billing.html',
             controller: 'BillingCtrl',
             resolve: {
                 factory: checkRouting
@@ -45,7 +47,7 @@
         })
             .when('/home/people', {
             name: 'people',
-            templateUrl: 'app/home/people/people.html',
+            templateUrl: _baseUrl + 'app/home/people/people.html',
             controller: 'PeopleCtrl',
             resolve: {
                 factory: checkRouting
@@ -53,7 +55,7 @@
         })
             .when('/home/clinics', {
             name: 'clinics',
-            templateUrl: 'app/home/clinics/clinics.html',
+            templateUrl: _baseUrl + 'app/home/clinics/clinics.html',
             controller: 'ClinicsCtrl',
             resolve: {
                 factory: checkRouting
@@ -61,7 +63,7 @@
         })
             .when('/home/profile', {
             name: 'profile',
-            templateUrl: 'app/home/profile/profile.html',
+            templateUrl: _baseUrl + 'app/home/profile/profile.html',
             controller: 'ProfileCtrl',
             resolve: {
                 factory: checkRouting
@@ -69,7 +71,7 @@
         })
             .when('/home/qualifications', {
             name: 'qualifications',
-            templateUrl: 'app/home/qualifications/qualifications.html',
+            templateUrl: _baseUrl + 'app/home/qualifications/qualifications.html',
             controller: 'QualificationsCtrl',
             resolve: {
                 factory: checkRouting
@@ -77,7 +79,7 @@
         })
             .when('/home/services', {
             name: 'services',
-            templateUrl: 'app/home/services/services.html',
+            templateUrl: _baseUrl + 'app/home/services/services.html',
             controller: 'ServicesCtrl',
             resolve: {
                 factory: checkRouting
@@ -85,7 +87,7 @@
         })
             .when('/home/reports', {
             name: 'reports',
-            templateUrl: 'app/home/reports/reports.html',
+            templateUrl: _baseUrl + 'app/home/reports/reports.html',
             controller: 'ReportsCtrl',
             resolve: {
                 factory: checkRouting

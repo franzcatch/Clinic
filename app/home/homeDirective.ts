@@ -1,4 +1,5 @@
-﻿(function (angular) {
+﻿var _baseUrl;
+(function (angular) {
     'use strict';
 
     angular.module('clinic').directive('homeNav', homeNav);
@@ -8,7 +9,7 @@
             restrict: 'E',
             replace: true,
             scope: true,
-            templateUrl: 'app/home/home.html',
+            templateUrl: _baseUrl + 'app/home/home.html',
             controller: 'HomeCtrl',
             link: function (scope, elem, attr) {
                 scope.isNavMode = true;
